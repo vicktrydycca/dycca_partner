@@ -1,5 +1,6 @@
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
+import 'package:dycca_partner/data/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/utils/constants.dart';
 
 import 'package:flutter/material.dart';
@@ -12,7 +13,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  var sendData = SendData();
   TextEditingController userName = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: TextfieldWidget(
-                  controller: userName,
+                  controller: password,
                   placeholder: "Password",
                   fillColor: neutral2Color,
                 ),
@@ -66,8 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 placeholder: "LOG IN",
                 disabled: false,
                 buttonClickCallback: () {
-                  Navigator.pushNamed(context, '/verifyMobileNoRoute');
+                  sendData.userLogin(userName.text,password.text,context);
                 },
+
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),

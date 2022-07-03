@@ -1,4 +1,6 @@
       import 'package:dycca_partner/custom_widget/button_widget.dart';
+import 'package:dycca_partner/data/api.dart';
+import 'package:dycca_partner/data/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,8 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(bottom: 80.0),
           child: ButtonWidget(placeholder: "SEND", disabled: false, buttonClickCallback: (){
-            Navigator.pushNamed(context, '/otpRoute');
+
+            SendData().getOTP(mobileNumber.text, context);
           }),
         ),
         body: Container(

@@ -1,4 +1,5 @@
 import 'package:dycca_partner/custom_widget/button_widget.dart';
+import 'package:dycca_partner/data/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_text_field.dart';
@@ -6,20 +7,23 @@ import 'package:otp_text_field/style.dart';
 
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({Key? key}) : super(key: key);
+  final userNumber;
+  const OtpScreen({Key? key,this.userNumber}) : super(key: key);
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+
+  var userOtp;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 80.0),
         child: ButtonWidget(placeholder: "VERIFY NOW", disabled: false, buttonClickCallback: (){
-          Navigator.pushNamed(context, '/loginSuccessfulRoute');
+          SendData().verifyOTP(widget.userNumber,userOtp, context);
         }),
       ),
       body: Container(
@@ -44,7 +48,7 @@ class _OtpScreenState extends State<OtpScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(
-                "Please type the OTP sent to +91 8346785774",
+                "Please type the OTP sent to +91 ${widget.userNumber}",
                 style: fontStyle(neutral5Color, FontWeight.w400, 16),
               ),
             ),
@@ -61,9 +65,12 @@ class _OtpScreenState extends State<OtpScreen> {
                 otpFieldStyle: OtpFieldStyle(
                   focusBorderColor: primaryColor,
                 ),
-                onChanged: (pin) {},
+                onChanged: (pin) {
+                  userOtp = pin;
+                },
                 onCompleted: (pin) {
                   setState(() {
+                    userOtp = pin;
 
                   });
                 },
