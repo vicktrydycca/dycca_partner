@@ -1,4 +1,4 @@
-      import 'package:dycca_partner/custom_widget/button_widget.dart';
+import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -28,10 +28,7 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-             // Text(
-                projectName,
-              //   style: fontStyle(primaryColor, FontWeight.w600, 33),
-              // ),
+              projectName,
               Image.asset(
                 'assets/images/verify_mobile.png',
                 height: 100,
