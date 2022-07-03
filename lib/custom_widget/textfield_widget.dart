@@ -6,14 +6,14 @@ class TextfieldWidget extends StatelessWidget {
   TextEditingController controller;
   String placeholder;
   bool isObscure;
-  String? suffixSvgImage;
+  Widget? suffixSvgImage;
   // String? suffixSvgImage2;
   VoidCallback? suffixClick;
   VoidCallback? suffixClick2;
   bool isError;
   String errorMessage;
   TextInputType keyboardType;
-  String? prefixSvgImage;
+  Widget? prefixSvgImage;
   int minLines;
   int maxLines;
   Color fillColor;
@@ -57,18 +57,7 @@ class TextfieldWidget extends StatelessWidget {
           style: fontStyle(neutral6Color, FontWeight.w400, 16),
           decoration: InputDecoration(
             counterText: '',
-            prefixIcon: prefixSvgImage != null
-                ? Padding(
-              padding: const EdgeInsets.only(
-                left: 12,
-                right: 12,
-              ),
-              child: Image.asset(
-                prefixSvgImage!,
-                color: neutral4Color,
-              ),
-            )
-                : const SizedBox(),
+            prefixIcon: prefixSvgImage ,
             prefixIconConstraints: const BoxConstraints(
               minHeight: 24,
               minWidth: 24,
@@ -77,30 +66,7 @@ class TextfieldWidget extends StatelessWidget {
               minHeight: 24,
               minWidth: 24,
             ),
-            suffixIcon: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                suffixSvgImage != null || isError
-                    ? Padding(
-                  padding: const EdgeInsets.only(right: 12.0),
-                  child: isError
-                      ? Image.asset(
-                    'assets/images/error.svg',
-                  )
-                      : GestureDetector(
-                    onTap: () {
-                      suffixClick!();
-                    },
-                    child: Image.asset(
-                      suffixSvgImage!,
-                      color: neutral4Color,
-                    ),
-                  ),
-                )
-                    : const SizedBox(),
-              ],
-            ),
+            suffixIcon: suffixSvgImage,
             fillColor: fillColor,
             filled: true,
             hintText: placeholder,

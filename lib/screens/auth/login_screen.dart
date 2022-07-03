@@ -83,9 +83,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
-                child: Text(
-                  "Register",
-                  style: fontStyle(primaryColor, FontWeight.w400, 19),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/signUpRoute');
+                  },
+                  child: Text(
+                    "Register",
+                    style: fontStyle(primaryColor, FontWeight.w400, 19),
+                  ),
                 ),
               ),
             ],

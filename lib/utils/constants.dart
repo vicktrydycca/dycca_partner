@@ -30,6 +30,7 @@ const loginRoute = '/loginRoute';
 const verifyMobileNoRoute = '/verifyMobileNoRoute';
 const otpRoute = '/otpRoute';
 const loginSuccessfulRoute = '/loginSuccessfulRoute';
+const signUpRoute = '/signUpRoute';
 
 //Text
 const projectName = Text("Dycca Partner",style: TextStyle(fontSize: 40,fontWeight: FontWeight.w800,color: primaryColor),);

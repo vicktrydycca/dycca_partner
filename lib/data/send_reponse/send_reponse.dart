@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dycca_partner/data/api.dart';
 import 'package:dycca_partner/modal_class/login_modalclass.dart';
 import 'package:dycca_partner/screens/auth/otp_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
