@@ -24,10 +24,7 @@ class _LoginSuccessfulScreenState extends State<LoginSuccessfulScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-         //   Text(
-              projectName,
-             // style: fontStyle(primaryColor, FontWeight.w600, 33),
-          //  ),
+            projectName,
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(

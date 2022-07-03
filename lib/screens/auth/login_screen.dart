@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+                    padding: const EdgeInsets.only(top: 40.0, bottom: 30,left: 10),
                     child: Text(
                       "Login",
                       style: fontStyle(neutral6Color, FontWeight.w500, 19),
