@@ -32,4 +32,4 @@ const otpRoute = '/otpRoute';
 const loginSuccessfulRoute = '/loginSuccessfulRoute';
 
 //Text
-const projectName = 'Dycca Partner';
+const projectName = Text('Dycca Partner',style: TextStyle(color: primaryColor,fontSize: 33,fontWeight: FontWeight.bold),);

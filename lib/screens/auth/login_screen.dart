@@ -23,10 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                projectName,
-                style: fontStyle(primaryColor, FontWeight.w600, 33),
-              ),
+              projectName,
               Row(
                 children: [
                   Padding(

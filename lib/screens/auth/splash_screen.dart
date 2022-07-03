@@ -30,15 +30,17 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor:neutral7Color,
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(projectName,style: fontStyle(primaryColor, FontWeight.w600, 33),),
-            Text("List Studio",style: fontStyle(neutral6Color, FontWeight.w600, 28),),
-            Text("Get online bookings by listing your studio",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
+            projectName,
+             // Text(projectName,style: fontStyle(primaryColor, FontWeight.w600, 33),),
+            //  Text("List Studio",style: fontStyle(neutral6Color, FontWeight.w600, 28),),
+            // Text("Get online bookings by listing your studio",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
           ],
         ),
       ),

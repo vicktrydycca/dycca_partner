@@ -28,10 +28,10 @@ class _OtpScreenState extends State<OtpScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+           // Text(
               projectName,
-              style: fontStyle(primaryColor, FontWeight.w600, 33),
-            ),
+          //    style: fontStyle(primaryColor, FontWeight.w600, 33),
+         //   ),
             Image.asset(
               'assets/images/verify_mobile.png',
               height: 100,
