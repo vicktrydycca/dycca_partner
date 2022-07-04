@@ -6,6 +6,7 @@ import 'package:dycca_partner/screens/auth/otp_screen.dart';
 import 'package:dycca_partner/screens/auth/sign_up_screen.dart';
 import 'package:dycca_partner/screens/auth/splash_screen.dart';
 import 'package:dycca_partner/screens/auth/verify_mobile_number_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
 
 
 class Routes{
@@ -17,6 +18,7 @@ class Routes{
       '/otpRoute': (context) => const OtpScreen(),
       '/loginSuccessfulRoute': (context) => const LoginSuccessfulScreen(),
       '/signUpRoute': (context) => const SignUpScreen(),
+      '/dashboardRoute': (context) => const DashboardScreen(),
     };
   }
 }
