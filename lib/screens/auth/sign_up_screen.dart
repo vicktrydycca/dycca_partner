@@ -65,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   placeholder: "COMPLETE REGISTRATION",
                   disabled: false,
                   buttonClickCallback: () {
-                    Navigator.pushNamed(context, '/dashboardRoute');
+                    Navigator.pushNamed(context, '/bottomNaviagtionRoute');
                   }),
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),

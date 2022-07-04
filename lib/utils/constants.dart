@@ -33,6 +33,7 @@ const otpRoute = '/otpRoute';
 const loginSuccessfulRoute = '/loginSuccessfulRoute';
 const signUpRoute = '/signUpRoute';
 const dashboardRoute = '/dashboardRoute';
+const bottomNaviagtionRoute = '/bottomNaviagtionRoute';
 
 //Text
 const projectName = Text(

@@ -1,5 +1,6 @@
 
 
+import 'package:dycca_partner/custom_widget/bottom_navigation_widget.dart';
 import 'package:dycca_partner/screens/auth/login_screen.dart';
 import 'package:dycca_partner/screens/auth/login_succesful_screen.dart';
 import 'package:dycca_partner/screens/auth/otp_screen.dart';
@@ -19,6 +20,7 @@ class Routes{
       '/loginSuccessfulRoute': (context) => const LoginSuccessfulScreen(),
       '/signUpRoute': (context) => const SignUpScreen(),
       '/dashboardRoute': (context) => const DashboardScreen(),
+      '/bottomNaviagtionRoute': (context) => const BottomNavigationWidget(),
     };
   }
 }
