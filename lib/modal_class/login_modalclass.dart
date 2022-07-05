@@ -1,4 +1,4 @@
-// To parse this JSON data, do
+// To parse this JSON api_helper, do
 //
 //     final loginModalClass = loginModalClassFromJson(jsonString);
 
