@@ -22,6 +22,24 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+      SizedBox(height: 8,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("All",style: TextStyle(color: Colors.black45),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Performing Arts",style: TextStyle(color: primaryColor)),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Visual Arts",style: TextStyle(color: Colors.black45)),
+            ),
+          ],
+        ),
         ExpansionTile(
           title: Padding(
             padding: const EdgeInsets.all(10.0),

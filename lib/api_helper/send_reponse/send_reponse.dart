@@ -51,13 +51,15 @@ class SendData extends GetxController with BaseController{
 
       debugPrint(loginData.token.toString());
       hideLoading();
-      return Navigator.pushNamed(context, '/verifyMobileNoRoute');
+      return Navigator.pushNamed(context, '/dashboardRoute');
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
       hideLoading();
-      DialogHelper.showErroDialog(description:'Invalid USERNAME Or PASSWORD');
-    }
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
   }
 
   getOTP(phoneNumber,context) async {
@@ -80,8 +82,10 @@ class SendData extends GetxController with BaseController{
 
       // If the server did not return a 200 OK response,
       // then throw an exception.
-      DialogHelper.showErroDialog(description:'Invalid USERNAME Or PASSWORD');
-    }
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
   }
   verifyOTP(phoneNumber,otp,context) async {
     showLoading('Please Wait..');
@@ -105,7 +109,43 @@ class SendData extends GetxController with BaseController{
       // then throw an exception.
       hideLoading();
 
-      DialogHelper.showErroDialog(description:'Invalid USERNAME Or PASSWORD');
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
+  }
+  registerUser(userName,mobile,email,password,context) async {
+    showLoading('Please Wait..');
+
+    final response = await http.post(
+        Uri.parse(AppApi.registerUSerApi),
+        body: {
+          "name":userName,
+          "username":"sanket",//todo:remove username
+          "email":email,
+          "password":password,
+          "mobile":mobile,
+          "usertype":"partner"
+        }
+
+        );
+
+    if (response.statusCode == 200) {
+      hideLoading();
+
+      Navigator.pushNamed(context, '/dashboardRoute');
+
+
+      return null;
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"];
+debugPrint(response.body);
+       DialogHelper.showErroDialog(description:msg);
     }
   }
 }

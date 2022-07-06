@@ -41,10 +41,13 @@ class LoginScreen extends StatelessWidget {
                   controller: userName,
                   placeholder: "User Name",
                   fillColor: neutral2Color,
+                  prefixSvgImage: Icon(Icons.person),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: TextfieldWidget(
+                    prefixSvgImage: Icon(Icons.lock),
+                     isObscure: true,
                     controller: password,
                     placeholder: "Password",
                     fillColor: neutral2Color,

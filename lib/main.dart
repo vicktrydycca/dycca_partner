@@ -3,8 +3,7 @@ import 'package:dycca_partner/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() async {
 
   runApp(MainScreen());
 }
@@ -22,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       routes: Routes().getRoutes(),
-      initialRoute: splashRoute,
+      initialRoute: dashboardRoute,
     );
   }
 }

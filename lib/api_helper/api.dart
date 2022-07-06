@@ -5,4 +5,5 @@ class AppApi{
   static const String loginApi = baseUrl+"user/login";
   static const String getOTPApi = baseUrl+"user/otpsend";
   static const String verifyOTPApi = baseUrl+"user/otp/verify";
+  static const String registerUSerApi = baseUrl+"user/register";
 }
