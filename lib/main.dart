@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       routes: Routes().getRoutes(),
-      initialRoute: dashboardRoute,
+      initialRoute: loginRoute,
     );
   }
 }

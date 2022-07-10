@@ -37,6 +37,11 @@ const bottomNaviagtionRoute = '/bottomNaviagtionRoute';
 const forgotPasswordRoute = '/forgotPasswordRoute';
 const dashboardSelectRoute = '/dashboardSelectRoute';
 
+
+var appFontTitle = GoogleFonts.acme(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.black);
+var appFontSubTitle = GoogleFonts.acme(fontSize: 12,color: Colors.black);
+var appFontHeadline1 = GoogleFonts.acme();
+var appFontHeadline2 = GoogleFonts.acme();
 //Text
 const projectName = Text(
   "Dycca Partner",
@@ -48,6 +53,8 @@ var  headline = Text(
   style:GoogleFonts.acme(fontSize: 25, fontWeight: FontWeight.w600, color: primaryColor)
 
 );
+
+
 const verifyCheck = CircleAvatar(
   radius: 10,
   backgroundColor: primaryColor,
