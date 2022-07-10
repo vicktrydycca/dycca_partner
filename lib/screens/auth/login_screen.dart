@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                       const EdgeInsets.only(top: 40.0, bottom: 30, left: 10),
                       child: Text(
                         "Login",
-                        style: appFontTitle,
+                        style: fontTitle,
                       ),
                     ),
                     Container()

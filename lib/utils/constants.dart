@@ -1,4 +1,5 @@
 import 'package:dycca_partner/utils/app_color.dart';
+import 'package:dycca_partner/utils/app_font.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,14 +26,11 @@ const inputHintStyle = TextStyle(
     fontSize: 16.0, fontWeight: FontWeight.w400, color: neutral4Color);
 
 //Text
-const projectName = Text(
+var projectName = Text(
   "Dycca Partner",
-  style:
-      TextStyle(fontSize: 40, fontWeight: FontWeight.w800, color: primaryColor),
+  style: fontHeadline,
 );
-var headline = Text("DYCCA",
-    style: GoogleFonts.acme(
-        fontSize: 25, fontWeight: FontWeight.w600, color: primaryColor));
+var headline = Text("DYCCA", style: fontHeadline1);
 
 const verifyCheck = CircleAvatar(
   radius: 10,

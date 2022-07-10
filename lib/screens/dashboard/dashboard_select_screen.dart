@@ -169,7 +169,6 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
           InkWell(
             onTap: (){
               setState(() {
-
                 visibleCompleteProfile = true;
                 visibleVerifyService = false;
               });
