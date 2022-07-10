@@ -1,10 +1,6 @@
-import 'package:dycca_partner/custom_widget/appbar_widget.dart';
 import 'package:dycca_partner/custom_widget/drawer_widget.dart';
-import 'package:dycca_partner/custom_widget/tabbar_widget.dart';
-import 'package:dycca_partner/custom_widget/textfield_widget.dart';
-import 'package:dycca_partner/screens/dashboard/tabs/professionals_screen.dart';
-import 'package:dycca_partner/screens/dashboard/tabs/service_screen.dart';
 import 'package:dycca_partner/screens/dashboard/tabs/upper_tabs.dart';
+import 'package:dycca_partner/utils/app_color.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 

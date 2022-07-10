@@ -1,5 +1,5 @@
-import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
+import 'package:dycca_partner/utils/app_color.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +22,10 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-      SizedBox(height: 8,),
+      const SizedBox(height: 8,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+          children: const [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text("All",style: TextStyle(color: Colors.black45),),
@@ -71,7 +71,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                                     fontStyle(neutral6Color, FontWeight.w600, 16),
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context, '/dashboardSelectRoute');
