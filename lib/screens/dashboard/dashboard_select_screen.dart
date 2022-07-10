@@ -89,6 +89,7 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
             const SizedBox(
               height: 20,
             ),
+           verifyYourService(),
            completeYourProfile()
           ],
         ),
