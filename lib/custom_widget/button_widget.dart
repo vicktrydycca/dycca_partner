@@ -28,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 placeholder,
-                style: appFontStyle(
+                style: TextStyle(
                   color: disabled ? neutral4Color : Colors.white.withOpacity(0.9),
                   fontSize: fontSize,
                   fontWeight: FontWeight.w700,

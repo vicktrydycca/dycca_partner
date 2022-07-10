@@ -22,24 +22,6 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-      SizedBox(height: 8,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("All",style: appFontStyle(color: Colors.black45),),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Performing Arts",style: appFontStyle(color: primaryColor)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Visual Arts",style: appFontStyle(color: Colors.black45)),
-            ),
-          ],
-        ),
         ExpansionTile(
           title: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -72,22 +54,27 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                               ),
                             ),
                             Spacer(),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: primaryColor.withOpacity(1),
-                                borderRadius: BorderRadius.circular(3.0),
-                              ),
-                              height: 30,
-                              width: 60,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Center(
-                                  child: Text(
-                                    "Select",
-                                    style: appFontStyle(
-                                      color: Colors.white.withOpacity(0.9),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/dashboardSelectRoute');
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: primaryColor.withOpacity(1),
+                                  borderRadius: BorderRadius.circular(3.0),
+                                ),
+                                height: 30,
+                                width: 60,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                    child: Text(
+                                      "Select",
+                                      style: TextStyle(
+                                        color: Colors.white.withOpacity(0.9),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -119,7 +106,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                     child: Center(
                       child: Text(
                         "+ Add Studio",
-                        style: appFontStyle(
+                        style: TextStyle(
                           color: Colors.white.withOpacity(0.9),
                           fontSize: 12,
                           fontWeight: FontWeight.w700,

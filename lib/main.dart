@@ -1,10 +1,8 @@
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:dycca_partner/utils/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-void main() async {
-
+void main() {
   runApp(MainScreen());
 }
 
@@ -18,10 +16,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: Routes().getRoutes(),
-      initialRoute: dashboardRoute,
+      initialRoute: splashRoute,
     );
   }
 }

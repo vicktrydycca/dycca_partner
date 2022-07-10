@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 // styles
 fontStyle(Color color, FontWeight fontWeight, double fontSize,
     {double height = 1.2}) {
-  return appFontStyle(
+  return TextStyle(
       fontSize: fontSize, fontWeight: fontWeight, color: color, height: height);
 }
 
-final inputHintStyle = appFontStyle(
+const inputHintStyle = TextStyle(
     fontSize: 16.0, fontWeight: FontWeight.w400, color: neutral4Color);
 
 //colour
@@ -34,21 +34,20 @@ const loginSuccessfulRoute = '/loginSuccessfulRoute';
 const signUpRoute = '/signUpRoute';
 const dashboardRoute = '/dashboardRoute';
 const bottomNaviagtionRoute = '/bottomNaviagtionRoute';
-
-var appFontStyle = GoogleFonts.acme;
+const forgotPasswordRoute = '/forgotPasswordRoute';
+const dashboardSelectRoute = '/dashboardSelectRoute';
 
 //Text
-final projectName = Text(
+const projectName = Text(
   "Dycca Partner",
   style:
-  appFontStyle(fontSize: 40, fontWeight: FontWeight.w800, color: primaryColor),
+      TextStyle(fontSize: 40, fontWeight: FontWeight.w800, color: primaryColor),
 );
 var  headline = Text(
   "DYCCA",
-  style:appFontStyle(fontSize: 25, fontWeight: FontWeight.w600, color: primaryColor)
+  style:GoogleFonts.acme(fontSize: 25, fontWeight: FontWeight.w600, color: primaryColor)
 
 );
-
 const verifyCheck = CircleAvatar(
   radius: 10,
   backgroundColor: primaryColor,
