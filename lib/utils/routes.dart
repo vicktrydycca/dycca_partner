@@ -16,7 +16,7 @@ class Routes{
   getRoutes(){
     return {
       '/splashRoute': (context) => const SplashScreen(),
-      '/loginRoute': (context) => const LoginScreen(),
+      '/loginRoute': (context) =>  LoginScreen(),
       '/verifyMobileNoRoute': (context) => const VerifyMobileNumberScreen(),
       '/otpRoute': (context) => const OtpScreen(),
       '/loginSuccessfulRoute': (context) => const LoginSuccessfulScreen(),

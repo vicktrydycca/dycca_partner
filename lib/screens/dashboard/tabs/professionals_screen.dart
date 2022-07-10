@@ -70,7 +70,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                                   child: Center(
                                     child: Text(
                                       "Select",
-                                      style: TextStyle(
+                                      style: appFontStyle(
                                         color: Colors.white.withOpacity(0.9),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w700,
@@ -106,7 +106,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                     child: Center(
                       child: Text(
                         "+ Add Studio",
-                        style: TextStyle(
+                        style: appFontStyle(
                           color: Colors.white.withOpacity(0.9),
                           fontSize: 12,
                           fontWeight: FontWeight.w700,

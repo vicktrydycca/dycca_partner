@@ -1,6 +1,6 @@
 import 'package:dycca_partner/custom_widget/appbar_widget.dart';
 import 'package:dycca_partner/custom_widget/drawer_widget.dart';
-import 'package:dycca_partner/utils/app_color.dart';
+
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -141,7 +141,7 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                                 child: Center(
                                   child: Text(
                                     "Edit",
-                                    style: TextStyle(
+                                    style: appFontStyle(
                                       color: Colors.white.withOpacity(0.9),
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,

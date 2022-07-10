@@ -1,4 +1,5 @@
-import 'package:dycca_partner/utils/app_color.dart';
+
+import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   String placeholder;
@@ -28,7 +29,7 @@ class ButtonWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 placeholder,
-                style: TextStyle(
+                style: appFontStyle(
                   color: disabled ? neutral4Color : Colors.white.withOpacity(0.9),
                   fontSize: fontSize,
                   fontWeight: FontWeight.w700,

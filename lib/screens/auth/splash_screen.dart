@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:dycca_partner/screens/auth/login_screen.dart';
-import 'package:dycca_partner/utils/app_color.dart';
+
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 class SplashScreen extends StatefulWidget {

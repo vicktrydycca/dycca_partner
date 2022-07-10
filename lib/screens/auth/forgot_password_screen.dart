@@ -84,7 +84,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width - 40,
                         fieldWidth:
                             ((MediaQuery.of(context).size.width - 60) / 5) - 20,
-                        style: const TextStyle(fontSize: 14),
+                        style:  appFontStyle(fontSize: 14),
                         textFieldAlignment: MainAxisAlignment.spaceAround,
                         fieldStyle: FieldStyle.underline,
                         otpFieldStyle: OtpFieldStyle(

@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:dycca_partner/utils/app_color.dart';
+
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
