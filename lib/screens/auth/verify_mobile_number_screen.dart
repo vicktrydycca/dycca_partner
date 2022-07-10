@@ -1,6 +1,5 @@
-      import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/button_widget.dart';
-import 'package:dycca_partner/screens/auth/otp_screen.dart';
+import 'package:dycca_partner/utils/app_color.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +19,12 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
       child: Scaffold(
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(bottom: 80.0),
-          child: ButtonWidget(placeholder: "SEND", disabled: false, buttonClickCallback: (){
-            SendData().getOTP(mobileNumber.text,context);
-          }),
+          child: ButtonWidget(
+              placeholder: "SEND",
+              disabled: false,
+              buttonClickCallback: () {
+                Navigator.pushNamed(context, '/otpRoute');
+              }),
         ),
         body: Container(
           width: MediaQuery.of(context).size.width,
@@ -30,10 +32,7 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-             // Text(
-                projectName,
-              //   style: fontStyle(primaryColor, FontWeight.w600, 33),
-              // ),
+              projectName,
               Image.asset(
                 'assets/images/verify_mobile.png',
                 height: 100,
@@ -59,8 +58,6 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
                 "We will send you one time password (OTP) to verify",
                 style: fontStyle(neutral5Color, FontWeight.w400, 16),
               ),
-
-
             ],
           ),
         ),

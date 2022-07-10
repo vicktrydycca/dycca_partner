@@ -1,13 +1,15 @@
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
+import 'package:dycca_partner/utils/app_color.dart';
+import 'package:dycca_partner/utils/app_font.dart';
 import 'package:dycca_partner/utils/constants.dart';
 
 import 'package:flutter/material.dart';
 
 
 class LoginScreen extends StatelessWidget {
-   LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
 
   final sendData = SendData();
   TextEditingController userName = TextEditingController();
@@ -17,6 +19,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -28,10 +31,10 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 40.0, bottom: 30, left: 10),
+                      const EdgeInsets.only(top: 40.0, bottom: 30, left: 10),
                       child: Text(
                         "Login",
-                        style: fontStyle(neutral6Color, FontWeight.w500, 19),
+                        style: fontTitle,
                       ),
                     ),
                     Container()
@@ -47,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 10.0),
                   child: TextfieldWidget(
                     prefixSvgImage: Icon(Icons.lock),
-                     isObscure: true,
+                    isObscure: true,
                     controller: password,
                     placeholder: "Password",
                     fillColor: neutral2Color,
@@ -57,11 +60,16 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Container(),
                     const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20.0),
-                      child: Text(
-                        "Forgot Password ?",
-                        style: fontStyle(primaryColor, FontWeight.w400, 16),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/forgotPasswordRoute');
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                        child: Text(
+                          "Forgot Password ?",
+                          style: fontStyle(primaryColor, FontWeight.w400, 16),
+                        ),
                       ),
                     ),
                   ],
