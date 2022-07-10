@@ -1,6 +1,6 @@
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
-import 'package:dycca_partner/data/send_reponse/send_reponse.dart';
 
 import 'package:dycca_partner/utils/constants.dart';
 
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 TextfieldWidget(
                   controller: userName,
-                  placeholder: "User Name",
+                  placeholder: "Mobile No.",
                   fillColor: neutral2Color,
                   prefixSvgImage: Icon(Icons.person),
                 ),
@@ -92,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/signUpRoute');
+                      Navigator.pushNamed(context, '/verifyMobileNoRoute');
                     },
                     child: Text(
                       "Register",

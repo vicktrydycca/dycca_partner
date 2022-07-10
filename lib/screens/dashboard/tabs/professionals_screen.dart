@@ -25,8 +25,15 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
         ExpansionTile(
           title: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text("STUDIO",
-                style: fontStyle(neutral6Color, FontWeight.w600, 18)),
+            child: ListTile(
+              title: Text("STUDIO",
+                  style: fontStyle(neutral6Color, FontWeight.w600, 18)),
+              subtitle: Text(
+              names.toString(),
+              style:
+              fontStyle(neutral6Color, FontWeight.w600, 12),
+            ),
+            ),
           ),
           children: <Widget>[
             Container(

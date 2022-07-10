@@ -1,3 +1,4 @@
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 
 import 'package:dycca_partner/utils/constants.dart';
@@ -13,6 +14,8 @@ class VerifyMobileNumberScreen extends StatefulWidget {
 
 class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
   TextEditingController mobileNumber = TextEditingController();
+
+  var sendData = SendData();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +26,7 @@ class _VerifyMobileNumberScreenState extends State<VerifyMobileNumberScreen> {
               placeholder: "SEND",
               disabled: false,
               buttonClickCallback: () {
-                Navigator.pushNamed(context, '/otpRoute');
+                sendData.getOTP(mobileNumber.text, context);
               }),
         ),
         body: Container(

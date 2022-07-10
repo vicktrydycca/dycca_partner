@@ -1,7 +1,0 @@
-class GetData {
-
-  userLogin(){
-
-
-  }
-}

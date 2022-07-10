@@ -1,5 +1,5 @@
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/button_widget.dart';
-import 'package:dycca_partner/data/send_reponse/send_reponse.dart';
 
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +78,7 @@ class _OtpScreenState extends State<OtpScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 children: [
-                  Text("00:00",style: fontStyle(neutral4Color, FontWeight.w500, 19),),
+                  Text("02:59",style: fontStyle(neutral4Color, FontWeight.w500, 19),),
                   const Spacer(),
                   Text("Resend OTP",style: fontStyle(primaryColor, FontWeight.w500, 19),),
                 ],
