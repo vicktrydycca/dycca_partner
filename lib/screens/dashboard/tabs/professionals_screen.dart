@@ -54,22 +54,27 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                               ),
                             ),
                             Spacer(),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: primaryColor.withOpacity(1),
-                                borderRadius: BorderRadius.circular(3.0),
-                              ),
-                              height: 30,
-                              width: 60,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Center(
-                                  child: Text(
-                                    "Select",
-                                    style: TextStyle(
-                                      color: Colors.white.withOpacity(0.9),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/dashboardSelectRoute');
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: primaryColor.withOpacity(1),
+                                  borderRadius: BorderRadius.circular(3.0),
+                                ),
+                                height: 30,
+                                width: 60,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                    child: Text(
+                                      "Select",
+                                      style: TextStyle(
+                                        color: Colors.white.withOpacity(0.9),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ),

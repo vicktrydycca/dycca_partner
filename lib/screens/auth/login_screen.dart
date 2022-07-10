@@ -59,9 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    child: Text(
-                      "Forgot Password ?",
-                      style: fontStyle(primaryColor, FontWeight.w400, 16),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/forgotPasswordRoute');
+                      },
+                      child: Text(
+                        "Forgot Password ?",
+                        style: fontStyle(primaryColor, FontWeight.w400, 16),
+                      ),
                     ),
                   ),
                 ],

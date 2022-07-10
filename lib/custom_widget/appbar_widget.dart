@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class DashboardAppbarWidget {
   static AppBar getAppBar() {
     return AppBar(
+
       backgroundColor: Colors.white,
       iconTheme: IconThemeData(color: primaryColor),
       elevation: 0,

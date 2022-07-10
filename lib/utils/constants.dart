@@ -34,6 +34,8 @@ const loginSuccessfulRoute = '/loginSuccessfulRoute';
 const signUpRoute = '/signUpRoute';
 const dashboardRoute = '/dashboardRoute';
 const bottomNaviagtionRoute = '/bottomNaviagtionRoute';
+const forgotPasswordRoute = '/forgotPasswordRoute';
+const dashboardSelectRoute = '/dashboardSelectRoute';
 
 //Text
 const projectName = Text(

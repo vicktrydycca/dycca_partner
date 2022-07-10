@@ -26,15 +26,15 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,size: 40,),
+            icon: Icon(Icons.add_circle),
             label: 'Create',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.widgets),
             label: 'Feed',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.key),
             label: 'Solution',
           ),
 

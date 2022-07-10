@@ -1,4 +1,5 @@
 import 'package:dycca_partner/custom_widget/appbar_widget.dart';
+import 'package:dycca_partner/custom_widget/drawer_widget.dart';
 import 'package:dycca_partner/custom_widget/tabbar_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/screens/dashboard/tabs/professionals_screen.dart';
@@ -37,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColour,
-      drawer: const Drawer(),
+      drawer: const DrawerWidget(),
       appBar: DashboardAppbarWidget.getAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
