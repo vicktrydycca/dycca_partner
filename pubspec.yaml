@@ -36,8 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   otp_text_field: ^1.1.3
   google_fonts: ^3.0.1
+  dio:
+  get: ^4.6.5
   #for using getx
   http:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
