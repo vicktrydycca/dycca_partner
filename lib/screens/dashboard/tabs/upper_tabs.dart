@@ -54,7 +54,7 @@ class _UpperTabsScreenState extends State<UpperTabsScreen> {
                         child: TabBar(
                           labelColor: primaryColor,
                           unselectedLabelColor: Colors.black,
-                          labelStyle: TextStyle(fontSize: 17),
+                          labelStyle: appFontStyle(fontSize: 17),
                           tabs: [
                             Tab(text: 'All'),
                             Tab(text: 'Service'),

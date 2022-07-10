@@ -28,15 +28,15 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("All",style: TextStyle(color: Colors.black45),),
+              child: Text("All",style: appFontStyle(color: Colors.black45),),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Performing Arts",style: TextStyle(color: primaryColor)),
+              child: Text("Performing Arts",style: appFontStyle(color: primaryColor)),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Visual Arts",style: TextStyle(color: Colors.black45)),
+              child: Text("Visual Arts",style: appFontStyle(color: Colors.black45)),
             ),
           ],
         ),
@@ -84,7 +84,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                                 child: Center(
                                   child: Text(
                                     "Select",
-                                    style: TextStyle(
+                                    style: appFontStyle(
                                       color: Colors.white.withOpacity(0.9),
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,
@@ -119,7 +119,7 @@ class _ProfessionalScreenState extends State<ProfessionalScreen> {
                     child: Center(
                       child: Text(
                         "+ Add Studio",
-                        style: TextStyle(
+                        style: appFontStyle(
                           color: Colors.white.withOpacity(0.9),
                           fontSize: 12,
                           fontWeight: FontWeight.w700,

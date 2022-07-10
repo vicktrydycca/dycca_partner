@@ -24,7 +24,7 @@ class _MyDrawerState extends State<MyDrawer> {
               backgroundColor: Colors.orange,
               child: Text(
                 "A",
-                style: TextStyle(fontSize: 40.0),
+                style: appFontStyle(fontSize: 40.0),
               ),
             ),
           ),

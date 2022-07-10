@@ -56,7 +56,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 width: MediaQuery.of(context).size.width - 40,
                 fieldWidth:
                 ((MediaQuery.of(context).size.width - 30) / 5) - 20,
-                style: const TextStyle(fontSize: 14),
+                style: appFontStyle(fontSize: 14),
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldStyle: FieldStyle.underline,
                 otpFieldStyle: OtpFieldStyle(

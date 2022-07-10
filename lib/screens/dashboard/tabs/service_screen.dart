@@ -71,7 +71,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Container(
                             child: Center(
                               child: Text('Display Tab 1',
-                                  style: TextStyle(
+                                  style: appFontStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),
                             ),
@@ -79,7 +79,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Container(
                             child: Center(
                               child: Text('Display Tab 2',
-                                  style: TextStyle(
+                                  style: appFontStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),
                             ),
@@ -87,7 +87,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Container(
                             child: Center(
                               child: Text('Display Tab 3',
-                                  style: TextStyle(
+                                  style: appFontStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold)),
                             ),
