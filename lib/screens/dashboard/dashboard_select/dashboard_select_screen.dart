@@ -12,18 +12,17 @@ class DashboardSelectScreen extends StatefulWidget {
 }
 
 class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
+  double progressCompletion = 0.6;
   List<String> names = [
     'Performing Arts',
   ];
   bool visibleVerifyService = true;
   bool visibleCompleteProfile = false;
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         backgroundColor: whiteColour,
         drawer: const DrawerWidget(),
         appBar: DashboardAppbarWidget.getAppBar(),
@@ -32,7 +31,8 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15),
                 child: Row(
                   children: [
                     Expanded(
@@ -45,18 +45,21 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                         child: TextFormField(
                           decoration: InputDecoration(
                             fillColor: whiteColour,
-                            prefixIcon: Icon(Icons.search),
+                            prefixIcon: const Icon(Icons.search),
                             hintText: 'Search Booking',
-                            contentPadding: EdgeInsets.symmetric(vertical: 5),
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 5),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide(color: whiteColour),
+                              borderSide: const BorderSide(color: whiteColour),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
                       flex: 1,
                       child: Container(
@@ -76,7 +79,8 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                             ),
                             Text(
                               " Add",
-                              style: fontStyle(whiteColour, FontWeight.w500, 16),
+                              style:
+                                  fontStyle(whiteColour, FontWeight.w500, 16),
                             ),
                           ],
                         ),
@@ -84,18 +88,18 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                     ),
                   ],
                 )),
-
             const SizedBox(
               height: 20,
             ),
-           verifyYourService(),
-           completeYourProfile()
+            verifyYourService(),
+            completeYourProfile()
           ],
         ),
       ),
     );
   }
-  Widget verifyYourService(){
+
+  Widget verifyYourService() {
     return Visibility(
       visible: visibleVerifyService,
       child: Column(
@@ -115,19 +119,22 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                       padding: const EdgeInsets.only(left: 10.0, right: 20),
                       child: Row(
                         children: [
-                          Image.asset('assets/images/dashboard_image.png',),
+                          Image.asset(
+                            'assets/images/dashboard_image.png',
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Text(
                               names[index],
                               style:
-                              fontStyle(neutral6Color, FontWeight.w600, 16),
+                                  fontStyle(neutral6Color, FontWeight.w600, 16),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, '/dashboardSelectRoute');
+                              Navigator.pushNamed(
+                                  context, '/dashboardSelectRoute');
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -160,21 +167,22 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 80.0,right: 70,top: 60),
+            padding: const EdgeInsets.only(left: 80.0, right: 70, top: 60),
             child: Text(
               " To Activate your listing Please Verify Your Service",
               style: fontStyle(neutral6Color, FontWeight.w500, 19),
             ),
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               setState(() {
                 visibleCompleteProfile = true;
                 visibleVerifyService = false;
               });
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 70.0,vertical: 30),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 70.0, vertical: 30),
               child: Container(
                 height: 45,
                 decoration: BoxDecoration(
@@ -197,20 +205,124 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
       ),
     );
   }
-  Widget completeYourProfile(){
+
+  Widget completeYourProfile() {
     return Visibility(
       visible: visibleCompleteProfile,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 60.0,right: 50,top: 20),
-            child: Text(
-              "To Activate your listing Please complete following Process",
-              style: fontStyle(neutral6Color, FontWeight.w500, 19),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 60.0, right: 50, top: 20),
+              child: Text(
+                "To Activate your listing Please complete following Process",
+                style: fontStyle(neutral6Color, FontWeight.w500, 19),
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+              child: LinearProgressIndicator(
+                backgroundColor: neutral2Color,
+                valueColor: const AlwaysStoppedAnimation<Color>(primaryColor),
+                value: progressCompletion,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 10,
+                    backgroundColor: primaryColor,
+                    child: Icon(
+                      Icons.check,
+                      color: whiteColour,
+                      size: 15,
+                    ),
+                  ),
+                  Text(
+                    "    Complete Your Profile",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/completeProfileRoute');
+                    },
+                    child: Text(
+                      "Go to my Profile",
+                      style: fontStyle(primaryColor, FontWeight.w400, 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20.0, top: 10,bottom: 20),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 10,
+                    backgroundColor: primaryColor,
+                    child: Icon(
+                      Icons.check,
+                      color: whiteColour,
+                      size: 15,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Text(
+                      "    Submit Documents & Sign Agreement",
+                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                    ),
+                  ),
+                  const Spacer(),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      "View Documents & Agreements",
+                      style: fontStyle(primaryColor, FontWeight.w400, 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+              child: Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 10,
+                    backgroundColor: primaryColor,
+                    child: Icon(
+                      Icons.check,
+                      color: whiteColour,
+                      size: 15,
+                    ),
+                  ),
+                  Text(
+                    "    Start a free trial",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                  ),
+                  const Spacer(),
+                  Text(
+                    "Start Now",
+                    style: fontStyle(primaryColor, FontWeight.w400, 14),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+
 }

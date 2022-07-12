@@ -9,7 +9,11 @@ import 'package:dycca_partner/screens/auth/sign_up_screen.dart';
 import 'package:dycca_partner/screens/auth/splash_screen.dart';
 import 'package:dycca_partner/screens/auth/verify_mobile_number_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
-import 'package:dycca_partner/screens/dashboard/dashboard_select_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_select/about_us_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_select/add_amenities_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_select/add_equipments_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_select/complete_profile_screen.dart';
+import 'package:dycca_partner/screens/dashboard/dashboard_select/dashboard_select_screen.dart';
 
 
 class Routes{
@@ -25,6 +29,11 @@ class Routes{
       '/bottomNaviagtionRoute': (context) => const BottomNavigationWidget(),
       '/forgotPasswordRoute': (context) => const ForgotPasswordScreen(),
       '/dashboardSelectRoute': (context) => const DashboardSelectScreen(),
+      '/completeProfileRoute': (context) => const CompleteProfileScreen(),
+      '/addAmenitiesRoute': (context) => const AddAmenitiesScreen(),
+      '/addEquipmentsRoute': (context) => const AddEquipmentsScreen(),
+      '/aboutUsRoute': (context) => const AboutUsScreen(),
+
     };
   }
 }

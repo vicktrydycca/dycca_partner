@@ -36,9 +36,14 @@ const dashboardRoute = '/dashboardRoute';
 const bottomNaviagtionRoute = '/bottomNaviagtionRoute';
 const forgotPasswordRoute = '/forgotPasswordRoute';
 const dashboardSelectRoute = '/dashboardSelectRoute';
+const completeProfileRoute = '/completeProfileRoute';
+const addAmenitiesRoute = '/addAmenitiesRoute';
+const addEquipmentsRoute = '/addEquipmentsRoute';
+const aboutUsRoute = '/aboutUsRoute';
 
 
 var appFontStyle = GoogleFonts.acme;
+
 //Text
 var projectName = Text(
   "Dycca Partner",
