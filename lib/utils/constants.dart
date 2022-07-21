@@ -40,7 +40,8 @@ const completeProfileRoute = '/completeProfileRoute';
 const addAmenitiesRoute = '/addAmenitiesRoute';
 const addEquipmentsRoute = '/addEquipmentsRoute';
 const aboutUsRoute = '/aboutUsRoute';
-
+const notificationRoute = '/notificationRoute';
+const premiumBookingRoute = '/premiumBookingRoute';
 
 var appFontStyle = GoogleFonts.acme;
 
@@ -55,6 +56,8 @@ var  headline = Text(
   style:GoogleFonts.acme(fontSize: 25, fontWeight: FontWeight.w600, color: primaryColor)
 
 );
+const appbarConstFont = TextStyle(color: neutral6Color,fontSize: 16,fontWeight: FontWeight.w500);
+
 const verifyCheck = CircleAvatar(
   radius: 10,
   backgroundColor: primaryColor,

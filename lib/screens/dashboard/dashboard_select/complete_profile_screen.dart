@@ -17,7 +17,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         elevation: 0,
         backgroundColor: whiteColour,
         leading: const Icon(Icons.arrow_back_ios,color: neutral6Color,),
-        title: Text("Profile Completion",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
+        title: const Text("Profile Completion",style: appbarConstFont),
 
       ),
       body: Column(

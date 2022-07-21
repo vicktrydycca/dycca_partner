@@ -25,7 +25,7 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
       child: Scaffold(
         backgroundColor: whiteColour,
         drawer: const DrawerWidget(),
-        appBar: DashboardAppbarWidget.getAppBar(),
+        appBar: DashboardAppbarWidget.getAppBar(context),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -312,9 +312,14 @@ class _DashboardSelectScreenState extends State<DashboardSelectScreen> {
                     style: fontStyle(neutral6Color, FontWeight.w500, 16),
                   ),
                   const Spacer(),
-                  Text(
-                    "Start Now",
-                    style: fontStyle(primaryColor, FontWeight.w400, 14),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/premiumBookingRoute');
+                    },
+                    child: Text(
+                      "Start Now",
+                      style: fontStyle(primaryColor, FontWeight.w400, 14),
+                    ),
                   ),
                 ],
               ),
