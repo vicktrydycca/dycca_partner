@@ -12,6 +12,7 @@ import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SendData extends GetxController with BaseController{
 
@@ -38,6 +39,9 @@ class SendData extends GetxController with BaseController{
   userLogin(phoneNumber,password,context) async {
     showLoading('Please Wait..');
 
+
+    final prefs = await SharedPreferences.getInstance();
+    print(phoneNumber);
     var    body = {
     "phone":phoneNumber,
     "password":password
@@ -49,12 +53,14 @@ class SendData extends GetxController with BaseController{
 
     if (response.statusCode == 200) {
       final loginData = LoginModalClass.fromJson(jsonDecode(response.body));
-
+      await prefs.setBool('login', true);
 
       debugPrint(loginData.token.toString());
       hideLoading();
       return Navigator.pushNamed(context, '/dashboardRoute');
     } else {
+      prefs.setBool("login", false);
+
       // If the server did not return a 200 OK response,
       // then throw an exception.
       hideLoading();

@@ -14,6 +14,7 @@ var inputHintStyle = appFontStyle(
 //colour
 const primaryColor = Color(0XFF0195AF);
 const whiteColour = Color(0XFFFFFFFF);
+const greyColour = Color(0XFFb1b1b1);
 const neutralColor = Color(0XFFAFAFAF);
 const neutral1Color = Color(0XFF1C1C1C);
 const neutral2Color = Color(0XFFF7F7F7);
@@ -28,6 +29,7 @@ const textfieldColour = Color(0XFFFBFAFF);
 //routes
 const splashRoute = '/splashRoute';
 const loginRoute = '/loginRoute';
+// const mainScreenRoute = '/mainScreen';
 const verifyMobileNoRoute = '/verifyMobileNoRoute';
 const otpRoute = '/otpRoute';
 const loginSuccessfulRoute = '/loginSuccessfulRoute';
@@ -43,6 +45,7 @@ const aboutUsRoute = '/aboutUsRoute';
 const notificationRoute = '/notificationRoute';
 const premiumBookingRoute = '/premiumBookingRoute';
 const selectPlanRoute = '/selectPlanRoute';
+const profileProgressRoutes = '/completeProfileProgress';
 
 var appFontStyle = GoogleFonts.acme;
 
