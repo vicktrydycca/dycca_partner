@@ -31,7 +31,7 @@ class NoticationBloc extends BlocBase{
   dispose() {
     // TODO: implement dispose
     _notificationListSink.close();
-    throw UnimplementedError();
+    // throw UnimplementedError();
   }
 
 

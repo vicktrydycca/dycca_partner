@@ -31,7 +31,7 @@ class HomeBloc extends BlocBase{
   dispose() {
     // TODO: implement dispose
     _serviceListSink.close();
-    throw UnimplementedError();
+    // throw UnimplementedError();
   }
 
 
