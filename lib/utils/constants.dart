@@ -42,6 +42,7 @@ const addEquipmentsRoute = '/addEquipmentsRoute';
 const aboutUsRoute = '/aboutUsRoute';
 const notificationRoute = '/notificationRoute';
 const premiumBookingRoute = '/premiumBookingRoute';
+const selectPlanRoute = '/selectPlanRoute';
 
 var appFontStyle = GoogleFonts.acme;
 
