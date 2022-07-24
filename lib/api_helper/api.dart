@@ -9,4 +9,6 @@ class AppApi{
   static const String getForgetPasswordOTPApi = baseUrl+"user/forgotpassword";
   static const String verifyForgetPasswordOTPApi = baseUrl+"user/forgot/verify";
   static const String changeForgetPasswordApi = baseUrl+"user/changepassword";
+  static const String getServiceListApi = baseUrl+"service/list";
+  static const String getNotificationListApi = baseUrl+"user/notification";
 }

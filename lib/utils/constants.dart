@@ -29,7 +29,7 @@ const textfieldColour = Color(0XFFFBFAFF);
 //routes
 const splashRoute = '/splashRoute';
 const loginRoute = '/loginRoute';
-// const mainScreenRoute = '/mainScreen';
+const mainScreenRoute = '/mainScreen';
 const verifyMobileNoRoute = '/verifyMobileNoRoute';
 const otpRoute = '/otpRoute';
 const loginSuccessfulRoute = '/loginSuccessfulRoute';

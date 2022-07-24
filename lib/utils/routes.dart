@@ -42,7 +42,7 @@ class Routes{
       '/premiumBookingRoute': (context) => const GoPremiumBookingScreen(),
       '/selectPlanRoute': (context) => const SelectPlanScreen(),
       '/completeProfileProgress': (context) => const CompleteProfileProgress(),
-      // '/mainScreen': (context) => const MainScreen(),
+      '/mainScreen': (context) => const MainScreen(),
     };
   }
 }
