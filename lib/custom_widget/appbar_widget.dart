@@ -14,11 +14,12 @@ class DashboardAppbarWidget {
          const SizedBox(
           width: 15,
         ),
-         GestureDetector(
-           onTap: () {
+         IconButton(
+           onPressed: () {
+             print("ye");
              Navigator.pushNamed(context, '/notificationRoute');
            },
-           child: const Padding(
+           icon: const Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: Icon(Icons.notifications,color: neutral4Color,size: 25,)
         ),
