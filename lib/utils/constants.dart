@@ -23,6 +23,7 @@ const neutral4Color = Color(0XFFAFAFAF);
 const neutral5Color = Color(0XFF5A5A5A);
 const neutral7Color = Color(0XFFE5E5E5);
 const neutral6Color = Color(0XFF0E0E0E);
+var neutral8Color = const Color(0XFF5A5A5A).withOpacity(0.7);
 const semantic1Color = Color(0XFFEB5757);
 const textfieldColour = Color(0XFFFBFAFF);
 
@@ -46,6 +47,8 @@ const notificationRoute = '/notificationRoute';
 const premiumBookingRoute = '/premiumBookingRoute';
 const selectPlanRoute = '/selectPlanRoute';
 const profileProgressRoutes = '/completeProfileProgress';
+const profileDetailsRoutes = '/profileDetailsRoutes';
+
 
 var appFontStyle = GoogleFonts.acme;
 
