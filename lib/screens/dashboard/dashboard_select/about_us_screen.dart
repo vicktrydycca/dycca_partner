@@ -1,3 +1,4 @@
+import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +11,7 @@ class AboutUsScreen extends StatelessWidget {
     TextEditingController writeComment = TextEditingController();
     return Scaffold(
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: const Icon(Icons.arrow_back_ios,color: neutral6Color,),
-        title: Text("About us",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
-
-      ),
+      appBar: AppbarBackButton().AppbarBack(context, "About Us"),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

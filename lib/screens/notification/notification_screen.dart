@@ -1,4 +1,5 @@
 import 'package:dycca_partner/bloc_controllers/notification_bloc.dart';
+import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/stream_loader.dart';
 import 'package:dycca_partner/modal_class/notification_modalclass.dart';
 import 'package:dycca_partner/utils/constants.dart';
@@ -37,15 +38,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
         DateFormat.yMMMMd('en_US').format(now);
     return Scaffold(
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: neutral6Color,
-        ),
-        title: const Text("Notification", style: appbarConstFont),
-      ),
+      appBar:
+      AppbarBackButton().AppbarBack(context, "Notification"),
+
+
       body: SingleChildScrollView(
         physics: ScrollPhysics(),
         child: Padding(

@@ -1,3 +1,4 @@
+import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +15,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: neutral6Color,
-        ),
-        title: const Text("Profile Completion", style: appbarConstFont),
-      ),
+      appBar: AppbarBackButton().AppbarBack(context, "Profile Completion"),
       body: SingleChildScrollView(
         physics: const ScrollPhysics(),
         child: Column(
@@ -232,112 +225,102 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                 Row(
+                   children: [
+                     Icon(
+                      Icons.calendar_today_rounded,
+                      color: primaryColor,
+                ),
+                     Text(
+                       "   Date",
+                       style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                     ),
+                   ],
+                 ),
+
+
                 Text(
                   "From",
                   style: fontStyle(neutral6Color, FontWeight.w500, 16),
                 ),
 
-                Text(
-                  "Till",
-                  style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                Padding(
+                  padding: const EdgeInsets.only(right: 30.0),
+                  child: Text(
+                    "Till",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                  ),
                 ),
               ],
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-
-                  const Icon(
-                    Icons.calendar_today_rounded,
-                    color: primaryColor,
-                  ),
-                  Text(
-                    "   Date",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-
-                ],
-              ),
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const[
 
 
               SelectTimeFormatWidget(),
+              SizedBox(width: 10,),
               SelectTimeFormatWidget(),
             ],
           ),
           Row(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "From",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  SelectTimeFormatWidget(),
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.access_time,
-                          color: primaryColor,
-                        ),
-                        Text(
-                          "   Time",
+              Column(
+                children: [
+
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "Sunday",
                           style: fontStyle(neutral6Color, FontWeight.w500, 16),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Text(
-                      "Sunday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Monday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Text(
-                    "Tuesday",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Wednesday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Text(
-                    "Thrusday",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Friday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
-                    child: Text(
-                      "Saturday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Text(
+                          "Monday",
+                          style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                        ),
+                      ),
+                      Text(
+                        "Tuesday",
+                        style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Text(
+                          "Wednesday",
+                          style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                        ),
+                      ),
+                      Text(
+                        "Thrusday",
+                        style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Text(
+                          "Friday",
+                          style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Text(
+                          "Saturday",
+                          style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               )
