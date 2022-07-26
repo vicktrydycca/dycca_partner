@@ -15,6 +15,7 @@ import 'package:dycca_partner/screens/dashboard/dashboard_select/about_us_screen
 import 'package:dycca_partner/screens/dashboard/dashboard_select/add_amenities_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_select/add_equipments_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_select/complete_profile_screen.dart';
+import 'package:dycca_partner/screens/dashboard/profile_details_screen.dart';
 import 'package:dycca_partner/screens/dashboard/select_service_screen/dashboard_select_screen.dart';
 import 'package:dycca_partner/screens/go_premium/go_premium_booking.dart';
 import 'package:dycca_partner/screens/go_premium/select_plan_screen.dart';
@@ -42,6 +43,7 @@ class Routes{
       '/premiumBookingRoute': (context) => const GoPremiumBookingScreen(),
       '/selectPlanRoute': (context) => const SelectPlanScreen(),
       '/completeProfileProgress': (context) => const CompleteProfileProgress(),
+      '/profileDetailsRoutes': (context) => const ProfileDetailsScreen(),
       '/mainScreen': (context) => const MainScreen(),
     };
   }
