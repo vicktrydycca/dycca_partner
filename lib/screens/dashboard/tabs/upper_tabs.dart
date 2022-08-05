@@ -54,20 +54,20 @@ class _UpperTabsScreenState extends State<UpperTabsScreen> {
                           labelColor: primaryColor,
                           unselectedLabelColor: Colors.black,
                           labelStyle: appFontStyle(fontSize: 17),
-                          tabs: [
-                            Tab(text: 'All'),
-                            Tab(text: 'Service'),
-                            Tab(text: 'Shop'),
-                            Tab(text: 'Professional'),
+                          tabs: const [
+                             Tab(text: 'All'),
+                             Tab(text: 'Service'),
+                             Tab(text: 'Shop'),
+                             Tab(text: 'Professional'),
                           ],
                         ),
                       ),
                       Container(
                           height: MediaQuery.of(context).size.height, //height of TabBarView
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               border: Border(
                                   top: BorderSide(color: Colors.grey, width: 0.5))),
-                          child: TabBarView(
+                          child: const TabBarView(
                             children: <Widget>[
                              ProfessionalScreen(),
                              ProfessionalScreen(),
