@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dycca_partner/api_helper/api_widgets/api_loader.dart';
 import 'package:dycca_partner/api_helper/get_response/get_data.dart';
-import 'package:dycca_partner/modal_class/amenity_bloc.dart';
+import 'package:dycca_partner/modal_class/amenity_,modalclass.dart';
 import 'package:dycca_partner/utils/bloc_base.dart';
 
 class AmenityBloc extends BlocBase{
@@ -14,9 +14,9 @@ class AmenityBloc extends BlocBase{
   Stream<List<Amenity>> get amenityListStream  => _amenityListController.stream;
 
 
-  getAmetiesList(){
+  getAmenityList(){
 
-    GetData().getAmenityApi(onSuccess: (data){
+    GetData().getEquipmentApi(onSuccess: (data){
       _amenityListSink.add(data);
     }, onError: (data){
       DialogHelper.showErroDialog(description:data);

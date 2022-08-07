@@ -167,36 +167,36 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             const Divider(
               thickness: 2,
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
-              child: Row(
-                children: [
-                  Text(
-                    "Studio Rules",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  const Spacer(),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return showDialougeBoxEquipment();
-                        },
-                      );
-                    },
-                    child: Text(
-                      "+ Add Rules",
-                      style: fontStyle(primaryColor, FontWeight.w400, 14),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(
-              thickness: 2,
-            ),
+            // Padding(
+            //   padding:
+            //       const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+            //   child: Row(
+            //     children: [
+            //       Text(
+            //         "Studio Rules",
+            //         style: fontStyle(neutral6Color, FontWeight.w500, 16),
+            //       ),
+            //       const Spacer(),
+            //       InkWell(
+            //         onTap: () {
+            //           showDialog(
+            //             context: context,
+            //             builder: (BuildContext context) {
+            //               return showDialougeBoxEquipment();
+            //             },
+            //           );
+            //         },
+            //         child: Text(
+            //           "+ Add Rules",
+            //           style: fontStyle(primaryColor, FontWeight.w400, 14),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // const Divider(
+            //   thickness: 2,
+            // ),
             studioTimimg()
           ],
         ),

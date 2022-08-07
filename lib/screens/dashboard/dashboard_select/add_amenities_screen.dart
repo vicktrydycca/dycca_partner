@@ -2,7 +2,7 @@ import 'package:dycca_partner/bloc_controllers/amenity_bloc.dart';
 import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/flutter_switch.dart';
 import 'package:dycca_partner/custom_widget/stream_loader.dart';
-import 'package:dycca_partner/modal_class/amenity_bloc.dart';
+import 'package:dycca_partner/modal_class/amenity_,modalclass.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class _AddAmenitiesScreenState extends State<AddAmenitiesScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    amentityController.getAmetiesList();
+    amentityController.getAmenityList();
     super.initState();
   }
   @override

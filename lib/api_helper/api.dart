@@ -12,4 +12,5 @@ class AppApi{
   static const String getServiceListApi = baseUrl+"service/list";
   static const String getNotificationListApi = baseUrl+"user/notification";
   static const String getAmenityListApi = baseUrl+"amenity";
+  static const String getEquipmentListApi = baseUrl+"equipment";
 }

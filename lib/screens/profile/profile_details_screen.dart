@@ -67,10 +67,15 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
-                        children: const [
-                          Icon(
-                            Icons.arrow_back_ios,
-                            color: whiteColour,
+                        children:  [
+                          InkWell(
+                         onTap: (){
+                           Navigator.pop(context);
+                         },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: whiteColour,
+                            ),
                           ),
                           Spacer(),
                           Icon(

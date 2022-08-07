@@ -21,16 +21,28 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             child: Column(
               children: [
                 Image.asset('assets/images/profile.jpeg',height: 100,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(
-                    "Rockvick Studio",
-                    style: fontStyle(neutral6Color, FontWeight.w600, 24),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/profileDetailsRoutes');
+
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      "Rockvick Studio",
+                      style: fontStyle(neutral6Color, FontWeight.w600, 24),
+                    ),
                   ),
                 ),
-                Text(
-                  "View Profile",
-                  style: fontStyle(primaryColor, FontWeight.w500, 13),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/profileDetailsRoutes');
+
+                  },
+                  child: Text(
+                    "View Profile",
+                    style: fontStyle(primaryColor, FontWeight.w500, 13),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 20),
