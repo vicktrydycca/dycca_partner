@@ -181,11 +181,16 @@ class _CompleteProfileProgressState extends State<CompleteProfileProgress> {
               "Document & Sign Agreement",
               style: fontStyle(neutral6Color, FontWeight.w500, 16),
             ),
-            trailing: Container(
-              width: 100,
-              child: Text(
-                "View Documents & Agreements",
-                style: fontStyle(primaryColor, FontWeight.w400, 14),
+            trailing: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/submitDocumentsRoutes');
+              },
+              child: Container(
+                width: 100,
+                child: Text(
+                  "View Documents & Agreements",
+                  style: fontStyle(primaryColor, FontWeight.w400, 14),
+                ),
               ),
             ),
           ),

@@ -48,6 +48,11 @@ const premiumBookingRoute = '/premiumBookingRoute';
 const selectPlanRoute = '/selectPlanRoute';
 const profileProgressRoutes = '/completeProfileProgress';
 const profileDetailsRoutes = '/profileDetailsRoutes';
+const submitDocumentsRoutes = '/submitDocumentsRoutes';
+const viewDocumentsRoutes = '/viewDocumentsRoutes';
+const refundPolicyRoutes = '/refundPolicyRoutes';
+const payOutPolicyRoutes = '/payOutPolicyRoutes';
+
 
 
 var appFontStyle = GoogleFonts.acme;
