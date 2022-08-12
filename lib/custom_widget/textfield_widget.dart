@@ -187,7 +187,7 @@ class TextSearchWidget extends StatelessWidget {
                 Radius.circular(3.0),
               ),
               borderSide:
-              BorderSide(color: isError ? semantic1Color : neutral4Color),
+              BorderSide(color: isError ? semantic1Color : neutral4Color.withOpacity(0.5)),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
@@ -204,7 +204,7 @@ class TextSearchWidget extends StatelessWidget {
         isError
             ? Text(
           errorMessage,
-          style: fontStyle(semantic1Color, FontWeight.w400, 14),
+          style: fontStyle(semantic1Color, FontWeight.w400, 12),
         )
             : const SizedBox(),
       ],

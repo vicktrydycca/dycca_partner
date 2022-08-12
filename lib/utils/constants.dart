@@ -52,8 +52,12 @@ const submitDocumentsRoutes = '/submitDocumentsRoutes';
 const viewDocumentsRoutes = '/viewDocumentsRoutes';
 const refundPolicyRoutes = '/refundPolicyRoutes';
 const payOutPolicyRoutes = '/payOutPolicyRoutes';
-
-
+const selectCompetitionRoutes = '/selectCompetitionRoutes';
+const addDetailsOfCompetitionRoutes = '/addDetailsOfCompetitionRoutes';
+const addJudgesRoutes = '/addJudgesRoutes';
+const hostEventRoutes = '/hostEventRoutes';
+const selectComtitionRoutes = '/selectCompetitionRoutes';
+const selecmpetitionRoutes = '/selectCompetitionRoutes';
 
 var appFontStyle = GoogleFonts.acme;
 
