@@ -23,7 +23,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
             child: Container(
               decoration: BoxDecoration(
                 color: primaryColor.withOpacity(0.1),
-
               ),
               height: 55,
               child: Padding(
@@ -32,8 +31,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   child: Text(
                     "Publish For Partners",
                     style: appFontStyle(
-                      color:
-                      primaryColor,
+                      color: primaryColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -46,7 +44,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
             child: Container(
               decoration: const BoxDecoration(
                 color: primaryColor,
-
               ),
               height: 55,
               child: Padding(
@@ -55,8 +52,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   child: Text(
                     "Host this event",
                     style: appFontStyle(
-                      color:
-                      Colors.white.withOpacity(0.9),
+                      color: Colors.white.withOpacity(0.9),
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -80,7 +76,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
       body: SingleChildScrollView(
         physics: const ScrollPhysics(),
         child: Column(
-
           children: [
             Stack(
               children: [
@@ -90,12 +85,15 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   bottom: 10,
                   child: Row(
                     children: [
-                      const Icon(Icons.camera_alt,color: whiteColour,size: 16,),
+                      const Icon(
+                        Icons.camera_alt,
+                        color: whiteColour,
+                        size: 16,
+                      ),
                       Text(
                         "   Add image",
                         style: appFontStyle(
-                          color:
-                          Colors.white.withOpacity(0.9),
+                          color: Colors.white.withOpacity(0.9),
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                         ),
@@ -106,14 +104,14 @@ class _HostEventScreenState extends State<HostEventScreen> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
               child: Row(
                 children: [
                   Text(
                     "Collaboraters",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -122,8 +120,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   Text(
                     "Event info",
                     style: appFontStyle(
-                      color:
-                      primaryColor,
+                      color: primaryColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -131,7 +128,9 @@ class _HostEventScreenState extends State<HostEventScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
@@ -141,8 +140,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   Text(
                     "Competition Name",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -152,16 +150,16 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     child: TextSearchWidget(
                       controller: competitionName,
                       placeholder: "Enter the name of competition",
-
                       fillColor: whiteColour,
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Description",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -176,12 +174,13 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       fillColor: whiteColour,
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Duration",
                     style: appFontStyle(
-                      color:
-                      primaryColor,
+                      color: primaryColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -190,40 +189,38 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     padding: const EdgeInsets.only(bottom: 25.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Ex:- Round 1',
-                        
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              FlutterSwitch(
-                                height: 20,
-                                width: 45,
-                                value: durationSwitch, onToggle: (val) {
-                                  durationSwitch = val;
-                              },),
-                              Text(
-                                "  Online",
-                                style: appFontStyle(
-                                  color:
-                                  neutral6Color,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w100,
+                          hintText: 'Ex:- Round 1',
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.only(bottom: 10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                FlutterSwitch(
+                                  height: 20,
+                                  width: 45,
+                                  value: durationSwitch,
+                                  onToggle: (val) {
+                                    durationSwitch = val;
+                                  },
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ),
+                                Text(
+                                  "  Online",
+                                  style: appFontStyle(
+                                    color: neutral6Color,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w100,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )),
                     ),
                   ),
                   Text(
                     "Judging criteria",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -233,7 +230,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     child: TextSearchWidget(
                       controller: competitionName,
                       placeholder: "Enter judging criteria",
-
                       fillColor: whiteColour,
                     ),
                   ),
@@ -243,20 +239,20 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       child: Text(
                         "+ Add More",
                         style: appFontStyle(
-                          color:
-                          primaryColor,
+                          color: primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w100,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Rewards",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
@@ -266,7 +262,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     child: TextSearchWidget(
                       controller: competitionName,
                       placeholder: "Enter judging criteria",
-
                       fillColor: whiteColour,
                     ),
                   ),
@@ -276,20 +271,20 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       child: Text(
                         "+ Add More",
                         style: appFontStyle(
-                          color:
-                          primaryColor,
+                          color: primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w100,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Participation fee",
                     style: appFontStyle(
-                      color:
-                      neutral6Color,
+                      color: neutral6Color,
                       fontSize: 16,
                       fontWeight: FontWeight.w100,
                     ),
