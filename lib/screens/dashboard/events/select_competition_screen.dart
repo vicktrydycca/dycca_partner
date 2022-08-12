@@ -8,7 +8,8 @@ class SelectCompetitionScreen extends StatefulWidget {
   const SelectCompetitionScreen({Key? key}) : super(key: key);
 
   @override
-  State<SelectCompetitionScreen> createState() => _SelectCompetitionScreenState();
+  State<SelectCompetitionScreen> createState() =>
+      _SelectCompetitionScreenState();
 }
 
 class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
@@ -37,7 +38,8 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
                 child: TextSearchWidget(
                   controller: search,
                   placeholder: "Search",
@@ -58,7 +60,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                         child: const TabBar(
                           labelColor: primaryColor,
                           unselectedLabelColor: Colors.black,
-                          tabs:  [
+                          tabs: [
                             Tab(text: 'For u'),
                             Tab(text: 'Performing arts'),
                             Tab(text: 'Visual arts'),
@@ -66,10 +68,13 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                         ),
                       ),
                       Container(
-                          height: MediaQuery.of(context).size.height, //height of TabBarView
+                          height: MediaQuery.of(context)
+                              .size
+                              .height, //height of TabBarView
                           decoration: const BoxDecoration(
                               border: Border(
-                                  top: BorderSide(color: Colors.grey, width: 0.5))),
+                                  top: BorderSide(
+                                      color: Colors.grey, width: 0.5))),
                           child: TabBarView(
                             children: <Widget>[
                               Container(
@@ -80,7 +85,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                                           fontWeight: FontWeight.bold)),
                                 ),
                               ),
-                             performingArts(),
+                              performingArts(),
                               Container(
                                 child: Center(
                                   child: Text('Display Tab 3',
@@ -99,7 +104,8 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
       ),
     );
   }
-  Widget performingArts(){
+
+  Widget performingArts() {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SingleChildScrollView(
@@ -120,7 +126,8 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                         child: Row(
                           children: [
                             Image.asset(
-                              'assets/images/dashboard_image.png',height: 70,
+                              'assets/images/dashboard_image.png',
+                              height: 70,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 8.0),
@@ -138,8 +145,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: primaryColor.withOpacity(1),
-                                  borderRadius:
-                                  BorderRadius.circular(3.0),
+                                  borderRadius: BorderRadius.circular(3.0),
                                 ),
                                 height: 30,
                                 width: 60,
@@ -149,8 +155,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                                     child: Text(
                                       "Select",
                                       style: appFontStyle(
-                                        color:
-                                        Colors.white.withOpacity(0.9),
+                                        color: Colors.white.withOpacity(0.9),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -162,34 +167,35 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                           ],
                         ),
                       ),
-                      const Divider(thickness: 1,),
+                      const Divider(
+                        thickness: 1,
+                      ),
                     ],
                   ),
                 );
               },
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0,top: 10,bottom: 8),
+              padding: const EdgeInsets.only(left: 8.0, top: 10, bottom: 8),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       "OTHERS",
-                      style: fontStyle(
-                          neutral6Color, FontWeight.w600, 18),
+                      style: fontStyle(neutral6Color, FontWeight.w600, 18),
                     ),
                   ),
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/addDetailsOfCompetitionRoutes');
+                      Navigator.pushNamed(
+                          context, '/addDetailsOfCompetitionRoutes');
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         color: primaryColor.withOpacity(1),
-                        borderRadius:
-                        BorderRadius.circular(3.0),
+                        borderRadius: BorderRadius.circular(3.0),
                       ),
                       height: 30,
                       width: 60,
@@ -199,8 +205,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                           child: Text(
                             "Add",
                             style: appFontStyle(
-                              color:
-                              Colors.white.withOpacity(0.9),
+                              color: Colors.white.withOpacity(0.9),
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                             ),
@@ -212,7 +217,9 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                 ],
               ),
             ),
-            const Divider(thickness: 1,),
+            const Divider(
+              thickness: 1,
+            ),
           ],
         ),
       ),
