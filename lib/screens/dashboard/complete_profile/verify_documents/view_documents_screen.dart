@@ -87,7 +87,7 @@ Navigator.pushNamed(context, '/refundPolicyRoutes');
                     style: fontStyle(neutral6Color, FontWeight.w400, 16),
                   ),
                 ),
-                Image.asset('assets/images/pan_image.png'),
+                Image.asset('assets/images/aadhar_front.jpg'),
                 const SizedBox(
                   height: 10,
                 ),
@@ -98,7 +98,7 @@ Navigator.pushNamed(context, '/refundPolicyRoutes');
                     style: fontStyle(neutral6Color, FontWeight.w400, 16),
                   ),
                 ),
-                Image.asset('assets/images/pan_image.png'),
+                Image.asset('assets/images/adhar_back.jpg',scale: 0.6,width: 250,),
                 const SizedBox(
                   height: 10,
                 ),
