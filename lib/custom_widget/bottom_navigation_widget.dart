@@ -1,4 +1,5 @@
 import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/create_event_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 
 import 'package:flutter/material.dart';
@@ -55,7 +56,8 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     );
   }
   static final List<Widget> _widgetOptions = <Widget>[
-    DashboardScreen(),
-
+    const DashboardScreen(),
+    const CreateEventScreen(),
+    const CreateEventScreen(),
   ];
 }

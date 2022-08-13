@@ -114,7 +114,7 @@ class _SelectSerivceScreenState extends State<SelectSerivceScreen> {
                     child: Row(
                       children: [
                         Image.asset(
-                          'assets/images/dashboard_image.png',
+                          'assets/images/dashboard_image.png',height: 60,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
