@@ -25,7 +25,7 @@ class _AddJudgesScreenState extends State<AddJudgesScreen> {
         ),
         backgroundColor: primaryColor,
         onPressed: () {
-          Navigator.pushNamed(context, '/payOutPolicyRoutes');
+          Navigator.pushNamed(context, '/createEventSaveContinueRoutes');
         },
       ),
       backgroundColor: whiteColour,

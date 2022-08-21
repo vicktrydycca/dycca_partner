@@ -21,8 +21,10 @@ import 'package:dycca_partner/screens/dashboard/dashboard_select/add_equipments_
 import 'package:dycca_partner/screens/dashboard/dashboard_select/complete_profile_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/add_details_of_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/add_judges_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/create_event_save_continue_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/host_event_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/select_competition_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/view_products_screen.dart';
 import 'package:dycca_partner/screens/dashboard/profile_details_screen.dart';
 import 'package:dycca_partner/screens/dashboard/select_service_screen/dashboard_select_screen.dart';
 import 'package:dycca_partner/screens/go_premium/go_premium_booking.dart';
@@ -60,8 +62,8 @@ class Routes{
       '/addDetailsOfCompetitionRoutes': (context) => const AddDetailsOfCompetitionScreen(),
       '/addJudgesRoutes': (context) => const AddJudgesScreen(),
       '/hostEventRoutes': (context) => const HostEventScreen(),
-      '/selectCompetitionRoutes': (context) => const SelectCompetitionScreen(),
-      '/selectCompetitionRoutes': (context) => const SelectCompetitionScreen(),
+      '/createEventSaveContinueRoutes': (context) => const CreateEventSaveContinueScreen(),
+      '/viewProductsRoutes': (context) => const ViewProductsScreen(),
       '/selectCompetitionRoutes': (context) => const SelectCompetitionScreen(),
 
       '/mainScreen': (context) => const MainScreen(),

@@ -56,8 +56,13 @@ const selectCompetitionRoutes = '/selectCompetitionRoutes';
 const addDetailsOfCompetitionRoutes = '/addDetailsOfCompetitionRoutes';
 const addJudgesRoutes = '/addJudgesRoutes';
 const hostEventRoutes = '/hostEventRoutes';
-const selectComtitionRoutes = '/selectCompetitionRoutes';
-const selecmpetitionRoutes = '/selectCompetitionRoutes';
+const createEventSaveContinueRoutes = '/createEventSaveContinueRoutes';
+const viewProductsRoutes = '/viewProductsRoutes';
+const selecmpetitioRoutes = '/selectCompetitionRoutes';
+const selecmpeitionRoutes = '/selectCompetitionRoutes';
+const selecmetitionRoutes = '/selectCompetitionRoutes';
+const slecmpetitionRoutes = '/selectCompetitionRoutes';
+
 
 var appFontStyle = GoogleFonts.acme;
 

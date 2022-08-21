@@ -1,7 +1,9 @@
 import 'package:dycca_partner/custom_widget/flutter_switch.dart';
+import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HostEventScreen extends StatefulWidget {
   const HostEventScreen({Key? key}) : super(key: key);
@@ -13,7 +15,35 @@ class HostEventScreen extends StatefulWidget {
 class _HostEventScreenState extends State<HostEventScreen> {
   TextEditingController competitionName = TextEditingController();
   TextEditingController discription = TextEditingController();
+  TextEditingController duration = TextEditingController();
   bool durationSwitch = true;
+  DateTime startDate = DateTime.now().add(const Duration(days: 5));
+  TimeOfDay startTime = TimeOfDay.now();
+  DateTime endDate = DateTime.now().add(const Duration(days: 10));
+  TimeOfDay endTime = TimeOfDay.now();
+  DateTime enrollmentEndDate = DateTime.now();
+  TimeOfDay enrollmentEndTime = TimeOfDay.now();
+  Future<void> _selectTime(BuildContext context, type) async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: type == 'StartDate'
+          ? startTime
+          : type == 'EndDate'
+              ? endTime
+              : enrollmentEndTime,
+    );
+    if (pickedTime != null) {
+      if (type == 'StartDate') {
+        startTime = pickedTime;
+      }
+      setState(() {});
+    }
+  }
+
+  getformattedTime(TimeOfDay time) {
+    return '${time.hour}:${time.minute} ${time.period.toString().split('.')[1]}';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,8 +218,11 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 25.0),
                     child: TextFormField(
+                      controller: duration,
                       decoration: InputDecoration(
                           hintText: 'Ex:- Round 1',
+                          hintStyle:
+                              fontStyle(neutral4Color, FontWeight.w500, 14),
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(bottom: 10.0),
                             child: Row(
@@ -199,6 +232,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                 FlutterSwitch(
                                   height: 20,
                                   width: 45,
+                                  activeColor: primaryColor,
                                   value: durationSwitch,
                                   onToggle: (val) {
                                     durationSwitch = val;
@@ -216,6 +250,176 @@ class _HostEventScreenState extends State<HostEventScreen> {
                             ),
                           )),
                     ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25.0),
+                    child: TextFormField(
+                      controller: duration,
+                      decoration: InputDecoration(
+                          hintText: 'Select Venue Partner',
+                          hintStyle:
+                              fontStyle(neutral4Color, FontWeight.w500, 14),
+                          prefixIcon: const Icon(
+                            Icons.location_on_outlined,
+                            color: primaryColor,
+                          )),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              _selectDate(context, 'StartDate');
+                            },
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      getformattedTime(startTime),
+                                      style: fontStyle(
+                                          neutral4Color, FontWeight.w400, 16),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(
+                                      Icons.calendar_today_rounded,
+                                      color: primaryColor,
+                                      size: 15,
+                                    )
+                                  ],
+                                ),
+                                const Divider(
+                                  thickness: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 100,
+                        ),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              _selectTime(context, 'startDate');
+                            },
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      getformattedTime(startTime),
+                                      style: fontStyle(
+                                          neutral4Color, FontWeight.w400, 16),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(
+                                      Icons.access_time,
+                                      color: primaryColor,
+                                      size: 15,
+                                    )
+                                  ],
+                                ),
+                                const Divider(
+                                  thickness: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              _selectDate(context, 'StartDate');
+                            },
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      getformattedTime(startTime),
+                                      style: fontStyle(
+                                          neutral4Color, FontWeight.w400, 16),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(
+                                      Icons.calendar_today_rounded,
+                                      color: primaryColor,
+                                      size: 15,
+                                    )
+                                  ],
+                                ),
+                                const Divider(
+                                  thickness: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 100,
+                        ),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              _selectTime(context, 'startDate');
+                            },
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      getformattedTime(startTime),
+                                      style: fontStyle(
+                                          neutral4Color, FontWeight.w400, 16),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    const Icon(
+                                      Icons.access_time,
+                                      color: primaryColor,
+                                      size: 15,
+                                    )
+                                  ],
+                                ),
+                                const Divider(
+                                  thickness: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Text(
                     "Judging criteria",
@@ -289,6 +493,307 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       fontWeight: FontWeight.w100,
                     ),
                   ),
+                  Row(
+                    children: [
+                      Radio(
+                          value: "",
+                          groupValue: "",
+                          activeColor: primaryColor,
+                          onChanged: (val) {}),
+                      Text(
+                        "Single Entry",
+                        style: appFontStyle(
+                          color: neutral6Color,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25.0),
+                    child: TextFormField(
+                      controller: duration,
+                      decoration: const InputDecoration(
+                          prefixIcon: Icon(
+                        Icons.currency_rupee,
+                        color: neutral6Color,
+                        size: 15,
+                      )),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                          value: "",
+                          groupValue: "",
+                          activeColor: primaryColor,
+                          onChanged: (val) {}),
+                      Text(
+                        "Entry with friend",
+                        style: appFontStyle(
+                          color: neutral6Color,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25.0),
+                    child: TextFormField(
+                      controller: duration,
+                      decoration: const InputDecoration(
+                          prefixIcon: Icon(
+                        Icons.currency_rupee,
+                        color: neutral6Color,
+                        size: 15,
+                      )),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                          value: "",
+                          groupValue: "",
+                          activeColor: primaryColor,
+                          onChanged: (val) {}),
+                      Text(
+                        "Entry With Sponsors",
+                        style: appFontStyle(
+                          color: neutral6Color,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: neutral4Color.withOpacity(0.4)),
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 5),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Container(
+                                width: 100,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: neutral4Color, width: 1),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(4))),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(3.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 120.0),
+                                        child: GestureDetector(
+                                            onTap: () {},
+                                            child: const Icon(
+                                              Icons.cancel_rounded,
+                                              size: 13,
+                                            )),
+                                      ),
+                                      const CircleAvatar(
+                                        radius: 22,
+                                        backgroundColor: Colors.blue,
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 8.0),
+                                        child: Text(
+                                          "Mithali Raj",
+                                          style: fontStyle(neutral6Color,
+                                              FontWeight.w100, 14),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            bottom: 5.0,
+                                            left: 20,
+                                            right: 20,
+                                            top: 3),
+                                        child: Text(
+                                          "Choreographer",
+                                          style: fontStyle(
+                                              primaryColor, FontWeight.w100, 8),
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons.star,
+                                                    color: primaryColor,
+                                                    size: 15,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 8.0),
+                                                    child: Text(
+                                                      "4.5",
+                                                      style: fontStyle(
+                                                          primaryColor,
+                                                          FontWeight.w100,
+                                                          8),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Text(
+                                                "Rating",
+                                                style: fontStyle(neutral6Color,
+                                                    FontWeight.w100, 10),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 10.0),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.person,
+                                                      color: primaryColor,
+                                                      size: 15,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 8.0),
+                                                      child: Text(
+                                                        "89",
+                                                        style: fontStyle(
+                                                            primaryColor,
+                                                            FontWeight.w100,
+                                                            8),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Text(
+                                                  "Collaborated",
+                                                  style: fontStyle(
+                                                      neutral6Color,
+                                                      FontWeight.w100,
+                                                      10),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons.person,
+                                                    color: primaryColor,
+                                                    size: 15,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 8.0),
+                                                    child: Text(
+                                                      "23",
+                                                      style: fontStyle(
+                                                          primaryColor,
+                                                          FontWeight.w100,
+                                                          8),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Text(
+                                                "Created",
+                                                style: fontStyle(neutral6Color,
+                                                    FontWeight.w100, 10),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                "Rachel Mcled",
+                                style: appFontStyle(
+                                  color: neutral6Color,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w100,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, '/viewProductsRoutes');
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: primaryColor.withOpacity(1),
+                                  borderRadius: BorderRadius.circular(3.0),
+                                ),
+                                height: 30,
+                                width: 50,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                    child: Text(
+                                      "View Products",
+                                      style: appFontStyle(
+                                        color: Colors.white.withOpacity(0.9),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Text(
+                      "Event Visibility",
+                      style: appFontStyle(
+                        color: neutral6Color,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w100,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -296,5 +801,28 @@ class _HostEventScreenState extends State<HostEventScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _selectDate(BuildContext context, type) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: type == 'StartDate'
+          ? startDate
+          : type == 'EndDate'
+              ? endDate
+              : enrollmentEndDate,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null) {
+      if (type == 'StartDate') {
+        startDate = picked;
+      } else if (type == 'EndDate') {
+        endDate = picked;
+      }
+    } else {
+      enrollmentEndDate = picked!;
+    }
+    setState(() {});
   }
 }
