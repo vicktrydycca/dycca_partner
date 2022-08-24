@@ -1,10 +1,8 @@
+// ignore: deprecated_member_use
 import 'package:data_table_2/paginated_data_table_2.dart';
 import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
-import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
@@ -185,7 +183,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             //           showDialog(
             //             context: context,
             //             builder: (BuildContext context) {
-            //               return showDialougeBoxEquipment();
+            //               return showDialogueBoxEquipment();
             //             },
             //           );
             //         },
@@ -225,7 +223,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -233,19 +231,14 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             children: [
               Row(
                 children: [
-                  Icon(Icons.date_range),
+                  const Icon(Icons.date_range),
                   Text("  Date",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
                 ],
               ),
-              Container(
-
-                child: Text("From",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
-              ),
+              Text("From",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Container(
-                  child: Text("Till",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
-                ),
+                child: Text("Till",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
               ),
 
 
@@ -255,13 +248,13 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: [
+                children: const [
                   SizedBox(width: 100,)
                 ],
               ),
               Container(
 
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   border: Border(
                   bottom: BorderSide( //                    <--- top side
                     color: Colors.grey,
@@ -272,13 +265,13 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                 child: Center(child: Row(
                   children: [
                     Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
-                    Icon(Icons.keyboard_arrow_down_rounded,                    color: Colors.grey,
+                    const Icon(Icons.keyboard_arrow_down_rounded,                    color: Colors.grey,
                         )
                   ],
                 ),)
               ),
               Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       border: Border(
                         bottom: BorderSide( //                    <--- top side
                           color: Colors.grey,
@@ -289,7 +282,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   child: Center(child: Row(
                     children: [
                       Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
-                      Icon(Icons.keyboard_arrow_down_rounded ,                   color: Colors.grey,
+                      const Icon(Icons.keyboard_arrow_down_rounded ,                   color: Colors.grey,
                       )
                     ],
                   ),)
@@ -311,7 +304,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           columnSpacing: 12,
           horizontalMargin: 12,
           minWidth: 600,
-          columns: [
+          columns: const [
             DataColumn2(
               label: Text('Column A'),
               size: ColumnSize.L,
@@ -369,7 +362,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           )
         ],
       ),
-      content: Container(
+      content: SizedBox(
         height: 150,
         child: Column(
           children: [
@@ -444,7 +437,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           )
         ],
       ),
-      content: Container(
+      content: SizedBox(
         height: 150,
         child: Column(
           children: [
@@ -519,7 +512,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           )
         ],
       ),
-      content: Container(
+      content: SizedBox(
         height: 150,
         child: Column(
           children: [

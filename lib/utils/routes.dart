@@ -9,7 +9,7 @@ import 'package:dycca_partner/screens/auth/otp_screen.dart';
 import 'package:dycca_partner/screens/auth/sign_up_screen.dart';
 import 'package:dycca_partner/screens/auth/splash_screen.dart';
 import 'package:dycca_partner/screens/auth/verify_mobile_number_screen.dart';
-import 'package:dycca_partner/screens/dashboard/complete_profile/complete_profile_screen.dart';
+
 import 'package:dycca_partner/screens/dashboard/complete_profile/verify_documents/pay_out_policy_screen.dart';
 import 'package:dycca_partner/screens/dashboard/complete_profile/verify_documents/refund_policy_screen.dart';
 import 'package:dycca_partner/screens/dashboard/complete_profile/verify_documents/submit_documents_screen.dart';
@@ -18,7 +18,7 @@ import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_select/about_us_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_select/add_amenities_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_select/add_equipments_screen.dart';
-import 'package:dycca_partner/screens/dashboard/dashboard_select/complete_profile_screen.dart';
+
 import 'package:dycca_partner/screens/dashboard/events/add_details_of_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/add_judges_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/create_event_save_continue_screen.dart';
@@ -26,11 +26,14 @@ import 'package:dycca_partner/screens/dashboard/events/event_details_screen.dart
 import 'package:dycca_partner/screens/dashboard/events/host_event_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/select_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/view_products_screen.dart';
-import 'package:dycca_partner/screens/dashboard/profile_details_screen.dart';
+
 import 'package:dycca_partner/screens/dashboard/select_service_screen/dashboard_select_screen.dart';
 import 'package:dycca_partner/screens/go_premium/go_premium_booking.dart';
 import 'package:dycca_partner/screens/go_premium/select_plan_screen.dart';
 import 'package:dycca_partner/screens/notification/notification_screen.dart';
+import 'package:dycca_partner/screens/profile/complete_profile_screen.dart';
+import 'package:dycca_partner/screens/profile/profile_details_screen.dart';
+import 'package:dycca_partner/screens/profile/profile_process.dart';
 
 
 class Routes{

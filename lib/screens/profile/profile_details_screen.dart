@@ -1,9 +1,7 @@
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/custom_widget/dropdown_widget.dart';
-import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProfileDetailsScreen extends StatefulWidget {
   const ProfileDetailsScreen({Key? key}) : super(key: key);
