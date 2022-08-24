@@ -1,5 +1,6 @@
 import 'package:dycca_partner/custom_widget/flutter_switch.dart';
 import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
+import 'package:dycca_partner/custom_widget/show_dialouge_box.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
   }
 
   getformattedTime(TimeOfDay time) {
+
     return '${time.hour}:${time.minute} ${time.period.toString().split('.')[1]}';
   }
 
@@ -71,20 +73,28 @@ class _HostEventScreenState extends State<HostEventScreen> {
             ),
           ),
           Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: primaryColor,
-              ),
-              height: 55,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: Text(
-                    "Host this event",
-                    style: appFontStyle(
-                      color: Colors.white.withOpacity(0.9),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w100,
+            child: GestureDetector(
+              onTap: () {
+                Singleton.showmsg(context,
+
+                );
+
+              },
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: primaryColor,
+                ),
+                height: 55,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Text(
+                      "Host this event",
+                      style: appFontStyle(
+                        color: Colors.white.withOpacity(0.9),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w100,
+                      ),
                     ),
                   ),
                 ),

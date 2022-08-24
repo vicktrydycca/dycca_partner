@@ -22,6 +22,7 @@ import 'package:dycca_partner/screens/dashboard/dashboard_select/complete_profil
 import 'package:dycca_partner/screens/dashboard/events/add_details_of_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/add_judges_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/create_event_save_continue_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/event_details_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/host_event_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/select_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/view_products_screen.dart';
@@ -64,8 +65,11 @@ class Routes{
       '/hostEventRoutes': (context) => const HostEventScreen(),
       '/createEventSaveContinueRoutes': (context) => const CreateEventSaveContinueScreen(),
       '/viewProductsRoutes': (context) => const ViewProductsScreen(),
-      '/selectCompetitionRoutes': (context) => const SelectCompetitionScreen(),
-
+      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
+      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
+      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
+      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
+      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
       '/mainScreen': (context) => const MainScreen(),
     };
   }

@@ -25,7 +25,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
         title: const Text("Select Products", style: appbarConstFont),
       ),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: Column(
           children: [
             Padding(
@@ -88,7 +88,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
                                       fontWeight: FontWeight.w100,
                                     ),
                                   ),
-                                  Icon(Icons.arrow_drop_down_sharp)
+                                  const Icon(Icons.arrow_drop_down_sharp)
                                 ],
                               ),
                             ),
@@ -108,7 +108,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
                         ],
                       ),
                     ),
-Spacer(),
+const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20.0,right: 20),
                       child: GestureDetector(
