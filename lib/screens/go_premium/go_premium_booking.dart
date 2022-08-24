@@ -1,3 +1,4 @@
+import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -40,15 +41,10 @@ class _GoPremiumBookingScreenState extends State<GoPremiumBookingScreen> {
         ),
       ),
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: neutral6Color,
-        ),
-        title: const Text("Go Premium", style: appbarConstFont),
-      ),
+      appBar:
+      AppbarBackButton().AppbarBack(context, "Go Premium"),
+
+
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 25),
         child: Column(

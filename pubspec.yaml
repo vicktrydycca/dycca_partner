@@ -36,6 +36,7 @@ dependencies:
   dio:
   get: ^4.6.5
   smooth_page_indicator: ^1.0.0+2
+  data_table_2:
   #for using getx
   http:
   shared_preferences: ^2.0.15

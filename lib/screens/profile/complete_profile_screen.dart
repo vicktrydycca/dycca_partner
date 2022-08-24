@@ -1,6 +1,10 @@
+import 'package:data_table_2/paginated_data_table_2.dart';
+import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
@@ -14,15 +18,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: neutral6Color,
-        ),
-        title: const Text("Profile Completion", style: appbarConstFont),
-      ),
+      appBar: AppbarBackButton().AppbarBack(context, "Profile Completion"),
       body: SingleChildScrollView(
         physics: const ScrollPhysics(),
         child: Column(
@@ -174,36 +170,36 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             const Divider(
               thickness: 2,
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
-              child: Row(
-                children: [
-                  Text(
-                    "Studio Rules",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  const Spacer(),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return showDialougeBoxEquipment();
-                        },
-                      );
-                    },
-                    child: Text(
-                      "+ Add Rules",
-                      style: fontStyle(primaryColor, FontWeight.w400, 14),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(
-              thickness: 2,
-            ),
+            // Padding(
+            //   padding:
+            //       const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+            //   child: Row(
+            //     children: [
+            //       Text(
+            //         "Studio Rules",
+            //         style: fontStyle(neutral6Color, FontWeight.w500, 16),
+            //       ),
+            //       const Spacer(),
+            //       InkWell(
+            //         onTap: () {
+            //           showDialog(
+            //             context: context,
+            //             builder: (BuildContext context) {
+            //               return showDialougeBoxEquipment();
+            //             },
+            //           );
+            //         },
+            //         child: Text(
+            //           "+ Add Rules",
+            //           style: fontStyle(primaryColor, FontWeight.w400, 14),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // const Divider(
+            //   thickness: 2,
+            // ),
             studioTimimg()
           ],
         ),
@@ -229,122 +225,120 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "From",
-                  style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                ),
-
-                Text(
-                  "Till",
-                  style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                ),
-              ],
-            ),
+          SizedBox(
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-
-                  const Icon(
-                    Icons.calendar_today_rounded,
-                    color: primaryColor,
-                  ),
-                  Text(
-                    "   Date",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-
+                  Icon(Icons.date_range),
+                  Text("  Date",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
                 ],
+              ),
+              Container(
+
+                child: Text("From",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Container(
+                  child: Text("Till",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
+                ),
               ),
 
 
-              SelectTimeFormatWidget(),
-              SelectTimeFormatWidget(),
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Text(
-                    "From",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  SelectTimeFormatWidget(),
-
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.access_time,
-                          color: primaryColor,
-                        ),
-                        Text(
-                          "   Time",
-                          style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Text(
-                      "Sunday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Monday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Text(
-                    "Tuesday",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Wednesday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Text(
-                    "Thrusday",
-                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text(
-                      "Friday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
-                    child: Text(
-                      "Saturday",
-                      style: fontStyle(neutral6Color, FontWeight.w500, 16),
-                    ),
-                  ),
+                  SizedBox(width: 100,)
                 ],
-              )
+              ),
+              Container(
+
+                decoration: BoxDecoration(
+                  border: Border(
+                  bottom: BorderSide( //                    <--- top side
+                    color: Colors.grey,
+                    width: 1.5,
+                  ),
+                  )
+                ),
+                child: Center(child: Row(
+                  children: [
+                    Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
+                    Icon(Icons.keyboard_arrow_down_rounded,                    color: Colors.grey,
+                        )
+                  ],
+                ),)
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide( //                    <--- top side
+                          color: Colors.grey,
+                          width: 1.5,
+                        ),
+                      )
+                  ),
+                  child: Center(child: Row(
+                    children: [
+                      Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
+                      Icon(Icons.keyboard_arrow_down_rounded ,                   color: Colors.grey,
+                      )
+                    ],
+                  ),)
+              ),
+
             ],
           ),
+          studioTiming()
         ],
       ),
+    );
+  }
+
+  Widget studioTiming(){
+
+    return Padding(
+      padding: const EdgeInsets.all(2),
+      child: DataTable2(
+          columnSpacing: 12,
+          horizontalMargin: 12,
+          minWidth: 600,
+          columns: [
+            DataColumn2(
+              label: Text('Column A'),
+              size: ColumnSize.L,
+            ),
+            DataColumn(
+              label: Text('Column B'),
+            ),
+            DataColumn(
+              label: Text('Column C'),
+            ),
+            DataColumn(
+              label: Text('Column D'),
+            ),
+            DataColumn(
+              label: Text('Column NUMBERS'),
+              numeric: true,
+            ),
+          ],
+          rows: List<DataRow>.generate(
+              100,
+                  (index) => DataRow(cells: [
+                DataCell(Text('A' * (10 - index % 10))),
+                DataCell(Text('B' * (10 - (index + 5) % 10))),
+                DataCell(Text('C' * (15 - (index + 5) % 10))),
+                DataCell(Text('D' * (15 - (index + 10) % 10))),
+                DataCell(Text(((index + 0.1) * 25.4).toString()))
+              ]))),
     );
   }
 
