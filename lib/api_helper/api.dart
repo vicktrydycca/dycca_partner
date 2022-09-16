@@ -13,4 +13,9 @@ class AppApi{
   static const String getNotificationListApi = baseUrl+"user/notification";
   static const String getAmenityListApi = baseUrl+"amenity";
   static const String getEquipmentListApi = baseUrl+"equipment";
+  static const String get_Jugeds_Partners_SponsersListApi = baseUrl+"partner/sponser";
+  static const String get_eventCategoryListApi = baseUrl+"eventcategory";
+  static const String getSaveStudioApi = baseUrl+"studio/save";
+  static const String saveStudioAmentiesApi = baseUrl+"studio/amenty/add";
+  static const String saveStudioEquipementApi = baseUrl+"studio/equipment/add";
 }

@@ -16,7 +16,7 @@ class AmenityBloc extends BlocBase{
 
   getAmenityList(){
 
-    GetData().getEquipmentApi(onSuccess: (data){
+    GetData().getAmenityApi(onSuccess: (data){
       _amenityListSink.add(data);
     }, onError: (data){
       DialogHelper.showErroDialog(description:data);

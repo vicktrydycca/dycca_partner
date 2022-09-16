@@ -128,7 +128,7 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, '/addJudgesRoutes');
+                              Navigator.pushNamed(context, '/addJudgesRoutes',arguments: {"appbar":items[index]});
                             },
                             child: Container(
                               decoration: BoxDecoration(

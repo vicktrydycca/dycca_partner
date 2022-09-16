@@ -1,6 +1,6 @@
 import 'package:dycca_partner/custom_widget/appbar_widget.dart';
 import 'package:dycca_partner/custom_widget/drawer_widget.dart';
-import 'package:dycca_partner/screens/dashboard/events/create_event_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/create_event_homescreen.dart';
 import 'package:dycca_partner/screens/dashboard/tabs/upper_tabs.dart';
 
 import 'package:dycca_partner/utils/constants.dart';

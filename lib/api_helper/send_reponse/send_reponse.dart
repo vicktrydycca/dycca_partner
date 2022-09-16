@@ -185,19 +185,15 @@ debugPrint(response.body);
   }
   changeForgetPasswordOTP(token,password,context) async {
     showLoading('Please Wait..');
-
     final response = await http.post(
         Uri.parse(AppApi.changeForgetPasswordApi),
         body: {
           "token":token,
           "npass":password,
         });
-
     if (response.statusCode == 200) {
       hideLoading();
-
       return  Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardScreen()));
-
 
     } else {
       // If the server did not return a 200 OK response,
@@ -206,6 +202,120 @@ debugPrint(response.body);
 
       var jsonbody = jsonDecode(response.body);
       var msg = jsonbody["message"]??jsonbody["error"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
+  }
+
+
+  saveStudioProfile(studioType,studioTypeDescription,actType,context) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.getSaveStudioApi),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        },
+        body: {
+            "studioId":"16",
+            "$studioType":studioTypeDescription.toString(),
+            "completionRatio":"12",
+            "act":actType
+        });
+    var jsonbody = jsonDecode(response.body);
+    var msg = jsonbody["message"]??jsonbody["error"];
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      return   DialogHelper.showErroDialog(description:"Your Data is Updated Successfully",title: "Success");
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
+  }
+  saveStudioAmenties(studioType,studioTypeDescription,actType,context) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.saveStudioAmentiesApi),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        },
+        body: {
+            "studioId":"16",
+            "$studioType":studioTypeDescription.toString(),
+            "completionRatio":"12",
+            "act":actType
+        });
+    var jsonbody = jsonDecode(response.body);
+    var msg = jsonbody["message"]??jsonbody["error"];
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      Navigator.pop(context);
+      return   DialogHelper.showErroDialog(description:"Your Data is Updated Successfully",title: "Success");
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
+  }
+  saveStudioEquipement(studioType,studioTypeDescription,actType,context) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.saveStudioEquipementApi),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        },
+        body: {
+            "studioId":"16",
+            "$studioType":studioTypeDescription.toString(),
+            "completionRatio":"12",
+            "act":actType
+        });
+    var jsonbody = jsonDecode(response.body);
+    var msg = jsonbody["message"]??jsonbody["error"];
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      Navigator.pop(context);
+      return   DialogHelper.showErroDialog(description:"Your Data is Updated Successfully",title: "Success");
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description:msg);    }
+  }
+  uploadStudioImage(studioType,studioTypeDescription,actType,context) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.getSaveStudioApi),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        },
+        body: {
+            "studioId":"16",
+            "profileimg":"image"
+        });
+    var jsonbody = jsonDecode(response.body);
+    var msg = jsonbody["message"]??jsonbody["error"];
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      return   DialogHelper.showErroDialog(description:"Your Data is Updated Successfully",title: "Success");
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
       debugPrint(response.body);
       DialogHelper.showErroDialog(description:msg);    }
   }

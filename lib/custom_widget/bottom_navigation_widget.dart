@@ -1,5 +1,5 @@
 import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
-import 'package:dycca_partner/screens/dashboard/events/create_event_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/create_event_homescreen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 
 import 'package:flutter/material.dart';

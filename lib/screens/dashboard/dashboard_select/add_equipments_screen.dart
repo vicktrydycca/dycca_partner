@@ -1,3 +1,4 @@
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/bloc_controllers/amenity_bloc.dart';
 import 'package:dycca_partner/bloc_controllers/equipment_bloc.dart';
 import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
@@ -16,7 +17,8 @@ class AddEquipmentsScreen extends StatefulWidget {
 
 class _AddEquipmentsScreenState extends State<AddEquipmentsScreen> {
   final equipmentsController = EquipmentBloc();
-
+  List<bool> switchList = [];
+  List equipmentIDList = [];
   @override
   void initState() {
     // TODO: implement initState
@@ -47,6 +49,9 @@ class _AddEquipmentsScreenState extends State<AddEquipmentsScreen> {
                 stream: equipmentsController.equipmentListStream,
                 builder: (context, snapshot) {
                   if(snapshot.hasData){
+                    for(int i = 0; i < snapshot.data!.length;i++){
+                      switchList.add(false);
+                    }
                     return ListView.builder(
                       itemCount: snapshot.data!.length,
                       shrinkWrap: true,
@@ -70,20 +75,20 @@ class _AddEquipmentsScreenState extends State<AddEquipmentsScreen> {
                                   style: fontStyle(neutral6Color, FontWeight.w500, 16),
                                 ),
                                 const Spacer(),
-                                FlutterSwitch(
-                                  width: 40.0,
-                                  height: 19.0,
-                                  valueFontSize: 30.0,
-                                  toggleSize: 15.0,
-                                  value: data,
-                                  borderRadius: 10.0,
-                                  padding: 4.0,
-                                  showOnOff: false,
-                                  activeColor: primaryColor,
-                                  onToggle: (val) {
+                                Switch(value: switchList[index], onChanged: (val){
+                                  setState(() {
 
-                                  },
-                                ),
+                                  });
+                                  switchList[index] = val;
+
+                                  if(switchList[index] == true){
+                                    equipmentIDList.add(snapshot.data![index].equipId);
+                                  }
+                                  else{
+                                    equipmentIDList.remove(snapshot.data![index].equipId);
+                                  }
+
+                                })
                               ],
                             ),
                           ),
@@ -102,17 +107,23 @@ class _AddEquipmentsScreenState extends State<AddEquipmentsScreen> {
                     style: fontStyle(neutral6Color, FontWeight.w500, 16),
                   ),
                   Spacer(),
-                  Container(
-                    height: 30,
-                    width: 130,
-                    decoration: const BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.all(Radius.circular(3))
-                    ),
-                    child: Center(
-                      child: Text(
-                        "+ Add Equipments",
-                        style: fontStyle(whiteColour, FontWeight.w400, 16),
+                  InkWell(
+                    onTap: (){
+                      SendData().saveStudioEquipement("equipm",equipmentIDList,"equipment",context);
+
+                    },
+                    child: Container(
+                      height: 30,
+                      width: 130,
+                      decoration: const BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.all(Radius.circular(3))
+                      ),
+                      child: Center(
+                        child: Text(
+                          "+ Add Equipments",
+                          style: fontStyle(whiteColour, FontWeight.w400, 16),
+                        ),
                       ),
                     ),
                   )

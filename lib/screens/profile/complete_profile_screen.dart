@@ -14,6 +14,15 @@ class CompleteProfileScreen extends StatefulWidget {
 }
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
+  List<String> weekdaysList = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -234,21 +243,23 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               Row(
                 children: [
                   Icon(Icons.date_range),
-                  Text("  Date",style: fontStyle(neutral6Color, FontWeight.w500, 16),),
+                  Text(
+                    "  Date",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                  ),
                 ],
               ),
               Container(
-
-                child: Text("From",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
+                child: Text("From",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16)),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Container(
-                  child: Text("Till",style: fontStyle(neutral6Color, FontWeight.w500, 16)),
+                  child: Text("Till",
+                      style: fontStyle(neutral6Color, FontWeight.w500, 16)),
                 ),
               ),
-
-
             ],
           ),
           Row(
@@ -256,45 +267,55 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             children: [
               Row(
                 children: [
-                  SizedBox(width: 100,)
-                ],
-              ),
-              Container(
-
-                decoration: BoxDecoration(
-                  border: Border(
-                  bottom: BorderSide( //                    <--- top side
-                    color: Colors.grey,
-                    width: 1.5,
-                  ),
+                  SizedBox(
+                    width: 100,
                   )
-                ),
-                child: Center(child: Row(
-                  children: [
-                    Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
-                    Icon(Icons.keyboard_arrow_down_rounded,                    color: Colors.grey,
-                        )
-                  ],
-                ),)
+                ],
               ),
               Container(
                   decoration: BoxDecoration(
                       border: Border(
-                        bottom: BorderSide( //                    <--- top side
+                    bottom: BorderSide(
+                      //                    <--- top side
+                      color: Colors.grey,
+                      width: 1.5,
+                    ),
+                  )),
+                  child: Center(
+                    child: Row(
+                      children: [
+                        Text("21/2/22",
+                            style:
+                                fontStyle(neutral8Color, FontWeight.w500, 12)),
+                        Icon(
+                          Icons.keyboard_arrow_down_rounded,
                           color: Colors.grey,
-                          width: 1.5,
-                        ),
-                      )
-                  ),
-                  child: Center(child: Row(
-                    children: [
-                      Text( "21/2/22",style: fontStyle(neutral8Color, FontWeight.w500, 12)),
-                      Icon(Icons.keyboard_arrow_down_rounded ,                   color: Colors.grey,
-                      )
-                    ],
-                  ),)
-              ),
-
+                        )
+                      ],
+                    ),
+                  )),
+              Container(
+                  decoration: BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                      //                    <--- top side
+                      color: Colors.grey,
+                      width: 1.5,
+                    ),
+                  )),
+                  child: Center(
+                    child: Row(
+                      children: [
+                        Text("21/2/22",
+                            style:
+                                fontStyle(neutral8Color, FontWeight.w500, 12)),
+                        Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: Colors.grey,
+                        )
+                      ],
+                    ),
+                  )),
             ],
           ),
           studioTiming()
@@ -303,42 +324,90 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     );
   }
 
-  Widget studioTiming(){
-
+  Widget studioTiming() {
     return Padding(
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(0),
       child: DataTable2(
-          columnSpacing: 12,
-          horizontalMargin: 12,
-          minWidth: 600,
+          columnSpacing: 0,
+          horizontalMargin: 0,
+          minWidth: MediaQuery.of(context).size.width,
           columns: [
             DataColumn2(
-              label: Text('Column A'),
+              label: Row(
+                children: const[
+                  Icon(Icons.watch_later),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('Time'),
+                ],
+              ),
               size: ColumnSize.L,
             ),
             DataColumn(
-              label: Text('Column B'),
+              label: Text('Open/Close'),
             ),
             DataColumn(
-              label: Text('Column C'),
+              label: Text('From'),
             ),
             DataColumn(
-              label: Text('Column D'),
-            ),
-            DataColumn(
-              label: Text('Column NUMBERS'),
-              numeric: true,
+              label: Text('Till'),
             ),
           ],
           rows: List<DataRow>.generate(
-              100,
-                  (index) => DataRow(cells: [
-                DataCell(Text('A' * (10 - index % 10))),
-                DataCell(Text('B' * (10 - (index + 5) % 10))),
-                DataCell(Text('C' * (15 - (index + 5) % 10))),
-                DataCell(Text('D' * (15 - (index + 10) % 10))),
-                DataCell(Text(((index + 0.1) * 25.4).toString()))
-              ]))),
+              weekdaysList.length,
+              (index) => DataRow(cells: [
+                    DataCell(Text(weekdaysList[index])),
+                DataCell( Switch(onChanged: (value){},value: true),),
+                    DataCell(
+                      Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                            bottom: BorderSide(
+                              //                    <--- top side
+                              color: Colors.grey,
+                              width: 1.5,
+                            ),
+                          )),
+                          child: Center(
+                            child: Row(
+                              children: [
+                                Text("21/2/22",
+                                    style: fontStyle(
+                                        neutral8Color, FontWeight.w500, 12)),
+                                Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                          )),
+                    ),
+                    DataCell(
+                      Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                            bottom: BorderSide(
+                              //                    <--- top side
+                              color: Colors.grey,
+                              width: 1.5,
+                            ),
+                          )),
+                          child: Center(
+                            child: Row(
+                              children: [
+                                Text("21/2/22",
+                                    style: fontStyle(
+                                        neutral8Color, FontWeight.w500, 12)),
+                                Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                          )),
+                    ),
+                  ]))),
     );
   }
 

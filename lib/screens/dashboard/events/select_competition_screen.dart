@@ -77,18 +77,12 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                                       color: Colors.grey, width: 0.5))),
                           child: TabBarView(
                             children: <Widget>[
-                              Container(
-                                child: Center(
-                                  child: Text('Display Tab 1',
-                                      style: appFontStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ),
+
+                              performingArts(),
                               performingArts(),
                               Container(
                                 child: Center(
-                                  child: Text('Display Tab 3',
+                                  child: Text('Visual Arts',
                                       style: appFontStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.bold)),

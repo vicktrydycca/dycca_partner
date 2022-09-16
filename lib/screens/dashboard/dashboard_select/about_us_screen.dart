@@ -1,3 +1,4 @@
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
@@ -39,17 +40,22 @@ class AboutUsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 20,),
-                  Container(
-                    height: 50,
-                    width: 150,
-                    decoration: const BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.all(Radius.circular(30))
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Save",
-                        style: fontStyle(whiteColour, FontWeight.w400, 19),
+                  InkWell(
+                    onTap: (){
+                      SendData().saveStudioProfile("studioAbout",writeComment.text,"about",context);
+                      },
+                    child: Container(
+                      height: 50,
+                      width: 150,
+                      decoration: const BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.all(Radius.circular(30))
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Save",
+                          style: fontStyle(whiteColour, FontWeight.w400, 19),
+                        ),
                       ),
                     ),
                   )

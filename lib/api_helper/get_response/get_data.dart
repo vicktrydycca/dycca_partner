@@ -4,8 +4,11 @@ import 'package:dycca_partner/api_helper/api.dart';
 import 'package:dycca_partner/api_helper/api_widgets/api_loader.dart';
 import 'package:dycca_partner/modal_class/amenity_,modalclass.dart';
 import 'package:dycca_partner/modal_class/equipment_modalclass.dart';
+import 'package:dycca_partner/modal_class/event_category_modalclass.dart';
 import 'package:dycca_partner/modal_class/notification_modalclass.dart';
+import 'package:dycca_partner/modal_class/partner_sponser_judges.dart';
 import 'package:dycca_partner/modal_class/services_list_modalclass.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import '';
 
@@ -91,4 +94,92 @@ class GetData {
       return onError(msg);
     }
   }
+  get_Judges_Api({required onSuccess, required onError}) async {
+    var response =
+        await http.post(Uri.parse(AppApi.get_Jugeds_Partners_SponsersListApi), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        }
+    );
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it"+ response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final JudgesModalClass =
+      partnerSponserJudgesFromJson(response.body);
+      return onSuccess(JudgesModalClass.judges);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+  get_VenusPartner_Api({required onSuccess, required onError}) async {
+    var response =
+        await http.post(Uri.parse(AppApi.get_Jugeds_Partners_SponsersListApi), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        }
+    );
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it"+ response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final VenusModalClass =
+      partnerSponserJudgesFromJson(response.body);
+      return onSuccess(VenusModalClass.partners);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+  get_Sponsers_Api({required onSuccess, required onError}) async {
+    var response =
+        await http.post(Uri.parse(AppApi.get_Jugeds_Partners_SponsersListApi), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        }
+    );
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it"+ response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final SponsorsClass =
+      partnerSponserJudgesFromJson(response.body);
+      return onSuccess(SponsorsClass.sponsers);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+  get_event_homepage_Api({required onSuccess, required onError}) async {
+    var response =
+        await http.get(Uri.parse(AppApi.get_eventCategoryListApi)
+    );
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it"+ response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final eventCategory =
+      eventCategoryFromJson(response.body);
+      return onSuccess(eventCategory.category);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+
 }
