@@ -59,12 +59,16 @@ const hostEventRoutes = '/hostEventRoutes';
 const createEventSaveContinueRoutes = '/createEventSaveContinueRoutes';
 const viewProductsRoutes = '/viewProductsRoutes';
 const eventDetailsRoutes = '/eventDetailsRoutes';
-const selecmpeitionRoutes = '/selectCompetitionRoutes';
-const selecmetitionRoutes = '/selectCompetitionRoutes';
-const slecmpetitionRoutes = '/selectCompetitionRoutes';
+const feedBookingDetailRoutes = '/feedBookingDetailRoutes';
+const feedDetailAcceptEntriesRoutes = '/feedDetailAcceptEntriesRoutes';
+const listOfParticipantsRoutes = '/listOfParticipantsRoutes';
+const performanceRatingRoutes = '/performanceRatingRoutes';
+const selectionScreenRoutes = '/selectionScreenRoutes';
+const selectSendRoutes = '/selectSendRoutes';
+const litOfParticipantsRoutes = '/listOfParticipantsRoutes';
 
 
-var appFontStyle = GoogleFonts.acme;
+var appFontStyle = GoogleFonts.roboto;
 
 //Text
 var projectName = Text(

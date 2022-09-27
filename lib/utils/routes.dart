@@ -26,6 +26,12 @@ import 'package:dycca_partner/screens/dashboard/events/event_details_screen.dart
 import 'package:dycca_partner/screens/dashboard/events/host_event_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/select_competition_screen.dart';
 import 'package:dycca_partner/screens/dashboard/events/view_products_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/feed_detail_accept_entries_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/feed_detail_profile_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/list_of_participants_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/performence_rating_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/select_send_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/selection_screen.dart';
 
 import 'package:dycca_partner/screens/dashboard/select_service_screen/dashboard_select_screen.dart';
 import 'package:dycca_partner/screens/go_premium/go_premium_booking.dart';
@@ -69,9 +75,12 @@ class Routes{
       '/createEventSaveContinueRoutes': (context) => const CreateEventSaveContinueScreen(),
       '/viewProductsRoutes': (context) => const ViewProductsScreen(),
       '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
-      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
-      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
-      '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
+      '/feedBookingDetailRoutes': (context) => const FeedDetailProfileScreen(),
+      '/feedDetailAcceptEntriesRoutes': (context) => const FeedDetailAcceptEntriesScreen(),
+      '/listOfParticipantsRoutes': (context) => const ListOfParticipantsScreen(),
+      '/performanceRatingRoutes': (context) => const PerformanceRatingScreen(),
+      '/selectionScreenRoutes': (context) => const SelectionScreen(),
+      '/selectSendRoutes': (context) => const SelectSendScreen(),
       '/eventDetailsRoutes': (context) => const EventDetailsScreen(),
       '/mainScreen': (context) => const MainScreen(),
     };

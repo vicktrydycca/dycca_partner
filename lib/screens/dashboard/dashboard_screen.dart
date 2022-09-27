@@ -1,6 +1,7 @@
 import 'package:dycca_partner/custom_widget/appbar_widget.dart';
 import 'package:dycca_partner/custom_widget/drawer_widget.dart';
 import 'package:dycca_partner/screens/dashboard/events/create_event_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/feed_option_screen.dart';
 import 'package:dycca_partner/screens/dashboard/tabs/upper_tabs.dart';
 
 import 'package:dycca_partner/utils/constants.dart';
@@ -44,8 +45,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   label: 'Create',
                   backgroundColor: Colors.white),
               BottomNavigationBarItem(
-                icon: Icon(Icons.key),
-                label: 'Solutions',
+                icon: Icon(Icons.grid_view),
+                label: 'Feed',
                 backgroundColor: Colors.white,
               ),
             ],
@@ -64,6 +65,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   static final List<Widget> _widgetOptions = <Widget>[
     const UpperTabsScreen(),
     const CreateEventScreen(),
-    const CreateEventScreen(),
+    const FeedOptionsScreen(),
   ];
 }
