@@ -13,32 +13,43 @@ class _SubmitDocumentsScreenState extends State<SubmitDocumentsScreen> {
     {
       'icon': 'assets/images/adhar_card.png',
       'name': "E-Adhar Card",
-      'path': viewDocumentsRoutes
+      'path': viewDocumentsRoutes,
+       'imageType':"eadharcard"
     },
     {
       'icon': 'assets/images/pan_card.png',
       'name': "Pan Card",
-      'path': ''
+      'path': '',
+     'imageType':"pancard"
+
     },
     {
       'icon': 'assets/images/gst_no.png',
       'name': "GST Number",
-      'path': ''
+      'path': '',
+      'imageType':"gstnumber"
+
     },
     {
       'icon': 'assets/images/driving_license.png',
       'name': "Driving Licence",
-      'path': ''
+      'path': '',
+      'imageType':"drivinglicence"
+
     },
     {
       'icon': 'assets/images/voter_id.png',
       'name': "Voter ID Card",
-      'path': ''
+      'path': '',
+      'imageType':"voteridcard"
+
     },
     {
       'icon': 'assets/images/passport.png',
       'name': "Passport",
-      'path': ''
+      'path': '',
+      'imageType':"passport"
+
     }
   ];
   @override

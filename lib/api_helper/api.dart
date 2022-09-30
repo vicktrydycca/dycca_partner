@@ -18,4 +18,5 @@ class AppApi{
   static const String getSaveStudioApi = baseUrl+"studio/save";
   static const String saveStudioAmentiesApi = baseUrl+"studio/amenty/add";
   static const String saveStudioEquipementApi = baseUrl+"studio/equipment/add";
+  static const String studioImageUploadApi = baseUrl+"studio/profile/documents/upload";
 }

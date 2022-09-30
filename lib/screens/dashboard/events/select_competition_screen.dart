@@ -50,48 +50,6 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
               const SizedBox(
                 height: 20,
               ),
-              DefaultTabController(
-                length: 3, // length of tabs
-                initialIndex: 0,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Container(
-                        child: const TabBar(
-                          labelColor: primaryColor,
-                          unselectedLabelColor: Colors.black,
-                          tabs: [
-                            Tab(text: 'For u'),
-                            Tab(text: 'Performing arts'),
-                            Tab(text: 'Visual arts'),
-                          ],
-                        ),
-                      ),
-                      Container(
-                          height: MediaQuery.of(context)
-                              .size
-                              .height, //height of TabBarView
-                          decoration: const BoxDecoration(
-                              border: Border(
-                                  top: BorderSide(
-                                      color: Colors.grey, width: 0.5))),
-                          child: TabBarView(
-                            children: <Widget>[
-
-                              performingArts(),
-                              performingArts(),
-                              Container(
-                                child: Center(
-                                  child: Text('Visual Arts',
-                                      style: appFontStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ),
-                            ],
-                          ))
-                    ]),
-              )
             ],
           ),
         ),

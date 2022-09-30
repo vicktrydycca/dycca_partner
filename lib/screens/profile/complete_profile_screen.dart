@@ -1,10 +1,17 @@
-import 'package:data_table_2/paginated_data_table_2.dart';
+import 'dart:io';
+
+import 'package:data_table_2/data_table_2.dart';
+import 'package:dycca_partner/api_helper/send_reponse/send_reponse.dart';
 import 'package:dycca_partner/custom_widget/appbar_backbutton.dart';
+import 'package:dycca_partner/custom_widget/button_widget.dart';
+import 'package:dycca_partner/custom_widget/dropdown_widget.dart';
+import 'package:dycca_partner/custom_widget/select_time_dropdown.dart';
 import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
+import 'package:dycca_partner/screens/profile/add_profile_details.dart';
 import 'package:dycca_partner/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   const CompleteProfileScreen({Key? key}) : super(key: key);
@@ -14,15 +21,61 @@ class CompleteProfileScreen extends StatefulWidget {
 }
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
+  String? selectStartTime;
+  String? selectEndTime;
   List<String> weekdaysList = [
-    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
+    "Sunday",
   ];
+
+  List<String> timeList = [
+    "Select",
+    "1AM",
+    "2AM",
+    "3AM",
+    "4AM",
+    "5AM",
+    "6AM",
+    "7AM",
+    "8AM",
+    "9AM",
+    "10AM",
+    "11AM",
+    "12AM",
+    "1PM",
+    "2PM",
+    "3PM",
+    "4PM",
+    "5PM",
+    "6PM",
+    "7PM",
+    "8PM",
+    "9PM",
+    "10PM",
+    "11PM",
+    "12PM"
+  ];
+
+
+  List<bool> openCloseSwitch = [true, true, true, true, true, true, false];
+  final ImagePicker _picker = ImagePicker();
+  XFile? image;
+  String? imageStatus;
+  TimeOfDay startTime = TimeOfDay.now();
+  List<String> selectedStartTimeValue = ["Select","Select","Select","Select","Select","Select","Select"];
+  List<String> selectedEndTimeValue = ["Select","Select","Select","Select","Select","Select","Select"];
+
+  @override
+  void initState() {
+    //    TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,16 +88,52 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             const SizedBox(
               height: 30,
             ),
-            const Center(
-                child: Icon(
-              Icons.camera_alt_sharp,
-              size: 100,
-              color: neutral4Color,
-            )),
-            Text(
-              "+ Add Image",
-              style: fontStyle(primaryColor, FontWeight.w400, 14),
-            ),
+
+            imageStatus == null
+                ? InkWell(
+                    onTap: () async {
+                      image =
+                          await _picker.pickImage(source: ImageSource.gallery);
+                      imageStatus = image.toString();
+                      setState(() {});
+                    },
+                    child: const Center(
+                        child: Icon(
+                      Icons.camera_alt_sharp,
+                      size: 100,
+                      color: neutral4Color,
+                    )),
+                  )
+                : InkWell(
+                    onTap: () async {
+                      image =
+                          await _picker.pickImage(source: ImageSource.gallery);
+                      setState(() {});
+                    },
+                    child: Container(
+                        height: 150,
+                        width: 150,
+                        child: Image.file(File(image!.path)))),
+
+            imageStatus == null
+                ? Text(
+                    "+ Add Image",
+                    style: fontStyle(primaryColor, FontWeight.w400, 14),
+                  )
+                : InkWell(
+                    onTap: () {
+                      debugPrint("aa");
+                      SendData().uploadImageHTTP("profileimg", image!);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Upload Image",
+                        style: fontStyle(primaryColor, FontWeight.w900, 16),
+                      ),
+                    ),
+                  ),
+
             const SizedBox(
               height: 30,
             ),
@@ -61,6 +150,34 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   style: fontStyle(neutral6Color, FontWeight.w600, 21),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding:
+              const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "Studio Profile",
+                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProfileDetails()));
+                    },
+                    child: Text(
+                      "+ Add Profile",
+                      style: fontStyle(primaryColor, FontWeight.w400, 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(
+              thickness: 2,
             ),
             const SizedBox(
               height: 20,
@@ -209,7 +326,30 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
             // const Divider(
             //   thickness: 2,
             // ),
-            studioTimimg()
+            studioTimimg(),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ButtonWidget(
+                buttonClickCallback: () {
+                   List<String> openCloseSwitchFlag = [];
+                  for(int i =0; i< openCloseSwitch.length;i++){
+                    if(openCloseSwitch[i]==true){
+                      openCloseSwitchFlag.add("1");
+                    }
+                    else{
+                      openCloseSwitchFlag.add("0");
+
+                    }
+                  }
+
+                   SendData().saveStudioTiming(openCloseSwitchFlag,selectedStartTimeValue,selectedEndTimeValue,context);
+                  debugPrint(openCloseSwitchFlag.toString());
+                },
+                placeholder: 'Submit',
+                disabled: false,
+              ),
+            )
           ],
         ),
       ),
@@ -284,9 +424,6 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   child: Center(
                     child: Row(
                       children: [
-                        Text("21/2/22",
-                            style:
-                                fontStyle(neutral8Color, FontWeight.w500, 12)),
                         Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: Colors.grey,
@@ -334,7 +471,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           columns: [
             DataColumn2(
               label: Row(
-                children: const[
+                children: const [
                   Icon(Icons.watch_later),
                   SizedBox(
                     width: 5,
@@ -348,66 +485,126 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               label: Text('Open/Close'),
             ),
             DataColumn(
-              label: Text('From'),
+              label: Text('      From   '),
             ),
             DataColumn(
-              label: Text('Till'),
+              label: Text(
+                '      Till',
+                style: fontStyle(neutral8Color, FontWeight.w500, 12),
+              ),
             ),
           ],
-          rows: List<DataRow>.generate(
-              weekdaysList.length,
-              (index) => DataRow(cells: [
-                    DataCell(Text(weekdaysList[index])),
-                DataCell( Switch(onChanged: (value){},value: true),),
-                    DataCell(
-                      Container(
-                          decoration: BoxDecoration(
-                              border: Border(
-                            bottom: BorderSide(
-                              //                    <--- top side
-                              color: Colors.grey,
-                              width: 1.5,
-                            ),
-                          )),
-                          child: Center(
-                            child: Row(
-                              children: [
-                                Text("21/2/22",
+          rows: List<DataRow>.generate(weekdaysList.length, (index) {
+
+            return DataRow(cells: [
+              DataCell(Text(weekdaysList[index])),
+              DataCell(
+                Switch(
+                    onChanged: (value) {
+                      setState(() {
+                        openCloseSwitch[index] = value;
+                        //todo: can show toast on open/close
+                      });
+                    },
+                    value: openCloseSwitch[index]),
+              ),
+              DataCell(
+                SizedBox(
+                    height: 40,
+                    width: 90,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                      child: DropdownButton(
+                        onTap: () {
+                          //   if(widget.value.toString().isEmpty){
+                          // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          //     content: Text('Enter Occassion'),
+                          //     backgroundColor: Colors.red));
+                          //   }
+                        },
+                        isExpanded: true,
+                        hint: Padding(
+                          padding: const EdgeInsets.only(top: 0.0),
+                          child: Text(
+                            "Select",
+                            style:
+                            fontStyle(neutral4Color, FontWeight.w100, 12),
+                          ),
+                        ),
+                        value: selectedStartTimeValue[index].toString(),
+                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedStartTimeValue[index] = value.toString();
+                          });
+                        },
+                        items: timeList.map(
+                              (valueItem) {
+                            return DropdownMenuItem(
+                                value: valueItem,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(0.0),
+                                  child: Text(
+                                    valueItem,
                                     style: fontStyle(
-                                        neutral8Color, FontWeight.w500, 12)),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: Colors.grey,
-                                )
-                              ],
-                            ),
-                          )),
-                    ),
-                    DataCell(
-                      Container(
-                          decoration: BoxDecoration(
-                              border: Border(
-                            bottom: BorderSide(
-                              //                    <--- top side
-                              color: Colors.grey,
-                              width: 1.5,
-                            ),
-                          )),
-                          child: Center(
-                            child: Row(
-                              children: [
-                                Text("21/2/22",
+                                        neutral8Color, FontWeight.w500, 12),
+                                  ),
+                                ));
+                          },
+                        ).toList(),
+                      ),
+                    )),
+              ),
+
+              DataCell(
+                SizedBox(
+                    height: 40,
+                    width: 90,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                      child: DropdownButton(
+                        onTap: () {
+                          //   if(widget.value.toString().isEmpty){
+                          // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          //     content: Text('Enter Occassion'),
+                          //     backgroundColor: Colors.red));
+                          //   }
+                        },
+                        isExpanded: true,
+                        hint: Padding(
+                          padding: const EdgeInsets.only(top: 0.0),
+                          child: Text(
+                            "Select",
+                            style:
+                                fontStyle(neutral4Color, FontWeight.w100, 12),
+                          ),
+                        ),
+                        value: selectedEndTimeValue[index].toString(),
+                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedEndTimeValue[index] = value.toString();
+                          });
+                        },
+                        items: timeList.map(
+                          (valueItem) {
+                            return DropdownMenuItem(
+                                value: valueItem,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(0.0),
+                                  child: Text(
+                                    valueItem,
                                     style: fontStyle(
-                                        neutral8Color, FontWeight.w500, 12)),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: Colors.grey,
-                                )
-                              ],
-                            ),
-                          )),
-                    ),
-                  ]))),
+                                        neutral8Color, FontWeight.w500, 12),
+                                  ),
+                                ));
+                          },
+                        ).toList(),
+                      ),
+                    )),
+              ),
+            ]);
+          })),
     );
   }
 
@@ -561,7 +758,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     );
   }
 
-  Widget showDialougeBoxStudioRules() {
+  Widget showDialogBoxStudioRules() {
     return AlertDialog(
       backgroundColor: neutral3Color,
       title: Row(
