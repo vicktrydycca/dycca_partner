@@ -82,7 +82,7 @@ class _GoPremiumBookingScreenState extends State<GoPremiumBookingScreen> {
                         children: [
                           Text(
                             "For Free",
-                            style: fontStyle(neutral5Color, FontWeight.w100, 15),
+                            style: fontStyle(neutral5Color, FontWeight.w400, 15),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 6.0),
@@ -111,7 +111,7 @@ class _GoPremiumBookingScreenState extends State<GoPremiumBookingScreen> {
                         children: [
                           Text(
                             "Premium",
-                            style: fontStyle(primaryColor, FontWeight.w100, 15),
+                            style: fontStyle(primaryColor, FontWeight.w400, 15),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 6.0),

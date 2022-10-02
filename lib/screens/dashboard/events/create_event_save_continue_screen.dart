@@ -5,11 +5,13 @@ class CreateEventSaveContinueScreen extends StatefulWidget {
   const CreateEventSaveContinueScreen({Key? key}) : super(key: key);
 
   @override
-  State<CreateEventSaveContinueScreen> createState() => _CreateEventSaveContinueScreenState();
+  State<CreateEventSaveContinueScreen> createState() =>
+      _CreateEventSaveContinueScreenState();
 }
 
-class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueScreen> {
-  List<String> items = ['Venue Partners','Judges','Sponsors'];
+class _CreateEventSaveContinueScreenState
+    extends State<CreateEventSaveContinueScreen> {
+  List<String> items = ['Venue Partners', 'Judges', 'Sponsors'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,7 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
         child: Container(
           decoration: BoxDecoration(
             color: primaryColor.withOpacity(1),
-            borderRadius:
-            BorderRadius.circular(3.0),
+            borderRadius: BorderRadius.circular(3.0),
           ),
           height: 55,
           child: Padding(
@@ -30,10 +31,9 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
               child: Text(
                 "Save & Continue",
                 style: appFontStyle(
-                  color:
-                  Colors.white.withOpacity(0.9),
+                  color: Colors.white.withOpacity(0.9),
                   fontSize: 19,
-                  fontWeight: FontWeight.w100,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),
@@ -58,16 +58,19 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
               children: [
                 Image.asset('assets/images/profile_details.png'),
                 Positioned(
-                  right: 10,
-                  bottom: 10,
+                  right: 8,
+                  bottom: 8,
                   child: Row(
                     children: [
-                      const Icon(Icons.camera_alt,color: whiteColour,size: 16,),
+                      const Icon(
+                        Icons.camera_alt,
+                        color: whiteColour,
+                        size: 16,
+                      ),
                       Text(
                         "   Add image",
                         style: appFontStyle(
-                          color:
-                          Colors.white.withOpacity(0.9),
+                          color: Colors.white.withOpacity(0.9),
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                         ),
@@ -78,32 +81,33 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
               child: Row(
                 children: [
                   Text(
                     "Collaboraters",
                     style: appFontStyle(
-                      color:
-                      primaryColor,
+                      color: primaryColor,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   const Spacer(),
                   Text(
                     "Event info",
                     style: appFontStyle(
-                      color:
-                      neutral4Color,
+                      color: neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 8,
+            ),
             ListView.builder(
               itemCount: items.length,
               physics: const ScrollPhysics(),
@@ -112,29 +116,32 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                 return Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0,top: 10,bottom: 8),
+                      padding:
+                          const EdgeInsets.only(left: 8.0, top: 8, bottom: 8),
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
                             child: Text(
                               items[index],
-                              style: fontStyle(
-                                  neutral6Color, FontWeight.w100, 16),
+                              style:
+                                  fontStyle(neutral6Color, FontWeight.w400, 16),
                             ),
                           ),
                           const Spacer(),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context, '/addJudgesRoutes');
+                                Navigator.pushNamed(
+                                    context, '/addJudgesRoutes');
                               },
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: primaryColor.withOpacity(1),
-                                  borderRadius:
-                                  BorderRadius.circular(3.0),
+                                  borderRadius: BorderRadius.circular(3.0),
                                 ),
                                 height: 30,
                                 width: 70,
@@ -144,8 +151,7 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                                     child: Text(
                                       "ADD",
                                       style: appFontStyle(
-                                        color:
-                                        Colors.white.withOpacity(0.9),
+                                        color: Colors.white.withOpacity(0.9),
                                         fontSize: 12,
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -158,21 +164,24 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                         ],
                       ),
                     ),
-
                     createEvent(),
                     const Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 12.0),
-                      child:  Divider(thickness: 2,),
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                      child: Divider(
+                        thickness: 2,
+                      ),
                     ),
                   ],
                 );
-              },)
+              },
+            )
           ],
         ),
       ),
     );
   }
-  Widget createEvent(){
+
+  Widget createEvent() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Container(
@@ -185,12 +194,9 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
             return Padding(
               padding: const EdgeInsets.all(5.0),
               child: Container(
-
-                width: 140,
                 decoration: BoxDecoration(
-                    border: Border.all(color: neutral4Color,width: 1),
-                    borderRadius: const BorderRadius.all(Radius.circular(4))
-                ),
+                    border: Border.all(color: neutral4Color, width: 1),
+                    borderRadius: const BorderRadius.all(Radius.circular(4))),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: Column(
@@ -198,26 +204,29 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                       Padding(
                         padding: const EdgeInsets.only(left: 120.0),
                         child: GestureDetector(
-                            onTap: (){},
-                            child: const Icon(Icons.cancel_rounded,size: 13,)),
+                            onTap: () {},
+                            child: const Icon(
+                              Icons.cancel_rounded,
+                              size: 13,
+                            )),
                       ),
                       const CircleAvatar(
                         radius: 22,
                         backgroundColor: Colors.blue,
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
                           "Mithali Raj",
-                          style: fontStyle(neutral6Color, FontWeight.w100, 14),
+                          style: fontStyle(neutral6Color, FontWeight.w400, 14),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 5.0,left: 20,right: 20,top: 3),
+                        padding: const EdgeInsets.only(
+                            bottom: 5.0, left: 20, right: 20, top: 3),
                         child: Text(
                           "Choreographer",
-                          style: fontStyle(primaryColor, FontWeight.w100, 8),
+                          style: fontStyle(primaryColor, FontWeight.w400, 8),
                         ),
                       ),
                       Row(
@@ -226,41 +235,54 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.star,color: primaryColor,size: 15,),
+                                  Icon(
+                                    Icons.star,
+                                    color: primaryColor,
+                                    size: 15,
+                                  ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
                                       "4.5",
-                                      style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                      style: fontStyle(
+                                          primaryColor, FontWeight.w400, 8),
                                     ),
                                   ),
                                 ],
                               ),
                               Text(
                                 "Rating",
-                                style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                style: fontStyle(
+                                    neutral6Color, FontWeight.w400, 8),
                               ),
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Column(
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.person,color: primaryColor,size: 15,),
+                                    Icon(
+                                      Icons.person,
+                                      color: primaryColor,
+                                      size: 15,
+                                    ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 8.0),
                                       child: Text(
                                         "89",
-                                        style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                        style: fontStyle(
+                                            primaryColor, FontWeight.w400, 8),
                                       ),
                                     ),
                                   ],
                                 ),
                                 Text(
                                   "Collaborated",
-                                  style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                  style: fontStyle(
+                                      neutral6Color, FontWeight.w400, 8),
                                 ),
                               ],
                             ),
@@ -269,19 +291,25 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.person,color: primaryColor,size: 15,),
+                                  Icon(
+                                    Icons.person,
+                                    color: primaryColor,
+                                    size: 15,
+                                  ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
                                       "23",
-                                      style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                      style: fontStyle(
+                                          primaryColor, FontWeight.w400, 8),
                                     ),
                                   ),
                                 ],
                               ),
                               Text(
                                 "Created",
-                                style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                style: fontStyle(
+                                    neutral6Color, FontWeight.w400, 8),
                               ),
                             ],
                           ),
@@ -292,7 +320,8 @@ class _CreateEventSaveContinueScreenState extends State<CreateEventSaveContinueS
                 ),
               ),
             );
-          },),
+          },
+        ),
       ),
     );
   }

@@ -67,7 +67,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
                             style: appFontStyle(
                               color: neutral6Color,
                               fontSize: 18,
-                              fontWeight: FontWeight.w100,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           Container(
@@ -85,7 +85,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
                                     style: appFontStyle(
                                       color: neutral6Color,
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w100,
+                                      fontWeight: FontWeight.w400,
                                     ),
                                   ),
                                   const Icon(Icons.arrow_drop_down_sharp)
@@ -101,7 +101,7 @@ class _ViewProductsScreenState extends State<ViewProductsScreen> {
                               style: appFontStyle(
                                 color: primaryColor,
                                 fontSize: 16,
-                                fontWeight: FontWeight.w100,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),

@@ -208,7 +208,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     ),
                     Text(
                       "   |",
-                      style: fontStyle(neutral5Color, FontWeight.w100, 30),
+                      style: fontStyle(neutral5Color, FontWeight.w400, 30),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 15.0),
@@ -473,7 +473,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     decoration:  InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(horizontal: 100),
                       hintText: '300',
-                      hintStyle: fontStyle(neutral4Color, FontWeight.w100, 14)
+                      hintStyle: fontStyle(neutral4Color, FontWeight.w400, 14)
                     ),
                     ),
                     Padding(
@@ -530,7 +530,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                               decoration:  InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(horizontal: 100),
                                   hintText: '300',
-                                  hintStyle: fontStyle(neutral4Color, FontWeight.w100, 14)
+                                  hintStyle: fontStyle(neutral4Color, FontWeight.w400, 14)
                               ),
                             ),
                             Padding(

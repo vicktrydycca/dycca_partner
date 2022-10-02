@@ -60,7 +60,7 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
                       color:
                       primaryColor,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   const Spacer(),
@@ -70,7 +70,7 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
                       color:
                       neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
@@ -93,7 +93,7 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
                           child: Text(
                             items[index],
                             style: fontStyle(
-                                neutral6Color, FontWeight.w100, 16),
+                                neutral6Color, FontWeight.w400, 16),
                           ),
                         ),
                         const Spacer(),

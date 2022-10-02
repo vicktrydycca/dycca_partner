@@ -15,6 +15,25 @@ class _SelectSendScreenState extends State<SelectSendScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/');
+        },
+        child: Container(
+          height: 50,
+          color: primaryColor,
+          child: Center(
+            child: Text(
+              "Select and Sent to Semifinal",
+              style: appFontStyle(
+                color: whiteColour,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: whiteColour,
       appBar: AppbarBackButton().AppbarBack(context, "Select and Send"),
       body: SingleChildScrollView(
@@ -34,7 +53,7 @@ class _SelectSendScreenState extends State<SelectSendScreen> {
               height: 10,
             ),
             ListView.builder(
-              itemCount: 10,
+              itemCount: 5,
               shrinkWrap: true,
               physics: const ScrollPhysics(),
               itemBuilder: (context, index) {

@@ -47,7 +47,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                         style: appFontStyle(
                           color: neutral6Color,
                           fontSize: 20,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       Padding(
@@ -59,7 +59,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                               style: appFontStyle(
                                 color: primaryColor,
                                 fontSize: 14,
-                                fontWeight: FontWeight.w100,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                             const Icon(Icons.star,color: primaryColor,size: 15,),
@@ -68,7 +68,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                               style: appFontStyle(
                                 color: neutral6Color,
                                 fontSize: 14,
-                                fontWeight: FontWeight.w100,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
@@ -95,7 +95,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: Colors.white.withOpacity(0.9),
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -127,7 +127,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 14,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -146,7 +146,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -158,7 +158,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                         style: appFontStyle(
                           color: neutral4Color,
                           fontSize: 14,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -173,7 +173,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral4Color,
                             fontSize: 14,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -186,7 +186,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -198,7 +198,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                         style: appFontStyle(
                           color: neutral4Color,
                           fontSize: 14,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -213,7 +213,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral4Color,
                             fontSize: 14,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -229,7 +229,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral4Color,
                             fontSize: 14,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -242,7 +242,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -254,7 +254,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                         style: appFontStyle(
                           color: neutral4Color,
                           fontSize: 14,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -269,7 +269,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral4Color,
                             fontSize: 14,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -285,7 +285,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral4Color,
                             fontSize: 14,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -306,7 +306,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                             child: Text(
                               items[index],
                               style: fontStyle(
-                                  neutral6Color, FontWeight.w100, 16),
+                                  neutral6Color, FontWeight.w400, 16),
                             ),
                           ),
 
@@ -322,7 +322,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral6Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -331,7 +331,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                     style: appFontStyle(
                       color: neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -341,7 +341,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -350,7 +350,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                     style: appFontStyle(
                       color: neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -360,7 +360,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral6Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -369,7 +369,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                     style: appFontStyle(
                       color: neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -379,7 +379,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral4Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -388,7 +388,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                     style: appFontStyle(
                       color: neutral4Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -398,7 +398,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: appFontStyle(
                         color: neutral6Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -411,7 +411,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral6Color,
                             fontSize: 15,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                         Spacer(),
@@ -420,7 +420,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: primaryColor,
                             fontSize: 15,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -435,7 +435,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: neutral6Color,
                             fontSize: 15,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                         Spacer(),
@@ -444,7 +444,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                           style: appFontStyle(
                             color: primaryColor,
                             fontSize: 15,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -497,14 +497,14 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
                           "Mithali Raj",
-                          style: fontStyle(neutral6Color, FontWeight.w100, 14),
+                          style: fontStyle(neutral6Color, FontWeight.w400, 14),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 5.0,left: 20,right: 20,top: 3),
                         child: Text(
                           "Choreographer",
-                          style: fontStyle(primaryColor, FontWeight.w100, 8),
+                          style: fontStyle(primaryColor, FontWeight.w400, 8),
                         ),
                       ),
                       Row(
@@ -518,14 +518,14 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
                                       "4.5",
-                                      style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                      style: fontStyle(primaryColor, FontWeight.w400, 8),
                                     ),
                                   ),
                                 ],
                               ),
                               Text(
                                 "Rating",
-                                style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                style: fontStyle(neutral6Color, FontWeight.w400, 10),
                               ),
                             ],
                           ),
@@ -540,14 +540,14 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                                       padding: const EdgeInsets.only(top: 8.0),
                                       child: Text(
                                         "89",
-                                        style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                        style: fontStyle(primaryColor, FontWeight.w400, 8),
                                       ),
                                     ),
                                   ],
                                 ),
                                 Text(
                                   "Collaborated",
-                                  style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                  style: fontStyle(neutral6Color, FontWeight.w400, 10),
                                 ),
                               ],
                             ),
@@ -561,14 +561,14 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
                                       "23",
-                                      style: fontStyle(primaryColor, FontWeight.w100, 8),
+                                      style: fontStyle(primaryColor, FontWeight.w400, 8),
                                     ),
                                   ),
                                 ],
                               ),
                               Text(
                                 "Created",
-                                style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                                style: fontStyle(neutral6Color, FontWeight.w400, 10),
                               ),
                             ],
                           ),

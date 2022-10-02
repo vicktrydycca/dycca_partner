@@ -81,7 +81,7 @@ class _AddJudgesScreenState extends State<AddJudgesScreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         "JackMan",
-                        style: fontStyle(neutral6Color, FontWeight.w100, 16),
+                        style: fontStyle(neutral6Color, FontWeight.w400, 16),
                       ),
                     ),
                     Padding(
@@ -89,7 +89,7 @@ class _AddJudgesScreenState extends State<AddJudgesScreen> {
                           bottom: 8.0, left: 20, right: 20),
                       child: Text(
                         "@JackMan123",
-                        style: fontStyle(neutral6Color, FontWeight.w100, 10),
+                        style: fontStyle(neutral6Color, FontWeight.w400, 10),
                       ),
                     ),
                   ],
@@ -101,7 +101,7 @@ class _AddJudgesScreenState extends State<AddJudgesScreen> {
             padding: const EdgeInsets.only(left: 20.0, top: 15),
             child: Text(
               "Recently Tagged",
-              style: fontStyle(neutral6Color, FontWeight.w100, 19),
+              style: fontStyle(neutral6Color, FontWeight.w400, 19),
             ),
           ),
           Padding(
@@ -122,11 +122,11 @@ class _AddJudgesScreenState extends State<AddJudgesScreen> {
                     children: [
                       Text(
                         "JackMan",
-                        style: fontStyle(neutral6Color, FontWeight.w100, 16),
+                        style: fontStyle(neutral6Color, FontWeight.w400, 16),
                       ),
                       Text(
                         "@JackMan123",
-                        style: fontStyle(neutral4Color, FontWeight.w100, 14),
+                        style: fontStyle(neutral4Color, FontWeight.w400, 14),
                       )
                     ],
                   ),

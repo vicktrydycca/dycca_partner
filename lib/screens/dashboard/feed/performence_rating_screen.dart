@@ -10,7 +10,25 @@ class PerformanceRatingScreen extends StatefulWidget {
       _PerformanceRatingScreenState();
 }
 
-class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> {
+class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with TickerProviderStateMixin{
+  double progressCompletion = 0.6;
+  late AnimationController controller;
+  @override
+  void initState() {
+    controller = AnimationController(
+
+      duration: const Duration(seconds: 5), vsync: this,
+    )..addListener(() {
+      setState(() {});
+    });
+    controller.repeat(reverse: true);
+    super.initState();
+  }
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +108,7 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Text(
               "Rate the Performence",
               style: appFontStyle(
@@ -100,8 +118,44 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> {
               ),
             ),
           ),
+
+          Slider(
+            value: progressCompletion,
+            activeColor: primaryColor,
+            inactiveColor: neutral3Color,
+            onChanged: (v){
+              setState(() {
+                progressCompletion = v;
+              });
+            },
+          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Row(
+              children: [
+                Text(
+                  "0",
+                  style: appFontStyle(
+                    color: neutral6Color,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Spacer(),
+                Text(
+                  "10",
+                  style: appFontStyle(
+                    color: neutral6Color,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Text(
               "Team",
               style: appFontStyle(
@@ -110,7 +164,6 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-
           ),
           ListView.builder(
             itemCount: 3,

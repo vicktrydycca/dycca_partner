@@ -1,3 +1,4 @@
+import 'package:dycca_partner/custom_widget/dropdown_widget.dart';
 import 'package:dycca_partner/custom_widget/flutter_switch.dart';
 import 'package:dycca_partner/custom_widget/select_time_format_widget.dart';
 import 'package:dycca_partner/custom_widget/show_dialouge_box.dart';
@@ -14,6 +15,8 @@ class HostEventScreen extends StatefulWidget {
 }
 
 class _HostEventScreenState extends State<HostEventScreen> {
+  String? privateEvent;
+  List<String> privateEv = ['INR','BTC'];
   TextEditingController competitionName = TextEditingController();
   TextEditingController discription = TextEditingController();
   TextEditingController duration = TextEditingController();
@@ -65,7 +68,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: primaryColor,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -93,7 +96,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       style: appFontStyle(
                         color: Colors.white.withOpacity(0.9),
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -153,7 +156,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   const Spacer(),
@@ -162,7 +165,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: primaryColor,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
@@ -172,7 +175,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,7 +185,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -201,7 +204,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -222,7 +225,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: primaryColor,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -253,7 +256,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                   style: appFontStyle(
                                     color: neutral6Color,
                                     fontSize: 10,
-                                    fontWeight: FontWeight.w100,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ],
@@ -436,7 +439,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -455,7 +458,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                         style: appFontStyle(
                           color: primaryColor,
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
@@ -468,7 +471,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Padding(
@@ -487,7 +490,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                         style: appFontStyle(
                           color: primaryColor,
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
@@ -500,7 +503,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     style: appFontStyle(
                       color: neutral6Color,
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   Row(
@@ -515,16 +518,17 @@ class _HostEventScreenState extends State<HostEventScreen> {
                         style: appFontStyle(
                           color: neutral6Color,
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 25.0),
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: TextFormField(
                       controller: duration,
                       decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
                           prefixIcon: Icon(
                         Icons.currency_rupee,
                         color: neutral6Color,
@@ -544,7 +548,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                         style: appFontStyle(
                           color: neutral6Color,
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -573,7 +577,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                         style: appFontStyle(
                           color: neutral6Color,
                           fontSize: 16,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -589,11 +593,11 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       child: Row(
                         children: [
                           Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Container(
-                                width: 100,
+
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         color: neutral4Color, width: 1),
@@ -603,27 +607,30 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                   padding: const EdgeInsets.all(3.0),
                                   child: Column(
                                     children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 120.0),
-                                        child: GestureDetector(
-                                            onTap: () {},
-                                            child: const Icon(
-                                              Icons.cancel_rounded,
-                                              size: 13,
-                                            )),
+                                      Row(
+                                        children: [
+                                          const Text(''),
+                                          const Spacer(),
+                                          GestureDetector(
+                                              onTap: () {},
+                                              child: const Icon(
+                                                Icons.cancel_rounded,
+                                                size: 10,
+                                              )),
+                                        ],
                                       ),
+
                                       const CircleAvatar(
-                                        radius: 22,
+                                        radius: 18,
                                         backgroundColor: Colors.blue,
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(top: 8.0),
+                                            const EdgeInsets.only(top: 5.0),
                                         child: Text(
                                           "Mithali Raj",
                                           style: fontStyle(neutral6Color,
-                                              FontWeight.w100, 14),
+                                              FontWeight.w400, 12),
                                         ),
                                       ),
                                       Padding(
@@ -635,7 +642,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                         child: Text(
                                           "Choreographer",
                                           style: fontStyle(
-                                              primaryColor, FontWeight.w100, 8),
+                                              primaryColor, FontWeight.w400, 8),
                                         ),
                                       ),
                                       Row(
@@ -652,12 +659,12 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            top: 8.0),
+                                                            top: 5.0),
                                                     child: Text(
                                                       "4.5",
                                                       style: fontStyle(
                                                           primaryColor,
-                                                          FontWeight.w100,
+                                                          FontWeight.w400,
                                                           8),
                                                     ),
                                                   ),
@@ -666,7 +673,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                               Text(
                                                 "Rating",
                                                 style: fontStyle(neutral6Color,
-                                                    FontWeight.w100, 10),
+                                                    FontWeight.w400, 8),
                                               ),
                                             ],
                                           ),
@@ -690,7 +697,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                                         "89",
                                                         style: fontStyle(
                                                             primaryColor,
-                                                            FontWeight.w100,
+                                                            FontWeight.w400,
                                                             8),
                                                       ),
                                                     ),
@@ -700,8 +707,8 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                                   "Collaborated",
                                                   style: fontStyle(
                                                       neutral6Color,
-                                                      FontWeight.w100,
-                                                      10),
+                                                      FontWeight.w400,
+                                                      8),
                                                 ),
                                               ],
                                             ),
@@ -723,7 +730,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                                       "23",
                                                       style: fontStyle(
                                                           primaryColor,
-                                                          FontWeight.w100,
+                                                          FontWeight.w400,
                                                           8),
                                                     ),
                                                   ),
@@ -732,7 +739,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                               Text(
                                                 "Created",
                                                 style: fontStyle(neutral6Color,
-                                                    FontWeight.w100, 10),
+                                                    FontWeight.w400, 8),
                                               ),
                                             ],
                                           ),
@@ -745,22 +752,18 @@ class _HostEventScreenState extends State<HostEventScreen> {
                             ),
                           ),
                           Expanded(
-                            flex: 1,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                "Rachel Mcled",
-                                style: appFontStyle(
-                                  color: neutral6Color,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w100,
-                                ),
+                            flex: 2,
+                            child: Text(
+                              "Rachel Mcled",
+                              style: appFontStyle(
+                                color: neutral6Color,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
                           Expanded(
-                            flex: 1,
+                            flex: 2,
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(
@@ -772,17 +775,14 @@ class _HostEventScreenState extends State<HostEventScreen> {
                                   borderRadius: BorderRadius.circular(3.0),
                                 ),
                                 height: 30,
-                                width: 50,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Center(
-                                    child: Text(
-                                      "View Products",
-                                      style: appFontStyle(
-                                        color: Colors.white.withOpacity(0.9),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+
+                                child: Center(
+                                  child: Text(
+                                    "View Products",
+                                    style: appFontStyle(
+                                      color: Colors.white.withOpacity(0.9),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                 ),
@@ -800,13 +800,37 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       style: appFontStyle(
                         color: neutral6Color,
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: DropdownButton(
+                        icon: Icon(Icons.arrow_drop_down_sharp),
+                        hint: const Text('Private Event'), // Not necessary for Option 1
+                        value: privateEvent,
+                        onChanged: (newValue) {
+                          setState(() {
+                            newValue = privateEv;
+                          });
+                        },
+                        items: privateEv.map((location) {
+                          return DropdownMenuItem(
+                            child:  Text(location),
+                            value: location,
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
             ),
+            const SizedBox(height: 20,)
           ],
         ),
       ),

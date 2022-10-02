@@ -25,7 +25,7 @@ class _SelectionScreenState extends State<SelectionScreen> {
                 "Select and Sent to Semifinal",
                 style: appFontStyle(
                   color: whiteColour,
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
               ),
