@@ -15,7 +15,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:dio/dio.dart' as dio;
 class SendData extends GetxController with BaseController {
 
 
@@ -422,27 +422,55 @@ class SendData extends GetxController with BaseController {
     request.fields['studioKeyword'] = studioKeyword;
     request.headers.addAll( {
       'Authorization':
-      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NTg1NTg4MzAsImV4cCI6MTY5MDA5NDgzMCwibmJmIjoxNjU4NTU4ODMwLCJqdGkiOiJPODI2VFZObWkyZlRvMFM1In0.UcEU1uk_F9jLSELGP5yuuImKtpzMsfA1Rp-joBCh6iM',
     }
     );
-    var res = await request.send();
-    print(res.reasonPhrase.toString());
-    return res.reasonPhrase;
+    uploadImage(String title, File file) async{
+
+      var request = http.MultipartRequest("POST",Uri.parse("https://api.imgur.com/3/image"));
+
+      request.fields['title'] = "dummyImage";
+      request.headers['Authorization'] = "Client-ID " +"f7........";
+
+      var picture = http.MultipartFile.fromBytes('image', (await rootBundle.load('assets/testimage.png')).buffer.asUint8List(),
+          filename: 'testimage.png');
+
+      request.files.add(picture);
+
+      var response = await request.send();
+
+      var responseData = await response.stream.toBytes();
+
+      var result = String.fromCharCodes(responseData);
+
+      print(result);
+
+
+
+    }
   }
 
   Future<String?> uploadImageHTTP(String imageType,XFile file) async {
-
-    var request = http.MultipartRequest('POST', Uri.parse(AppApi.studioImageUploadApi));
+    var request = http.MultipartRequest(
+        'POST', Uri.parse(AppApi.studioImageUploadApi));
     request.files.add(await http.MultipartFile.fromPath(imageType, file.path));
     request.fields['studioId'] = '14';
     request.fields['act'] = imageType;
-    request.headers.addAll( {
+    request.headers.addAll({
       'Authorization':
       'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
     }
     );
     var res = await request.send();
-     print(res.reasonPhrase.toString());
-    return res.reasonPhrase;
-  }
-}
+    debugPrint(res.statusCode.toString());
+    try {
+      final streamedResponse = await request.send();
+
+      streamedResponse.stream.transform(utf8.decoder).listen((value) {
+        print(value);
+
+              });
+    } catch (e) {
+      print(e);
+    }
+  }}

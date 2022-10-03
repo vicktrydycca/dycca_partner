@@ -122,7 +122,6 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   )
                 : InkWell(
                     onTap: () {
-                      debugPrint("aa");
                       SendData().uploadImageHTTP("profileimg", image!);
                     },
                     child: Padding(
