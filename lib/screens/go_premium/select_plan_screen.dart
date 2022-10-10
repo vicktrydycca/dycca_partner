@@ -132,7 +132,7 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
                        padding: const EdgeInsets.only(top: 6.0),
                        child: Text(
                          "Per Month",
-                         style: fontStyle(neutral5Color, FontWeight.w100, 15),
+                         style: fontStyle(neutral5Color, FontWeight.w400, 15),
                        ),
 
                      ),
