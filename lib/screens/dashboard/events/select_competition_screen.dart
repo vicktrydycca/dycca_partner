@@ -25,11 +25,12 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
   List<Color> selectCardColor = [];
   final subcategoryBloc = EventType_Bloc();
   final eventSubTypeBlocController = EventSubType_Bloc();
+  int currentSubCategoryIndex = 0;
   @override
   void initState() {
     // TODO: implement initState
     subcategoryBloc.getEventCategoryList();
-
+    eventSubTypeBlocController.getEventCategoryList();
     super.initState();
   }
 
@@ -37,6 +38,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
   void dispose() {
     // TODO: implement dispose
     subcategoryBloc.dispose();
+    eventSubTypeBlocController.dispose();
     super.dispose();
   }
 
@@ -69,14 +71,16 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                               return InkWell(
                                 onTap: () {
                                   setState(() {
-                                    selectedSubCategory[index] =
-                                        !selectedSubCategory[index];
+                                    currentSubCategoryIndex = index;
 
-                                    if (selectedSubCategory[index] == true) {
-                                      selectCardColor.add(primaryColor);
-                                    } else {
-                                      selectCardColor.add(Colors.white);
-                                    }
+                                    // selectedSubCategory[index] =
+                                    //     !selectedSubCategory[index];
+                                    //
+                                    // if (selectedSubCategory[index] == true) {
+                                    //   selectCardColor.add(primaryColor);
+                                    // } else {
+                                    //   selectCardColor.add(Colors.white);
+                                    // }
                                   });
                                 },
                                 child: SizedBox(
@@ -121,7 +125,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                 stream: eventSubTypeBlocController.EventSubTypeListStream,
                 builder: (context, snapshot) {
                   return ListView.builder(
-                    itemCount: 4,
+                    itemCount:  snapshot.data![0].subcat![currentSubCategoryIndex].eventsub!.length,
                     shrinkWrap: true,
                     physics: const ScrollPhysics(),
                     itemBuilder: (context, index) {
@@ -140,7 +144,7 @@ class _SelectCompetitionScreenState extends State<SelectCompetitionScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
                                     child: Text(
-                                      "Competition",
+                                      snapshot.data![0].subcat![currentSubCategoryIndex].eventsub![index].typeName.toString(),
                                       style: fontStyle(
                                           neutral6Color, FontWeight.w600, 16),
                                     ),
