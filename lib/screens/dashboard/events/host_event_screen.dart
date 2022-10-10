@@ -809,7 +809,7 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: DropdownButton(
-                        icon: Icon(Icons.arrow_drop_down_sharp),
+                        icon: const Icon(Icons.arrow_drop_down_sharp),
                         hint: const Text('Private Event'), // Not necessary for Option 1
                         value: privateEvent,
                         onChanged: (newValue) {
