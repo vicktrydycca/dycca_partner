@@ -13,6 +13,7 @@ class _ListOfParticipantsScreenState extends State<ListOfParticipantsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: whiteColour,
       appBar: AppbarBackButton().AppbarBack(context, "List of participants"),
       body: SingleChildScrollView(

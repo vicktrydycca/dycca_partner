@@ -1,8 +1,14 @@
+import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AddDetailsOfCompetitionScreen extends StatefulWidget {
-  const AddDetailsOfCompetitionScreen({Key? key}) : super(key: key);
+  final competitionType;
+  final competitionSubType;
+  final eventName;
+  final eventDesc;
+  final eventID;
+  const AddDetailsOfCompetitionScreen({Key? key,this.eventID,this.competitionType,this.competitionSubType,this.eventName,this.eventDesc}) : super(key: key);
 
   @override
   State<AddDetailsOfCompetitionScreen> createState() => _AddDetailsOfCompetitionScreenState();
@@ -101,7 +107,7 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, '/addJudgesRoutes',arguments: {"appbar":items[index]});
+                              Navigator.pushNamed(context, '/addJudgesRoutes',arguments: {"appbar":items[index],"categoryType":widget.competitionType,"categorySubType":widget.competitionSubType,"eventName":widget.eventName,"eventDesc":widget.eventDesc,"eventID":widget.eventID});
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -135,7 +141,8 @@ class _AddDetailsOfCompetitionScreenState extends State<AddDetailsOfCompetitionS
 
                 ],
               );
-            },)
+            },),
+
           ],
         ),
       ),

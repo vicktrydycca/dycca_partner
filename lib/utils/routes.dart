@@ -78,7 +78,7 @@ class Routes{
       '/feedBookingDetailRoutes': (context) => const FeedDetailProfileScreen(),
       '/feedDetailAcceptEntriesRoutes': (context) => const FeedDetailAcceptEntriesScreen(),
       '/listOfParticipantsRoutes': (context) => const ListOfParticipantsScreen(),
-      '/performanceRatingRoutes': (context) => const PerformanceRatingScreen(),
+      '/performanceRatingRoutes': (context) =>  PerformanceRatingScreen(),
       '/selectionScreenRoutes': (context) => const SelectionScreen(),
       '/selectSendRoutes': (context) => const SelectSendScreen(),
       '/eventDetailsRoutes': (context) => const EventDetailsScreen(),

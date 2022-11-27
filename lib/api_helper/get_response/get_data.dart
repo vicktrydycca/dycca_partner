@@ -10,6 +10,7 @@ import 'package:dycca_partner/modal_class/event_subtype_modalclass.dart';
 import 'package:dycca_partner/modal_class/notification_modalclass.dart';
 import 'package:dycca_partner/modal_class/partner_sponser_judges.dart';
 import 'package:dycca_partner/modal_class/services_list_modalclass.dart';
+import 'package:dycca_partner/modal_class/workflow_modelclass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import '';
@@ -38,8 +39,7 @@ class GetData {
         await http.get(Uri.parse(AppApi.getNotificationListApi), headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
     });
 
     var jsonbody = jsonDecode(response.body);
@@ -102,7 +102,7 @@ class GetData {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Authorization':
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
         }
     );
     var jsonbody = jsonDecode(response.body);
@@ -113,6 +113,7 @@ class GetData {
       partnerSponserJudgesFromJson(response.body);
       return onSuccess(JudgesModalClass.judges);
     } else {
+      debugPrint(response.body.toString());
       var msg = jsonbody["message"] ?? jsonbody["error"];
 
       // DialogHelper.showErroDialog(description:msg);
@@ -194,6 +195,29 @@ class GetData {
       final eventCategory =
       eventSubCategoryFromJson(response.body);
       return onSuccess(eventCategory.category);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+  getManageAuditionHomepage({required onSuccess, required onError}) async {
+    var response =
+        await http.get(Uri.parse(AppApi.getWorkFlow,),headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+        }
+    );
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it"+ response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final eventCategory =
+      workflowModalClassFromJson(response.body);
+      return onSuccess(eventCategory.workflow);
     } else {
       var msg = jsonbody["message"] ?? jsonbody["error"];
 

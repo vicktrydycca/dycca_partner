@@ -16,9 +16,13 @@ class AppApi{
   static const String get_Jugeds_Partners_SponsersListApi = baseUrl+"partner/sponser";
   static const String get_eventCategoryListApi = baseUrl+"eventcategory";
   static const String get_eventTypeListApi = baseUrl+"event/type";
+  static const String getWorkFlow = baseUrl+"event/audition/workflow";
   static const String get_eventSubTypeListApi = baseUrl+"event/subtype";
   static const String getSaveStudioApi = baseUrl+"studio/save";
+  static const String manageAuditionRoundDetails = baseUrl+"event/round/audition";
   static const String saveStudioAmentiesApi = baseUrl+"studio/amenty/add";
   static const String saveStudioEquipementApi = baseUrl+"studio/equipment/add";
   static const String studioImageUploadApi = baseUrl+"studio/profile/documents/upload";
+  static const String createEventApi = baseUrl+"partner/event/create";
+  static const String eventDetails = baseUrl+"eventdetails";
 }

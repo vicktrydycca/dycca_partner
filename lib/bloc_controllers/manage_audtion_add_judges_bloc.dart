@@ -5,7 +5,7 @@ import 'package:dycca_partner/api_helper/get_response/get_data.dart';
 import 'package:dycca_partner/modal_class/partner_sponser_judges.dart';
 import 'package:dycca_partner/utils/bloc_base.dart';
 
-class Judges_Sponsers_Partner_Bloc extends BlocBase{
+class ManegeAuditionAddJudgesBloc extends BlocBase{
 
   final StreamController<List<Judge>> _judgesSponserPartnerListController = StreamController.broadcast();
 

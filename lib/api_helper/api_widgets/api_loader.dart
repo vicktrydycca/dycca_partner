@@ -5,7 +5,9 @@ class DialogHelper {
   //show error dialog
   static void showErroDialog({String title = 'Error', String? description = 'Something went wrong'}) {
     Get.dialog(
+
       Dialog(
+
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

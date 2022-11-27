@@ -3,7 +3,10 @@ import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class PerformanceRatingScreen extends StatefulWidget {
-  const PerformanceRatingScreen({Key? key}) : super(key: key);
+  var videoUrl;
+  var videoTitle;
+  var videoUserName;
+   PerformanceRatingScreen({Key? key,this.videoUrl,this.videoTitle,this.videoUserName}) : super(key: key);
 
   @override
   State<PerformanceRatingScreen> createState() =>
@@ -52,7 +55,7 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with 
         ),
       ),
       backgroundColor: whiteColour,
-      appBar: AppbarBackButton().AppbarBack(context, "List of participants"),
+      appBar: AppbarBackButton().AppbarBack(context, "Rate participants"),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +69,7 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with 
                       width: 0.7, color: neutral4Color.withOpacity(0.5))),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/performanceRatingRoutes');
+           //       Navigator.pushNamed(context, '/performanceRatingRoutes');
                 },
                 child: Column(
                   children: [
@@ -81,7 +84,7 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with 
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Nee Kavithaigala song",
+                            widget.videoTitle??"",
                             style: appFontStyle(
                               color: neutral6Color,
                               fontSize: 14,
@@ -91,7 +94,7 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with 
                           Padding(
                             padding: const EdgeInsets.only(top: 5.0),
                             child: Text(
-                              "Selva Lakshmi",
+                              widget.videoUserName??"",
                               style: appFontStyle(
                                 color: primaryColor,
                                 fontSize: 10,
@@ -107,25 +110,45 @@ class _PerformanceRatingScreenState extends State<PerformanceRatingScreen> with 
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-            child: Text(
-              "Rate the Performence",
-              style: appFontStyle(
-                color: neutral6Color,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: Text(
+                  "Rate the Performence",
+                  style: appFontStyle(
+                    color: neutral6Color,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: Text(
+                  "Rating: ${progressCompletion.toString().split(".").first} ",
+                  style: appFontStyle(
+                    color: neutral6Color,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
 
           Slider(
+
             value: progressCompletion,
             activeColor: primaryColor,
             inactiveColor: neutral3Color,
+            min: 0.0,
+            max: 10.0,
             onChanged: (v){
               setState(() {
                 progressCompletion = v;
+                debugPrint(v.toString());
               });
             },
           ),

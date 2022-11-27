@@ -1,5 +1,7 @@
+import 'package:dycca_partner/screens/auth/forgot_password_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -126,30 +128,39 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.settings,color: primaryColor,size: 30,),
-                      const SizedBox(width: 30,),
-                      Text(
-                        "Settings",
-                        style: fontStyle(neutral6Color, FontWeight.w400, 16),
-                      ),
-                    ],
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPasswordScreen()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.settings,color: primaryColor,size: 30,),
+                        const SizedBox(width: 30,),
+                        Text(
+                          "Settings",
+                          style: fontStyle(neutral6Color, FontWeight.w400, 16),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 25),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.help,color: primaryColor,size: 30,),
-                      const SizedBox(width: 30,),
-                      Text(
-                        "Help",
-                        style: fontStyle(neutral6Color, FontWeight.w400, 16),
-                      ),
-                    ],
+                InkWell(
+                  onTap:() async => await launch(
+          "https://wa.me/${7838316628}?text=Hello"),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 25),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.help,color: primaryColor,size: 30,),
+                        const SizedBox(width: 30,),
+                        Text(
+                          "Help",
+                          style: fontStyle(neutral6Color, FontWeight.w400, 16),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

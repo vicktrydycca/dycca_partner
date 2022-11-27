@@ -2,6 +2,7 @@ import 'package:dycca_partner/bloc_controllers/event_homepage_bloc.dart';
 import 'package:dycca_partner/custom_widget/stream_loader.dart';
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/modal_class/event_category_modalclass.dart';
+import 'package:dycca_partner/screens/dashboard/events/select_competition_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -95,8 +96,9 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                       const Spacer(),
                                       GestureDetector(
                                         onTap: () {
-                                          Navigator.pushNamed(context,
-                                              '/selectCompetitionRoutes');
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectCompetitionScreen(
+                                            categoryID: snapshot.data![index].typeId,
+                                          )));
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(

@@ -1,8 +1,10 @@
 import 'package:dycca_partner/custom_widget/appbar_widget.dart';
 import 'package:dycca_partner/custom_widget/drawer_widget.dart';
-import 'package:dycca_partner/screens/dashboard/events/create_event_screen.dart';
+import 'package:dycca_partner/screens/dashboard/events/create_event_homescreen.dart';
+import 'package:dycca_partner/screens/manage_audition/manage_audition_homepage.dart';
 import 'package:dycca_partner/screens/dashboard/feed/feed_option_screen.dart';
 import 'package:dycca_partner/screens/dashboard/tabs/upper_tabs.dart';
+import 'package:dycca_partner/screens/manage_audition/manage_audtion_tabbar.dart';
 
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +47,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   label: 'Create',
                   backgroundColor: Colors.white),
               BottomNavigationBarItem(
-                icon: Icon(Icons.grid_view),
+                icon: Icon(Icons.dashboard),
                 label: 'Feed',
+                backgroundColor: Colors.white,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.key),
+                label: 'Solutions',
                 backgroundColor: Colors.white,
               ),
             ],
@@ -65,6 +72,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   static final List<Widget> _widgetOptions = <Widget>[
     const UpperTabsScreen(),
     const CreateEventScreen(),
-    const FeedOptionsScreen(),
+
+    
+     const FeedOptionsScreen(),
+
+    const ManageAuditionTabbar(),
   ];
 }
