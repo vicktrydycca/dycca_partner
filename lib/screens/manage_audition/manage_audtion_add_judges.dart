@@ -11,8 +11,9 @@ import 'package:flutter/material.dart';
 class ManageAuditionAddJudgesScreen extends StatefulWidget {
 
   final titleName;
+  final roundID;
   const ManageAuditionAddJudgesScreen(
-      {Key? key,required this.titleName})
+      {Key? key,required this.titleName,this.roundID})
       : super(key: key);
 
   @override
@@ -65,16 +66,18 @@ class _ManageAuditionAddJudgesScreenState extends State<ManageAuditionAddJudgesS
       appBar: AppBar(
 
 
-        // actions: [
-        //   ButtonWidget(
-        //     buttonClickCallback: () {
-        //
-        //     },
-        //     placeholder: "Host Event",
-        //     fontSize: 12,
-        //     disabled: false,
-        //   )
-        // ],
+        actions: [
+         ButtonWidget(
+              placeholder: '    Save    ',
+              buttonClickCallback: () {
+
+
+                 SendData().ManageAuditionRoundAddJudges(judgesIds:  _manegeAuditionAddJudgesBloc.userID,roundID:widget.roundID,context: context);
+              },
+              disabled: false,
+
+          ),
+        ],
         elevation: 0,
         backgroundColor: whiteColour,
         leading: IconButton(
@@ -106,16 +109,24 @@ class _ManageAuditionAddJudgesScreenState extends State<ManageAuditionAddJudgesS
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
-              child: TextSearchWidget(
-                controller: search,
-                placeholder: "Search",
-                prefixSvgImage: const Icon(Icons.search),
-                fillColor: whiteColour,
-              ),
-            ),
+            // Padding(
+            //   padding:
+            //   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
+            //   // child: TextSearchWidget(
+            //   //   controller: search,
+            //   //   placeholder: "Search",
+            //   //   prefixSvgImage: const Icon(Icons.search),
+            //   //   fillColor: whiteColour,
+            //   // ),
+            //   child: ButtonWidget(
+            //     placeholder: 'Save',
+            //     buttonClickCallback: () {
+            //
+            //       // SendData().ManageAuditionRoundAddJudges(judgesIds: workflow,roundID:widget.roundID,context: context);
+            //     },
+            //     disabled: false,
+            //   ),
+            // ),
             const SizedBox(
               height: 10,
             ),

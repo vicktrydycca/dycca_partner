@@ -7,9 +7,12 @@ import 'package:dycca_partner/api_helper/service/app_exceptions.dart';
 import 'package:dycca_partner/api_helper/service/base_client.dart';
 import 'package:dycca_partner/api_helper/api_widgets/base_controller.dart';
 import 'package:dycca_partner/modal_class/createEventModalClass.dart';
+import 'package:dycca_partner/modal_class/event_info_modelclass.dart';
+import 'package:dycca_partner/modal_class/event_list_roundwise_model.dart';
 import 'package:dycca_partner/modal_class/event_type_details_modalclass.dart';
 import 'package:dycca_partner/modal_class/login_modalclass.dart';
 import 'package:dycca_partner/modal_class/round_details_modelclass.dart';
+import 'package:dycca_partner/modal_class/workflow_assignlist_modelclass.dart';
 import 'package:dycca_partner/screens/auth/otp_screen.dart';
 import 'package:dycca_partner/screens/auth/sign_up_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
@@ -70,24 +73,23 @@ class SendData extends GetxController with BaseController {
     }
   }
 
-
-  ManageAuditionRoundDetails({required onSuccess, required onError,context}) async {
-    var body = {"eventId":"66",
-      "roundId":"6338027ce8847"};
+  ManageAuditionRoundDetails(
+      {required onSuccess, required onError, context}) async {
+    var body = {"eventId": "66", "roundId": "6338027ce8847"};
     final response = await http.post(
       Uri.parse(AppApi.manageAuditionRoundDetails),
       body: body,
       headers: {
         'Authorization':
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
       },
     );
     // var jsonbody = jsonDecode(response.body);
     if (response.statusCode == 200) {
       final eventType =
-      AuditionRoundModelclass.fromJson(jsonDecode(response.body));
+          AuditionRoundModelclass.fromJson(jsonDecode(response.body));
       debugPrint(response.body + "data");
-      return onSuccess(eventType.data??[]);
+      return onSuccess(eventType.data ?? []);
     } else {
       var jsonbody = jsonDecode(response.body);
       debugPrint(jsonbody.toString());
@@ -97,6 +99,247 @@ class SendData extends GetxController with BaseController {
       return onError(msg);
     }
   }
+///if we get errror use content-type
+  ManageAuditionRoundSave({roundId, workflows, context}) async {
+    showLoading('Please Wait..');
+    final response = await http.post(Uri.parse(AppApi.manageAuditionRoundSave),
+        headers: {
+          'Authorization':
+              'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+          'Content-type': 'application/json',
+        },
+        body: json.encode(
+            {"eventId": "66", "roundId": roundId, 'workflows': workflows}));
+    print(workflows.toString());
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+    var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      return DialogHelper.showErroDialog(description: msg, title: "Success");
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+
+      debugPrint(response.body);
+      // DialogHelper.showErroDialog(description: msg);
+    }
+  }
+
+
+  ManageAuditionRating({roundId, rating,audID, context}) async {
+
+    debugPrint("aaa$roundId");
+    debugPrint("rating$rating");
+    debugPrint("audID$audID");
+    showLoading('Please Wait..');
+    final response = await http.post(Uri.parse(AppApi.auditionRating),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+          'Content-type': 'application/json',
+
+        },
+        body: json.encode(
+            {   "roundId":roundId,
+              "rating":rating,
+              "audId":audID
+            }));
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+    var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      return DialogHelper.showErroDialog(description: msg, title: "Success");
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+
+      debugPrint(response.body);
+       DialogHelper.showErroDialog(description: msg);
+    }
+  }
+ sendToNextRound({roundId,audID,eventID, context}) async {
+
+
+  // var eventID = await SharedPref()
+  //      .getData("eventID");
+    debugPrint("aaa$roundId");
+    debugPrint("audID$audID");
+    debugPrint("eventID$eventID");
+    showLoading('Please Wait..');
+    final response = await http.post(Uri.parse(AppApi.sendToNextRound),
+        headers: {
+          'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+          'Content-type': 'application/json',
+
+        },
+        body: json.encode(
+            {
+              "eventId":eventID,
+              "roundId":roundId,
+              "rndstate":"1",
+              "audids":audID
+
+            }));
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+    var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+      hideLoading();
+      // Navigator.pop(context);
+      return DialogHelper.showErroDialog(description: msg, title: "Success");
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+
+      debugPrint(response.body);
+       DialogHelper.showErroDialog(description: msg);
+    }
+  }
+
+  eventDetailsView({roundId,required onSuccess, required onError, workFlowTitle,workFlowID}) async {
+    final response = await http.post(Uri.parse(AppApi.manageAuditionRoundGet),
+        headers: {
+          'Authorization':
+              'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+        },
+        body: {"eventId":"66",
+          "roundId": roundId });
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+
+    var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+
+      final workflowAssignlistModelclass = workflowAssignlistModelclassFromJson(response.body);
+
+
+      for(int i = 0; i < (workflowAssignlistModelclass.assignworkflow?.length??0); i++) {
+        workFlowTitle(workflowAssignlistModelclass.assignworkflow?[i].workflowTitle);
+        workFlowID(workflowAssignlistModelclass.assignworkflow?[i].workflowId);
+      }
+      return onSuccess(workflowAssignlistModelclass.assignworkflow);
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      debugPrint(response.body);
+      return onError(msg);
+
+    }
+  }
+
+  ManageAuditionRoundAddJudges({judgesIds, String? roundID, context}) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.manageAuditionRoundAddJudgesApi),
+        headers: {
+          'Authorization':
+              'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+        },
+        body: json.encode(
+            {"eventId": "66", "judgeIds": judgesIds, "roundId": roundID}));
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+    // var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+      hideLoading();
+      Navigator.pop(context);
+      return DialogHelper.showErroDialog(
+          description: "Your Data is Updated Successfully", title: "Success");
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+
+      debugPrint(response.body);
+      // DialogHelper.showErroDialog(description: msg);
+    }
+  }
+
+  manageAuditionRoundAddVenue(
+      {String? studioId, String? roundID, context}) async {
+    showLoading('Please Wait..');
+    final response = await http.post(
+        Uri.parse(AppApi.manageAuditionRoundAddVenusApi),
+        headers: {
+          'Authorization':
+              'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+        },
+        body: json.encode(
+            {"eventId": "66", "studioId": studioId, "roundId": roundID}));
+    var jsonbody = jsonDecode(response.body);
+    print(jsonbody);
+    // var msg = jsonbody["message"] ?? jsonbody["error"];
+
+    if (response.statusCode == 200) {
+      hideLoading();
+
+      return DialogHelper.showErroDialog(
+          description: "Your Data is Updated Successfully", title: "Success");
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      hideLoading();
+
+      debugPrint(response.body);
+      // DialogHelper.showErroDialog(description: msg);
+    }
+  }
+
+  // ManageAuditionRoundAddJudges({judgesIds, String? roundID, context}) async {
+  //   var body = {
+  //     "eventId": "66",
+  //     "judgeIds": judgesIds.toString(),
+  //     "roundId": roundID
+  //   };
+  //
+  //   debugPrint(body.toString());
+  //
+  //   final response = await http.post(
+  //     Uri.parse(AppApi.manageAuditionRoundAddJudgesApi),
+  //     body: json.encode(body),
+  //     headers: {
+  //   "Content-Type": "application/json",
+  //   'Authorization':
+  //           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+  //     },
+  //       encoding: Encoding.getByName("utf-8")
+  //
+  //   );
+  //
+  //   var data=json.decode(json.encode(response.body));
+  //
+  //   print(data);
+  //
+  //   var jsonBody = jsonDecode(response.body);
+  //   print(jsonBody);
+  //   if (response.statusCode == 200) {
+  //     var jsonbody = jsonDecode(response.body);
+  //
+  //     var msg = jsonbody["message"] ?? jsonbody["error"];
+  //     debugPrint(response.body + "data");
+  //     return DialogHelper.showErroDialog(description: msg);
+  //   } else {
+  //     var jsonbody = jsonDecode(response.body);
+  //     debugPrint(jsonbody.toString());
+  //     var msg = jsonbody["message"] ?? jsonbody["error"];
+  //     debugPrint(response.body);
+  //     DialogHelper.showErroDialog(description: msg);
+  //   }
+  // }
 
   eventTypeDetails({required onSuccess, required onError}) async {
     var body = {"eventId": "66"};
@@ -113,9 +356,67 @@ class SendData extends GetxController with BaseController {
 
     if (response.statusCode == 200) {
       final eventType =
-      EventTypeDetaillsModalClass.fromJson(jsonDecode(response.body));
+          EventTypeDetaillsModalClass.fromJson(jsonDecode(response.body));
       debugPrint(response.body + "data");
-      return onSuccess(eventType.event?.eventRound??[]);
+      return onSuccess(eventType.event?.eventRound ?? []);
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description: msg);
+      return onError(msg);
+    }
+  }
+
+
+  eventDetails({required onSuccess, required onError}) async {
+    var body = {"eventId": "66"};
+    final response = await http.post(
+      Uri.parse(AppApi.eventDetails),
+      body: body,
+      headers: {
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+      },
+    );
+
+    debugPrint("this is data ${response.body}");
+
+    if (response.statusCode == 200) {
+      final eventType =
+      EventDetailsModelclass.fromJson(jsonDecode(response.body));
+      debugPrint(response.body + "data");
+      return onSuccess(eventType.event);
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description: msg);
+      return onError(msg);
+    }
+  }
+  viewParticipantList({required onSuccess, required onError,required roundID}) async {
+    var body = {"eventId": "66","roundId":roundID};
+    final response = await http.post(
+      Uri.parse(AppApi.eventListRoundWise),
+      body: body,
+      headers: {
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+      },
+    );
+
+    debugPrint("this is data ${response.body}");
+
+    if (response.statusCode == 200) {
+      final eventType =
+      EventListRoundwiseModelclass.fromJson(jsonDecode(response.body));
+      debugPrint(response.body + "data");
+      return onSuccess(eventType);
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -426,7 +727,6 @@ class SendData extends GetxController with BaseController {
     }
   }
 
-
   uploadStudioImage(studioType, studioTypeDescription, actType, context) async {
     showLoading('Please Wait..');
     final response =
@@ -459,7 +759,7 @@ class SendData extends GetxController with BaseController {
     final response =
         await http.post(Uri.parse(AppApi.createEventApi), headers: {
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2MzY1MjMwODIsImV4cCI6MTY2ODA1OTA4MiwibmJmIjoxNjM2NTIzMDgyLCJqdGkiOiJHT0VSTmdQcGxkY1k4MEdtIn0.hiv-3SJteGSXTJ1u3EFm_o1Z7RxB41GpdfCW90n63ko',
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
     }, body: {
       "eventName": eventName,
       "eventDesc": eventDesc,
@@ -494,6 +794,7 @@ class SendData extends GetxController with BaseController {
       "eventlogo": "",
     });
     var jsonbody = jsonDecode(response.body);
+    debugPrint(jsonbody.toString());
     var msg = jsonbody["message"] ?? jsonbody["error"];
 
     if (response.statusCode == 200) {

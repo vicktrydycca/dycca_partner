@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:dycca_partner/api_helper/api_widgets/api_loader.dart';
 import 'package:dycca_partner/api_helper/get_response/get_data.dart';
@@ -18,6 +19,8 @@ class ManegeAuditionRoundDetailsBloc extends BlocBase {
   getAudition(context) {
     SendData().ManageAuditionRoundDetails(onSuccess: (data) {
       _judgesSponserPartnerListSink.add(data);
+
+
     }, onError: (data) {
       DialogHelper.showErroDialog(description: data);
     });

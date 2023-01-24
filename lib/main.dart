@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:dycca_partner/api_helper/handshake_solver.dart';
 import 'package:dycca_partner/screens/auth/login_screen.dart';
 import 'package:dycca_partner/screens/dashboard/dashboard_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
@@ -16,8 +19,14 @@ void main(){
 }
 
 class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+    //todo:use only in development mode
+    HttpOverrides.global = MyHttpOverrides();
+
+
     return GetMaterialApp(
       // home:login?LoginScreen():DashboardScreen()
       debugShowCheckedModeBanner: false,

@@ -1,4 +1,5 @@
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
+import 'package:dycca_partner/screens/dashboard/events/live_event.dart';
 import 'package:dycca_partner/screens/dashboard/feed/feed_events_tab_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -32,21 +33,20 @@ class _FeedOptionsScreenState extends State<FeedOptionsScreen> {
               height: 10,
             ),
             DefaultTabController(
-              length: 4, // length of tabs
+              length: 3, // length of tabs
               initialIndex: 0,
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Container(
                       child: TabBar(
                         labelColor: primaryColor,
                         unselectedLabelColor: Colors.black,
-                        labelStyle: appFontStyle(fontSize: 17),
+                        labelStyle: appFontStyle(fontSize: 15),
                         tabs: const [
-                          Tab(text: "All",),
-                          Tab(text: "Events",),
-                          Tab(text: "Store",),
-                          Tab(text: "Studio",),
+                          // Tab(text: "All",),
+                          Tab(text: "My Events",),
+                          Tab(text: "Event Requested",),
+                          Tab(text: "History",),
                         ],
                       ),
                     ),
@@ -57,8 +57,8 @@ class _FeedOptionsScreenState extends State<FeedOptionsScreen> {
                                 top: BorderSide(color: Colors.grey, width: 0.5))),
                         child:  const TabBarView(
                           children: <Widget>[
-                            FeedEventsTabScreen(),
-                            FeedEventsTabScreen(),
+                         //   FeedEventsTabScreen(),
+                            LiveEventTabScreen(),
                             FeedEventsTabScreen(),
                             FeedEventsTabScreen(),
                           ],

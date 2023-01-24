@@ -1,6 +1,7 @@
 import 'package:dycca_partner/bloc_controllers/eventtype_details_bloc.dart';
 import 'package:dycca_partner/custom_widget/button_widget.dart';
 import 'package:dycca_partner/modal_class/event_type_details_modalclass.dart';
+import 'package:dycca_partner/screens/dashboard/events/event_details_screen.dart';
 import 'package:dycca_partner/screens/manage_audition/create_and_manageaudition.dart';
 import 'package:dycca_partner/screens/manage_audition/customizeAudition.dart';
 import 'package:dycca_partner/screens/manage_audition/manage_audition_homepage.dart';
@@ -43,8 +44,7 @@ class _ManageAuditionTabbarState extends State<ManageAuditionTabbar> {
           ),
         ),
         body: TabBarView(
-          // children: [Container(), ManageAuditionHomePage()],
-          children: [Container(), ManageCustomizeAudition()],
+          children: [EventDetailsScreen(), ManageAuditionHomePage()],
         ),
       ),
     );

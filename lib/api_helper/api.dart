@@ -20,9 +20,18 @@ class AppApi{
   static const String get_eventSubTypeListApi = baseUrl+"event/subtype";
   static const String getSaveStudioApi = baseUrl+"studio/save";
   static const String manageAuditionRoundDetails = baseUrl+"event/round/audition";
+
+  static const String manageAuditionRoundSave = baseUrl+"event/audition/workflow/assign";
+  static const String manageAuditionRoundAddJudgesApi = baseUrl+"round/assign/judge";
+  static const String manageAuditionRoundAddVenusApi = baseUrl+"round/assign/venue";
+  static const String manageAuditionRoundGet = baseUrl+"event/audition/workflow/assignlist";
   static const String saveStudioAmentiesApi = baseUrl+"studio/amenty/add";
   static const String saveStudioEquipementApi = baseUrl+"studio/equipment/add";
   static const String studioImageUploadApi = baseUrl+"studio/profile/documents/upload";
   static const String createEventApi = baseUrl+"partner/event/create";
   static const String eventDetails = baseUrl+"eventdetails";
+  static const String eventListRoundWise = baseUrl+"event/round/audition";
+   static const String auditionRating = baseUrl+'round/audition/rating';
+   static const String sendToNextRound = baseUrl+'round/audition/next';
+
 }

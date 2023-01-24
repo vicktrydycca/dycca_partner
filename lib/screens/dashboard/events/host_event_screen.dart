@@ -12,7 +12,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class HostEventScreen extends StatefulWidget {
-  const HostEventScreen({Key? key}) : super(key: key);
+  var eventName;
+  var eventDesc;
+  var categoryTypeID;
+  var subCategoryTypeID;
+
+  var eventID;
+   HostEventScreen({Key? key,this.eventName,this.eventDesc,this.eventID,this.subCategoryTypeID,this.categoryTypeID}) : super(key: key);
 
   @override
   State<HostEventScreen> createState() => _HostEventScreenState();
@@ -92,15 +98,15 @@ class _HostEventScreenState extends State<HostEventScreen> {
 
   eventData() {
     setState(() {});
-    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    // final arg = ModalRoute.of(context)!.settings.arguments as Map;
 
-    var categoryTypeID = arg["categoryType"];
-    var subCategoryTypeID = arg["categorySubType"];
-    var eventName = arg["eventName"];
-    var eventDesc = arg["eventDesc"];
-    var eventID = arg["eventID"];
-    competitionName.text = eventName;
-    discription.text = eventDesc;
+    // var categoryTypeID = arg["categoryType"];
+    // var subCategoryTypeID = arg["categorySubType"];
+    // var eventName = arg["eventName"];
+    // var eventDesc = arg["eventDesc"];
+    // var eventID = arg["eventID"];
+    competitionName.text = widget.eventName;
+    discription.text = widget.eventDesc;
   }
 
   @override
@@ -113,16 +119,16 @@ class _HostEventScreenState extends State<HostEventScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    // final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    //
+    // var categoryTypeID = arg["typeID"];
+    // var subCategoryTypeID = arg["subTypeID"];
+    // var eventName = arg["competitionName"];
+    // var eventDesc = arg["compDesc"];
+    // var eventID = arg["eventID"];
 
-    var categoryTypeID = arg["typeID"];
-    var subCategoryTypeID = arg["subTypeID"];
-    var eventName = arg["competitionName"];
-    var eventDesc = arg["compDesc"];
-    var eventID = arg["eventID"];
-
-    competitionName.text = eventName;
-    discription.text = eventDesc;
+    competitionName.text = widget.eventName;
+    discription.text = widget.eventDesc;
     return Scaffold(
       // "competitionName":eventName,"compDesc":eventDesc,"typeID":categoryTypeID,"subTypeID":subCategoryTypeID,"eventID":eventID
       bottomNavigationBar: Row(
@@ -153,11 +159,11 @@ class _HostEventScreenState extends State<HostEventScreen> {
               onTap: () {
                 SendData().hostEventAdd(
 
-                    eventName,
-                    eventDesc,
-                    eventID,
-                    categoryTypeID,
-                    subCategoryTypeID,
+                    widget.eventName,
+                    widget.eventDesc,
+                    widget.eventID,
+                    widget.categoryTypeID,
+                    widget.subCategoryTypeID,
                     context);
               },
               child: Container(
@@ -184,20 +190,20 @@ class _HostEventScreenState extends State<HostEventScreen> {
         ],
       ),
       backgroundColor: whiteColour,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: whiteColour,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: neutral6Color,
-          ),
-        ),
-        title: const Text("Create Event", style: appbarConstFont),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: whiteColour,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back_ios,
+      //       color: neutral6Color,
+      //     ),
+      //   ),
+      //   title: const Text("Create Event", style: appbarConstFont),
+      // ),
       body: SingleChildScrollView(
         physics: const ScrollPhysics(),
         child: Column(
@@ -245,31 +251,6 @@ class _HostEventScreenState extends State<HostEventScreen> {
                   ),
                 ),
               ],
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-              child: Row(
-                children: [
-                  Text(
-                    "Collaboraters",
-                    style: appFontStyle(
-                      color: neutral6Color,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    "Event info",
-                    style: appFontStyle(
-                      color: primaryColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
             ),
             const SizedBox(
               height: 10,
@@ -623,24 +604,47 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {});
-                      judgeCriteriaList.add(TextEditingController());
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          "+ Add More",
-                          style: appFontStyle(
-                            color: primaryColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          setState(() {});
+                          judgeCriteriaList.add(TextEditingController());
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              "+ Add More",
+                              style: appFontStyle(
+                                color: primaryColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {});
+                          judgeCriteriaList.remove(judgeCriteriaList[judgeCriteriaList.length - 1]);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              "- Remove",
+                              style: appFontStyle(
+                                color: Colors.red,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
@@ -666,24 +670,48 @@ class _HostEventScreenState extends State<HostEventScreen> {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {});
-                      rewardsList.add(TextEditingController());
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          "+ Add More",
-                          style: appFontStyle(
-                            color: primaryColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          setState(() {});
+                          rewardsList.add(TextEditingController());
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              "+ Add More",
+                              style: appFontStyle(
+                                color: primaryColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {});
+                          judgeCriteriaList.remove(rewardsList[judgeCriteriaList.length - 1]);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              "- Remove",
+                              style: appFontStyle(
+                                color: Colors.red,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    ],
                   ),
                   const SizedBox(
                     height: 10,

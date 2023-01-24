@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final auditionRoundModelclass = auditionRoundModelclassFromJson(jsonString);
+//     final eventListRoundwiseModelclass = eventListRoundwiseModelclassFromJson(jsonString);
 
 import 'dart:convert';
 
-AuditionRoundModelclass auditionRoundModelclassFromJson(String str) => AuditionRoundModelclass.fromJson(json.decode(str));
+EventListRoundwiseModelclass eventListRoundwiseModelclassFromJson(String str) => EventListRoundwiseModelclass.fromJson(json.decode(str));
 
-String auditionRoundModelclassToJson(AuditionRoundModelclass data) => json.encode(data.toJson());
+String eventListRoundwiseModelclassToJson(EventListRoundwiseModelclass data) => json.encode(data.toJson());
 
-class AuditionRoundModelclass {
-  AuditionRoundModelclass({
+class EventListRoundwiseModelclass {
+  EventListRoundwiseModelclass({
     this.status,
     this.message,
     this.data,
@@ -19,7 +19,7 @@ class AuditionRoundModelclass {
   String? message;
   Data? data;
 
-  factory AuditionRoundModelclass.fromJson(Map<String, dynamic> json) => AuditionRoundModelclass(
+  factory EventListRoundwiseModelclass.fromJson(Map<String, dynamic> json) => EventListRoundwiseModelclass(
     status: json["status"],
     message: json["message"],
     data: Data.fromJson(json["data"]),
@@ -28,7 +28,7 @@ class AuditionRoundModelclass {
   Map<String, dynamic> toJson() => {
     "status": status,
     "message": message,
-    "data": data!.toJson(),
+    "data": data?.toJson(),
   };
 }
 
@@ -54,38 +54,39 @@ class Data {
   });
 
   List<dynamic>? autionusers;
-  EventrndElement? eventrnd;
+  Eventrnd? eventrnd;
   List<Audition>? auditions;
   Auditratecheck? auditratecheck;
-  EventClass? event;
-  dynamic auditionjudge;
-  List<EventrndElement>? eventRounds;
+  Event? event;
+  Auditionjudge? auditionjudge;
+  List<EventRound>? eventRounds;
   String? roundId;
   Eventsub? eventsubs;
   List<dynamic>? users;
   List<dynamic>? studios;
   List<Venueuser>? venueusers;
-  List<dynamic>? judges;
+  List<Judge>? judges;
   DataUser? user;
   List<dynamic>? partnervenues;
   String? btntext;
   int? rndstate;
-  List<bool> isSelected = [];
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
     autionusers: List<dynamic>.from(json["autionusers"].map((x) => x)),
-    eventrnd: EventrndElement.fromJson(json["eventrnd"]),
+    eventrnd: Eventrnd.fromJson(json["eventrnd"]),
     auditions: List<Audition>.from(json["auditions"].map((x) => Audition.fromJson(x))),
-    //auditratecheck: Auditratecheck.fromJson(json["auditratecheck"]),
-    event: EventClass.fromJson(json["event"]),
-    auditionjudge: json["auditionjudge"],
-    eventRounds: List<EventrndElement>.from(json["eventRounds"].map((x) => EventrndElement.fromJson(x))),
+
+    ///uncomment this
+    // auditratecheck: Auditratecheck.fromJson(json["auditratecheck"]??""),
+    event: Event.fromJson(json["event"]),
+    // auditionjudge: Auditionjudge.fromJson(json["auditionjudge"]),
+    eventRounds: List<EventRound>.from(json["eventRounds"].map((x) => EventRound.fromJson(x))),
     roundId: json["roundId"],
     eventsubs: Eventsub.fromJson(json["eventsubs"]),
     users: List<dynamic>.from(json["users"].map((x) => x)),
     studios: List<dynamic>.from(json["studios"].map((x) => x)),
     venueusers: List<Venueuser>.from(json["venueusers"].map((x) => Venueuser.fromJson(x))),
-    judges: List<dynamic>.from(json["judges"].map((x) => x)),
+    judges: List<Judge>.from(json["judges"].map((x) => Judge.fromJson(x))),
     user: DataUser.fromJson(json["user"]),
     partnervenues: List<dynamic>.from(json["partnervenues"].map((x) => x)),
     btntext: json["btntext"],
@@ -94,22 +95,54 @@ class Data {
 
   Map<String, dynamic> toJson() => {
     "autionusers": List<dynamic>.from(autionusers!.map((x) => x)),
-    "eventrnd": eventrnd!.toJson(),
+    "eventrnd": eventrnd?.toJson(),
     "auditions": List<dynamic>.from(auditions!.map((x) => x.toJson())),
-    "auditratecheck": auditratecheck!.toJson(),
-    "event": event!.toJson(),
-    "auditionjudge": auditionjudge,
+    "auditratecheck": auditratecheck?.toJson(),
+    "event": event?.toJson(),
+    "auditionjudge": auditionjudge?.toJson(),
     "eventRounds": List<dynamic>.from(eventRounds!.map((x) => x.toJson())),
     "roundId": roundId,
-    "eventsubs": eventsubs!.toJson(),
+    "eventsubs": eventsubs?.toJson(),
     "users": List<dynamic>.from(users!.map((x) => x)),
     "studios": List<dynamic>.from(studios!.map((x) => x)),
     "venueusers": List<dynamic>.from(venueusers!.map((x) => x.toJson())),
-    "judges": List<dynamic>.from(judges!.map((x) => x)),
-    "user": user!.toJson(),
+    "judges": List<dynamic>.from(judges!.map((x) => x.toJson())),
+    "user": user?.toJson(),
     "partnervenues": List<dynamic>.from(partnervenues!.map((x) => x)),
     "btntext": btntext,
     "rndstate": rndstate,
+  };
+}
+
+class Auditionjudge {
+  Auditionjudge({
+    this.id,
+    this.eventId,
+    this.roundId,
+    this.judgeUserId,
+    this.judgeStatus,
+  });
+
+  int? id;
+  int? eventId;
+  String? roundId;
+  int? judgeUserId;
+  int? judgeStatus;
+
+  factory Auditionjudge.fromJson(Map<String, dynamic> json) => Auditionjudge(
+    id: json["id"],
+    eventId: json["eventId"],
+    roundId: json["roundId"],
+    judgeUserId: json["judgeUserId"],
+    judgeStatus: json["judgeStatus"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "eventId": eventId,
+    "roundId": roundId,
+    "judgeUserId": judgeUserId,
+    "judgeStatus": judgeStatus,
   };
 }
 
@@ -161,6 +194,7 @@ class Audition {
   Auditrating? auditrating;
   List<Audimg>? audimg;
   AuditionUser? user;
+
   factory Audition.fromJson(Map<String, dynamic> json) => Audition(
     audId: json["audId"],
     roundid: json["roundid"],
@@ -206,9 +240,9 @@ class Audition {
     "judgeUserId": judgeUserId,
     "createdAt": createdAt,
     "updatedAt": updatedAt,
-    "auditrating": auditrating == null ? null : auditrating!.toJson(),
+    "auditrating":  auditrating?.toJson(),
     "audimg": List<dynamic>.from(audimg!.map((x) => x.toJson())),
-    "user": user!.toJson(),
+    "user": user?.toJson(),
   };
 }
 
@@ -456,8 +490,8 @@ class Auditratecheck {
   };
 }
 
-class EventClass {
-  EventClass({
+class Event {
+  Event({
     this.eventId,
     this.userId,
     this.typeId,
@@ -537,7 +571,7 @@ class EventClass {
   Cat? subcat;
   Visiblity? visiblity;
 
-  factory EventClass.fromJson(Map<String, dynamic> json) => EventClass(
+  factory Event.fromJson(Map<String, dynamic> json) => Event(
     eventId: json["eventId"],
     userId: json["userId"],
     typeId: json["typeId"],
@@ -595,9 +629,9 @@ class EventClass {
     "sponsors": sponsors,
     "eventProjects": eventProjects,
     "eventLocation": eventLocation,
-    "startDate": "${startDate!.year.toString().padLeft(4, '0')}-${startDate!.month.toString().padLeft(2, '0')}-${startDate!.day.toString().padLeft(2, '0')}",
+    "startDate": "${startDate?.year.toString().padLeft(4, '0')}-${startDate?.month.toString().padLeft(2, '0')}-${startDate?.day.toString().padLeft(2, '0')}",
     "startTime": startTime,
-    "endDate": "${endDate!.year.toString().padLeft(4, '0')}-${endDate!.month.toString().padLeft(2, '0')}-${endDate!.day.toString().padLeft(2, '0')}",
+    "endDate": "${endDate?.year.toString().padLeft(4, '0')}-${endDate?.month.toString().padLeft(2, '0')}-${endDate?.day.toString().padLeft(2, '0')}",
     "endTime": endTime,
     "eventStatus": eventStatus,
     "eventImg": eventImg,
@@ -613,10 +647,10 @@ class EventClass {
     "sessionId": sessionId,
     "createdAt": createdAt,
     "updatedAt": updatedAt,
-    "eventsubtype": eventsubtype!.toJson(),
-    "mcat": mcat!.toJson(),
-    "subcat": subcat!.toJson(),
-    "visiblity": visiblity!.toJson(),
+    "eventsubtype": eventsubtype?.toJson(),
+    "mcat": mcat?.toJson(),
+    "subcat": subcat?.toJson(),
+    "visiblity": visiblity?.toJson(),
   };
 }
 
@@ -712,8 +746,8 @@ class Visiblity {
   };
 }
 
-class EventrndElement {
-  EventrndElement({
+class EventRound {
+  EventRound({
     this.id,
     this.roundid,
     this.eventId,
@@ -740,12 +774,80 @@ class EventrndElement {
   String? starttime;
   DateTime? enddate;
   String? endtime;
-  dynamic judges;
+  String? judges;
   dynamic venue;
   int? judgeStatus;
   int? ownerStatus;
 
-  factory EventrndElement.fromJson(Map<String, dynamic> json) => EventrndElement(
+  factory EventRound.fromJson(Map<String, dynamic> json) => EventRound(
+    id: json["id"],
+    roundid: json["roundid"],
+    eventId: json["eventId"],
+    round: json["round"],
+    onoff: json["onoff"],
+    sortOrder: json["sortOrder"],
+    startdate: DateTime.parse(json["startdate"]),
+    starttime: json["starttime"],
+    enddate: DateTime.parse(json["enddate"]),
+    endtime: json["endtime"],
+    judges: json["judges"] == null ? null : json["judges"],
+    venue: json["venue"],
+    judgeStatus: json["judgeStatus"],
+    ownerStatus: json["ownerStatus"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "roundid": roundid,
+    "eventId": eventId,
+    "round": round,
+    "onoff": onoff,
+    "sortOrder": sortOrder,
+    "startdate": "${startdate?.year.toString().padLeft(4, '0')}-${startdate?.month.toString().padLeft(2, '0')}-${startdate?.day.toString().padLeft(2, '0')}",
+    "starttime": starttime,
+    "enddate": "${enddate?.year.toString().padLeft(4, '0')}-${enddate?.month.toString().padLeft(2, '0')}-${enddate?.day.toString().padLeft(2, '0')}",
+    "endtime": endtime,
+    "judges": judges == null ? null : judges,
+    "venue": venue,
+    "judgeStatus": judgeStatus,
+    "ownerStatus": ownerStatus,
+  };
+}
+
+class Eventrnd {
+  Eventrnd({
+    this.id,
+    this.roundid,
+    this.eventId,
+    this.round,
+    this.onoff,
+    this.sortOrder,
+    this.startdate,
+    this.starttime,
+    this.enddate,
+    this.endtime,
+    this.judges,
+    this.venue,
+    this.judgeStatus,
+    this.ownerStatus,
+  });
+
+  int? id;
+  String? roundid;
+  int? eventId;
+  String? round;
+  int? onoff;
+  int? sortOrder;
+  DateTime? startdate;
+  String? starttime;
+  DateTime? enddate;
+  String? endtime;
+  String? judges;
+  dynamic venue;
+  int? judgeStatus;
+  int? ownerStatus;
+
+  factory Eventrnd.fromJson(Map<String, dynamic> json) => Eventrnd(
     id: json["id"],
     roundid: json["roundid"],
     eventId: json["eventId"],
@@ -769,14 +871,94 @@ class EventrndElement {
     "round": round,
     "onoff": onoff,
     "sortOrder": sortOrder,
-    "startdate": "${startdate!.year.toString().padLeft(4, '0')}-${startdate!.month.toString().padLeft(2, '0')}-${startdate!.day.toString().padLeft(2, '0')}",
+    "startdate": "${startdate?.year.toString().padLeft(4, '0')}-${startdate?.month.toString().padLeft(2, '0')}-${startdate?.day.toString().padLeft(2, '0')}",
     "starttime": starttime,
-    "enddate": "${enddate!.year.toString().padLeft(4, '0')}-${enddate!.month.toString().padLeft(2, '0')}-${enddate!.day.toString().padLeft(2, '0')}",
+    "enddate": "${enddate?.year.toString().padLeft(4, '0')}-${enddate?.month.toString().padLeft(2, '0')}-${enddate?.day.toString().padLeft(2, '0')}",
     "endtime": endtime,
     "judges": judges,
     "venue": venue,
     "judgeStatus": judgeStatus,
     "ownerStatus": ownerStatus,
+  };
+}
+
+class Judge {
+  Judge({
+    this.userId,
+    this.name,
+    this.username,
+    this.email,
+    this.mobile,
+    this.date,
+    this.status,
+    this.businessId,
+    this.referedCode,
+    this.fname,
+    this.location,
+    this.about,
+    this.st,
+    this.services,
+    this.paid,
+    this.userImg,
+    this.wallet,
+  });
+
+  int? userId;
+  String? name;
+  String? username;
+  String? email;
+  String? mobile;
+  String? date;
+  int? status;
+  String? businessId;
+  String? referedCode;
+  dynamic fname;
+  String? location;
+  String? about;
+  String? st;
+  dynamic services;
+  String? paid;
+  String? userImg;
+  int? wallet;
+
+  factory Judge.fromJson(Map<String, dynamic> json) => Judge(
+    userId: json["userId"],
+    name: json["name"],
+    username: json["username"],
+    email: json["email"],
+    mobile: json["mobile"],
+    date: json["date"],
+    status: json["status"],
+    businessId: json["businessId"],
+    referedCode: json["referedCode"] == null ? null : json["referedCode"],
+    fname: json["fname"],
+    location: json["location"] == null ? null : json["location"],
+    about: json["about"] == null ? null : json["about"],
+    st: json["st"],
+    services: json["services"],
+    paid: json["paid"],
+    userImg: json["userImg"] == null ? null : json["userImg"],
+    wallet: json["wallet"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "userId": userId,
+    "name": name,
+    "username": username,
+    "email": email,
+    "mobile": mobile,
+    "date": date,
+    "status": status,
+    "businessId": businessId,
+    "referedCode": referedCode == null ? null : referedCode,
+    "fname": fname,
+    "location": location == null ? null : location,
+    "about": about == null ? null : about,
+    "st": st,
+    "services": services,
+    "paid": paid,
+    "userImg": userImg == null ? null : userImg,
+    "wallet": wallet,
   };
 }
 
@@ -944,7 +1126,7 @@ class Venueuser {
     "completionRatio": completionRatio,
     "createdAt": createdAt,
     "updatedAt": updatedAt,
-    "user": user!.toJson(),
+    "user": user?.toJson(),
   };
 }
 
