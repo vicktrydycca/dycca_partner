@@ -720,6 +720,9 @@ class _HostEventScreenState extends State<HostEventScreen> {
                     "Participation fee",
                     style: appFontStyle(
                       color: neutral6Color,
+
+
+
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                     ),
