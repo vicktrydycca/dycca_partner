@@ -30,6 +30,8 @@ class AppApi{
   static const String studioImageUploadApi = baseUrl+"studio/profile/documents/upload";
   static const String createEventApi = baseUrl+"partner/event/create";
   static const String eventDetails = baseUrl+"eventdetails";
+  static const String eventHistory = baseUrl+"event/history";
+  static const String eventRequestApi = baseUrl+"partner/event/request";
   static const String eventListRoundWise = baseUrl+"event/round/audition";
    static const String auditionRating = baseUrl+'round/audition/rating';
    static const String sendToNextRound = baseUrl+'round/audition/next';

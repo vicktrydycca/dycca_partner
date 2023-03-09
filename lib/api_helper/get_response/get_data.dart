@@ -5,6 +5,7 @@ import 'package:dycca_partner/api_helper/api_widgets/api_loader.dart';
 import 'package:dycca_partner/modal_class/amenity_,modalclass.dart';
 import 'package:dycca_partner/modal_class/equipment_modalclass.dart';
 import 'package:dycca_partner/modal_class/event_category_modalclass.dart';
+import 'package:dycca_partner/modal_class/event_history_modalclass.dart';
 import 'package:dycca_partner/modal_class/event_subcategory_type_modalclass.dart';
 import 'package:dycca_partner/modal_class/event_subtype_modalclass.dart';
 import 'package:dycca_partner/modal_class/notification_modalclass.dart';
@@ -58,6 +59,28 @@ class GetData {
     }
   }
 
+  getEventHistoryApi({required onSuccess, required onError}) async {
+    var response =
+    await http.get(Uri.parse(AppApi.eventHistory), headers: {
+      'Authorization':
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjk3LCJpc3MiOiJodHRwczovL2R5Y2NhcGFydG5lci5jb20vdjEvdXNlci9sb2dpbiIsImlhdCI6MTY3NDc1MjU5MCwiZXhwIjoxNzA2Mjg4NTkwLCJuYmYiOjE2NzQ3NTI1OTAsImp0aSI6Ind0bExQVDBaMlFid2llV0MifQ.jKLJP5Y9QtrjaQfyAXfs9z54qoKlMxXCYj0yyqhLf9o',
+    });
+
+    var jsonbody = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      final NotificationListModalClass =
+      eventHistoryModalClassFromJson(response.body);
+      return onSuccess(NotificationListModalClass.events);
+    } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+
   getAmenityApi({required onSuccess, required onError}) async {
     var response = await http.get(
       Uri.parse(AppApi.getAmenityListApi),
@@ -89,6 +112,28 @@ class GetData {
       final EquipmentModalClass = equipmentsModalClassFromJson(response.body);
       return onSuccess(EquipmentModalClass.equipments);
     } else {
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+
+      // DialogHelper.showErroDialog(description:msg);
+      return onError(msg);
+    }
+  }
+  get_performance_cat_Api({required onSuccess, required onError}) async {
+    var response = await http
+        .post(Uri.parse(AppApi.get_Jugeds_Partners_SponsersListApi), headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization':
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExMCwiaXNzIjoiaHR0cHM6Ly9keWNjYXBhcnRuZXIuY29tL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2NjQyNTcxNTAsImV4cCI6MTY5NTc5MzE1MCwibmJmIjoxNjY0MjU3MTUwLCJqdGkiOiJBWUJZc0VGSnB6ejY2MzB0In0.VsnkPqSFDjtfYjhiUPbrPZmdVsS-IrDNSAYbmf0TxnQ',
+    });
+    var jsonbody = jsonDecode(response.body);
+    debugPrint("this is it" + response.body.toString());
+    if (response.statusCode == 200) {
+      print(response.body);
+      final JudgesModalClass = partnerSponserJudgesFromJson(response.body);
+      return onSuccess(JudgesModalClass.performancecat);
+    } else {
+      debugPrint(response.body.toString());
       var msg = jsonbody["message"] ?? jsonbody["error"];
 
       // DialogHelper.showErroDialog(description:msg);

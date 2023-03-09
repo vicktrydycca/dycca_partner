@@ -147,8 +147,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   ),
                 ),
                 InkWell(
-                  onTap:() async => await launch(
-          "https://wa.me/${7838316628}?text=Hello"),
+                  onTap:() async => await launchUrl(
+                      Uri.parse("https://wa.me/${7838316628}?text=Hello")
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 25),
                     child: Row(

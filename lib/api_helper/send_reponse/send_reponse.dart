@@ -9,6 +9,7 @@ import 'package:dycca_partner/api_helper/api_widgets/base_controller.dart';
 import 'package:dycca_partner/modal_class/createEventModalClass.dart';
 import 'package:dycca_partner/modal_class/event_info_modelclass.dart';
 import 'package:dycca_partner/modal_class/event_list_roundwise_model.dart';
+import 'package:dycca_partner/modal_class/event_request_modalclass.dart';
 import 'package:dycca_partner/modal_class/event_type_details_modalclass.dart';
 import 'package:dycca_partner/modal_class/login_modalclass.dart';
 import 'package:dycca_partner/modal_class/round_details_modelclass.dart';
@@ -399,6 +400,39 @@ class SendData extends GetxController with BaseController {
       return onError(msg);
     }
   }
+  eventRequest({required onSuccess, required onError}) async {
+    var body = {
+      "eventId":"100",
+      "act":"accept"
+    };
+    final response = await http.post(
+      Uri.parse(AppApi.eventRequestApi),
+      body: body,
+      headers: {
+        'Authorization':
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjk3LCJpc3MiOiJodHRwczovL2R5Y2NhcGFydG5lci5jb20vdjEvdXNlci9sb2dpbiIsImlhdCI6MTY3NDc1MjU5MCwiZXhwIjoxNzA2Mjg4NTkwLCJuYmYiOjE2NzQ3NTI1OTAsImp0aSI6Ind0bExQVDBaMlFid2llV0MifQ.jKLJP5Y9QtrjaQfyAXfs9z54qoKlMxXCYj0yyqhLf9o',
+      },
+    );
+
+    debugPrint("this is data ${response.body}");
+
+    if (response.statusCode == 200) {
+      final eventType =
+      EventRequestModalClass.fromJson(jsonDecode(response.body));
+      debugPrint(response.body + "data");
+      return onSuccess(eventType.eventreqs);
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      var jsonbody = jsonDecode(response.body);
+      var msg = jsonbody["message"] ?? jsonbody["error"];
+      debugPrint(response.body);
+      DialogHelper.showErroDialog(description: msg);
+      return onError(msg);
+    }
+  }
+
+
   viewParticipantList({required onSuccess, required onError,required roundID}) async {
     var body = {"eventId": "66","roundId":roundID};
     final response = await http.post(

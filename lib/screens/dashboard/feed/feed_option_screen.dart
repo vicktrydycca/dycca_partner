@@ -1,5 +1,7 @@
 import 'package:dycca_partner/custom_widget/textfield_widget.dart';
 import 'package:dycca_partner/screens/dashboard/events/live_event.dart';
+import 'package:dycca_partner/screens/dashboard/feed/event_history_screen.dart';
+import 'package:dycca_partner/screens/dashboard/feed/event_request_screen.dart';
 import 'package:dycca_partner/screens/dashboard/feed/feed_events_tab_screen.dart';
 import 'package:dycca_partner/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -55,12 +57,13 @@ class _FeedOptionsScreenState extends State<FeedOptionsScreen> {
                         decoration: const BoxDecoration(
                             border: Border(
                                 top: BorderSide(color: Colors.grey, width: 0.5))),
-                        child:  const TabBarView(
-                          children: <Widget>[
+                        child:   TabBarView(
+                          children: <Widget> [
                          //   FeedEventsTabScreen(),
                             LiveEventTabScreen(),
-                            FeedEventsTabScreen(),
-                            FeedEventsTabScreen(),
+                            EventRequestScreen(),
+                            EventHistoryScreen(),
+
                           ],
                         ))
                   ]),

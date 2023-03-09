@@ -59,7 +59,7 @@ class _LiveEventTabScreenState extends State<LiveEventTabScreen> {
                                   padding: const EdgeInsets.only(top: 5.0),
                                   child: Text(
                                     snapshot.data?.mcat?.typeName??"",
-                                    style: fontStyle(neutral6Color, FontWeight.w500, 16),
+                                    style: fontStyle(neutral6Color, FontWeight.w500, 14),
                                   ),
                                 ),
 
